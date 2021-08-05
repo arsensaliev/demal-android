@@ -28,7 +28,7 @@
         android:gravity="start|center"
         android:paddingStart="50dp"
         android:paddingEnd="50dp"
-        android:text="Редактировать"
+        android:text="@string/edit"
         android:textColor="@color/black" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -42,7 +42,7 @@
         android:gravity="start|center"
         android:paddingStart="50dp"
         android:paddingEnd="50dp"
-        android:text="Способы оплаты"
+        android:text="@string/payment_methods"
         android:textColor="@color/black" />
 
 </LinearLayout>
