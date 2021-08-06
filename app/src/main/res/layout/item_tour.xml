@@ -12,8 +12,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageView_place"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/item_image_size"
+            android:layout_height="@dimen/item_image_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -22,22 +22,22 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView_place"
+            style="@style/ItemMainTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"
+            android:layout_marginStart="@dimen/item_standard_margin"
+            android:layout_marginTop="@dimen/item_standard_margin"
             app:layout_constraintStart_toEndOf="@+id/imageView_place"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Каинды" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView_description"
+            style="@style/ItemDescriptionTextView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginBottom="11dp"
-            android:textSize="10sp"
+            android:layout_marginEnd="@dimen/item_description_margin_end"
+            android:layout_marginBottom="@dimen/item_standard_margin"
             app:layout_constraintBottom_toTopOf="@+id/imageView_calendar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView_place"
@@ -49,23 +49,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="12dp" />
+            app:layout_constraintGuide_end="@dimen/item_primary_margin" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView_people"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_marginStart="12dp"
+            android:layout_width="@dimen/item_support_imageview_size"
+            android:layout_height="@dimen/item_support_imageview_size"
+            android:layout_marginStart="@dimen/item_support_margin_start"
             app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
             app:layout_constraintStart_toEndOf="@+id/imageView_place"
             app:srcCompat="@drawable/ic_human" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView_people"
+            style="@style/ItemSupportTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3.75dp"
-            android:textSize="10sp"
+            android:layout_marginStart="@dimen/item_text_to_icon_margin"
             app:layout_constraintBottom_toBottomOf="@+id/imageView_people"
             app:layout_constraintStart_toEndOf="@+id/imageView_people"
             app:layout_constraintTop_toTopOf="@+id/imageView_people"
@@ -73,19 +73,19 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView_calendar"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_marginStart="15.75dp"
+            android:layout_width="@dimen/item_support_imageview_size"
+            android:layout_height="@dimen/item_support_imageview_size"
+            android:layout_marginStart="@dimen/item_icon_to_icon_margin"
             app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
             app:layout_constraintStart_toEndOf="@+id/textView_people"
             app:srcCompat="@drawable/ic_calendar" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView_date"
+            style="@style/ItemSupportTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3.75dp"
-            android:textSize="10sp"
+            android:layout_marginStart="@dimen/item_text_to_icon_margin"
             app:layout_constraintBottom_toBottomOf="@+id/imageView_calendar"
             app:layout_constraintStart_toEndOf="@+id/imageView_calendar"
             app:layout_constraintTop_toTopOf="@+id/imageView_calendar"
@@ -93,10 +93,10 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView_like"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
+            android:layout_width="@dimen/item_like_imageview_size"
+            android:layout_height="@dimen/item_like_imageview_size"
+            android:layout_marginTop="@dimen/item_primary_margin"
+            android:layout_marginEnd="@dimen/item_primary_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_heart_empty" />
