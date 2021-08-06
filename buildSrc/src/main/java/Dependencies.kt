@@ -21,7 +21,7 @@ object Versions {
 
     //Design
     const val appcompat = "1.1.0-rc01"
-    const val material = "1.0.0"
+    const val material = "1.4.0"
 
     //Kotlin
     const val core = "1.0.2"
