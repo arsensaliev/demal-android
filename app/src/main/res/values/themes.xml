@@ -35,13 +35,13 @@
     </style>
 
     <style name="ItemDescriptionTextView" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">@color/gray_support</item>
+        <item name="android:textColor">@color/gray_dark</item>
         <item name="android:textSize">10sp</item>
         <item name="fontFamily">@font/roboto_regular</item>
     </style>
 
     <style name="ItemSupportTextView" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">@color/support</item>
+        <item name="android:textColor">@color/purple_light</item>
         <item name="android:textSize">10sp</item>
         <item name="fontFamily">@font/roboto_regular</item>
     </style>
