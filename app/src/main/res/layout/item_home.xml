@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/home_card_view"
+    android:layout_width="@dimen/item_home_width"
+    android:layout_height="@dimen/item_home_height"
+    android:layout_marginEnd="@dimen/item_home_right_margin"
+    app:cardCornerRadius="@dimen/home_card_corner_radius"
+    app:cardElevation="@dimen/home_card_elevation">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/home_background_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/home_card_image" />
+
+        <ImageView
+            android:id="@+id/home_user_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_home_left_margin"
+            android:layout_marginTop="@dimen/item_home_top_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_human_white" />
+
+        <ImageView
+            android:id="@+id/home_heart_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_home_top_margin"
+            android:layout_marginEnd="@dimen/item_home_right_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_heart_empty_white" />
+
+        <TextView
+            android:id="@+id/item_home_header_text"
+            style="@style/ItemHomeHeaderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_home_left_margin"
+            android:layout_marginBottom="@dimen/item_home_header_bottom_margin"
+            app:layout_constraintBottom_toTopOf="@id/item_home_description_text"
+            app:layout_constraintStart_toStartOf="parent"
+            tool:text="Озеро Кольсай" />
+
+        <TextView
+            android:id="@+id/item_home_description_text"
+            style="@style/ItemHomeDescriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_home_left_margin"
+            android:layout_marginBottom="@dimen/item_home_description_bottom_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tool:text="2-х дневный тур" />
+
+        <TextView
+            android:id="@+id/item_home_human_count_text"
+            style="@style/ItemHomeDescriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_home_top_margin"
+            android:layout_marginStart="@dimen/item_text_to_icon_margin"
+            app:layout_constraintStart_toEndOf="@id/home_user_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:text="24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

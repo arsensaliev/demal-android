@@ -45,4 +45,17 @@
         <item name="android:textSize">10sp</item>
         <item name="fontFamily">@font/roboto_regular</item>
     </style>
+
+    <style name="ItemHomeHeaderTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="ItemHomeDescriptionTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
 </resources>

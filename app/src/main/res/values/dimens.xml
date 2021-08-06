@@ -10,4 +10,19 @@
     <dimen name="item_text_to_icon_margin">4dp</dimen>
     <dimen name="item_icon_to_icon_margin">16dp</dimen>
     <dimen name="item_like_imageview_size">15dp</dimen>
+
+    <dimen name="margin_home_textview_top">@dimen/margin_medium</dimen>
+    <dimen name="margin_home_recycler_top">13dp</dimen>
+    <dimen name="margin_home_left">20dp</dimen>
+    <dimen name="item_home_height">200dp</dimen>
+    <dimen name="item_home_width">160dp</dimen>
+    <dimen name="item_home_left_margin">@dimen/item_standard_margin</dimen>
+    <dimen name="item_home_right_margin">@dimen/item_standard_margin</dimen>
+    <dimen name="item_home_description_bottom_margin">14dp</dimen>
+    <dimen name="item_home_header_bottom_margin">1dp</dimen>
+    <dimen name="item_home_top_margin">15dp</dimen>
+    <dimen name="item_home_human_top_margin">15.17dp</dimen>
+    <dimen name="home_card_margin">@dimen/item_standard_margin</dimen>
+    <dimen name="home_card_corner_radius">12dp</dimen>
+    <dimen name="home_card_elevation">5dp</dimen>
 </resources>
