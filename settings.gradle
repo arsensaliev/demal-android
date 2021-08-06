@@ -1,2 +1,6 @@
 include ':app'
 rootProject.name = "Demal"
+include ':core'
+include ':model'
+include ':utils'
+include ':repository'

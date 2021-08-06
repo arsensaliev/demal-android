@@ -1,21 +1,19 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-kapt'
 }
 
 android {
-    compileSdkVersion Config.compile_sdk
-    buildToolsVersion Config.build_tools
+    compileSdkVersion 30
 
     defaultConfig {
-        applicationId Config.application_id
-        minSdkVersion Config.min_sdk
-        targetSdkVersion Config.target_sdk
-        versionCode Releases.version_code
-        versionName Releases.version_name
+        minSdkVersion 25
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -24,52 +22,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
     compileOptions {
-        sourceCompatibility Config.java_version
-        targetCompatibility Config.java_version
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
-
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-
-    buildFeatures {
-        viewBinding true
     }
 }
 
 dependencies {
 
-    //Modules
-    implementation project(Modules.core)
     implementation project(Modules.model)
-    implementation project(Modules.repository)
     implementation project(Modules.utils)
 
-    //AndroidX
-    implementation Tools.multidex
     implementation Design.appcompat
-
-    //Design
-    implementation Design.material
 
     //Kotlin
     implementation Kotlin.core
     implementation Kotlin.stdlib
     implementation Kotlin.coroutines_core
     implementation Kotlin.coroutines_android
-
-    //Cicerone
-    implementation Cicerone.cicerone
-
-    //Koin for Android
-    implementation Koin.koin_android
-    implementation Koin.koin_view_model
-
-    //Glide
-    implementation Glide.glide
-    kapt Glide.glide_compiler
 
     //Test
     testImplementation TestImpl.junit
