@@ -49,5 +49,9 @@ dependencies {
     androidTestImplementation TestImpl.runner
     androidTestImplementation TestImpl.espresso
 
+    //Koin
+    implementation 'org.koin:koin-android:2.2.0'
+    implementation 'org.koin:koin-android-viewmodel:2.2.0'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
