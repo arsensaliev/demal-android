@@ -23,7 +23,11 @@
     <dimen name="item_home_top_margin">15dp</dimen>
     <dimen name="item_home_human_top_margin">15dp</dimen>
     <dimen name="home_card_margin">@dimen/item_standard_margin</dimen>
-    <dimen name="home_card_corner_radius">12dp</dimen>
+    <dimen name="home_card_corner_radius">14dp</dimen>
     <dimen name="home_card_elevation">5dp</dimen>
+    <dimen name="item_activities_height">76dp</dimen>
+    <dimen name="item_activities_width">76dp</dimen>
     <dimen name="item_activities_top_margin">20dp</dimen>
+    <dimen name="item_activities_padding">9dp</dimen>
+    <dimen name="item_activities_layout_bottom_margin">10dp</dimen>
 </resources>

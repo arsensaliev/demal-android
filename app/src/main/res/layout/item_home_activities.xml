@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:id="@+id/home_card_view"
-    android:layout_width="76dp"
-    android:layout_height="76dp"
+    android:layout_width="@dimen/item_activities_width"
+    android:layout_height="@dimen/item_activities_height"
     android:backgroundTint="@color/purple_light_10"
-    android:layout_marginEnd="@dimen/item_home_right_margin"
+    android:layout_marginBottom="@dimen/item_activities_layout_bottom_margin"
+    android:layout_marginStart="@dimen/item_home_right_margin"
     app:cardCornerRadius="@dimen/home_card_corner_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,6 +36,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHeight_percent="0.5"
+            android:paddingStart="@dimen/item_activities_padding"
+            android:paddingEnd="@dimen/item_activities_padding"
             tool:text="Пешие прогулки" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
