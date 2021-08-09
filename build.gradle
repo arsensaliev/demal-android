@@ -28,16 +28,36 @@ subprojects {
         if (project.plugins.findPlugin('android') ?: project.plugins.findPlugin('android-library')) {
             android {
                 compileSdkVersion Config.compile_sdk
+                buildToolsVersion Config.build_tools
 
                 defaultConfig {
+                    //applicationId Config.application_id
                     minSdkVersion Config.min_sdk
                     targetSdkVersion Config.target_sdk
-                    multiDexEnabled true
+                    versionCode Releases.version_code
+                    versionName Releases.version_name
+
+                    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
                 }
 
                 compileOptions {
                     sourceCompatibility Config.java_version
                     targetCompatibility Config.java_version
+                }
+
+                buildTypes {
+                    release {
+                        minifyEnabled false
+                        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                    }
+                }
+
+                buildFeatures {
+                    viewBinding true
+                }
+
+                kotlinOptions {
+                    jvmTarget = Config.java_version
                 }
             }
         }
