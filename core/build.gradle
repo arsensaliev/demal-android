@@ -37,6 +37,8 @@ dependencies {
     implementation project(Modules.utils)
 
     implementation Design.appcompat
+    implementation Design.material
+    implementation Design.constraintLayout
 
     //Kotlin
     implementation Kotlin.core
@@ -50,8 +52,8 @@ dependencies {
     androidTestImplementation TestImpl.espresso
 
     //Koin
-    implementation 'org.koin:koin-android:2.2.0'
-    implementation 'org.koin:koin-android-viewmodel:2.2.0'
+    implementation Koin.koin_android
+    implementation Koin.koin_view_model
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

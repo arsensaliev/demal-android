@@ -6,8 +6,15 @@
         <entry key="..\:/android_projects/demial-android/app/src/main/res/layout/activity_main.xml" value="0.359375" />
         <entry key="..\:/android_projects/demial-android/app/src/main/res/layout/fragment_profile.xml" value="0.29528985507246375" />
         <entry key="..\:/android_projects/demial-android/app/src/main/res/layout/fragment_wishlist.xml" value="0.29528985507246375" />
-        <entry key="..\:/android_projects/demial-android/app/src/main/res/layout/item_tour.xml" value="0.29528985507246375" />
+        <entry key="..\:/android_projects/demial-android/app/src/main/res/layout/item_tour.xml" value="0.5" />
         <entry key="..\:/android_projects/demial-android/app/src/main/res/layout/layout_profile_bottom_sheet.xml" value="0.29528985507246375" />
+        <entry key="..\:/android_projects/demial-android/feat_profile/src/main/res/drawable/bottom_sheet_bg.xml" value="0.2713541666666667" />
+        <entry key="..\:/android_projects/demial-android/feat_profile/src/main/res/drawable/dark_square.xml" value="0.2713541666666667" />
+        <entry key="..\:/android_projects/demial-android/feat_profile/src/main/res/drawable/ic_arrow_rigth.xml" value="0.2713541666666667" />
+        <entry key="..\:/android_projects/demial-android/feat_profile/src/main/res/drawable/ic_payment.xml" value="0.2713541666666667" />
+        <entry key="..\:/android_projects/demial-android/feat_profile/src/main/res/drawable/profile_bg_bitmap.xml" value="0.2713541666666667" />
+        <entry key="..\:/android_projects/demial-android/feat_profile/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/android_projects/demial-android/feat_profile/src/main/res/layout/layout_profile_bottom_sheet.xml" value="0.33" />
       </map>
     </option>
   </component>

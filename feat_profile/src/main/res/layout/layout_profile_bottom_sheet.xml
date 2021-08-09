@@ -16,20 +16,18 @@
         android:layout_marginTop="14dp"
         android:src="@drawable/ic_draggable" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         style="@style/ProfileBottomSheetTextButton"
         android:id="@+id/button_edit"
-        android:fontFamily="@font/roboto_medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium"
         android:drawableStart="@drawable/ic_edit"
         android:text="@string/edit" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         style="@style/ProfileBottomSheetTextButton"
         android:id="@+id/button_payment"
-        android:fontFamily="@font/roboto_medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
