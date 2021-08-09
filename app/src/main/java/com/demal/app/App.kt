@@ -1,8 +1,9 @@
-package com.demal
+package com.demal.app
 
 import androidx.multidex.MultiDexApplication
 import com.demal.koin.ciceroneModule
 import com.demal.koin.navigatorsModule
+import com.demal.koin.viewModelModule
 import org.koin.core.context.startKoin
 
 class App : MultiDexApplication() {
@@ -11,8 +12,11 @@ class App : MultiDexApplication() {
 
         startKoin {
             modules(
-                ciceroneModule,
-                navigatorsModule
+                listOf(
+                    viewModelModule,
+                    ciceroneModule,
+                    navigatorsModule
+                )
             )
         }
     }
