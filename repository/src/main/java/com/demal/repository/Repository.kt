@@ -4,5 +4,5 @@ import com.demal.model.dto.auth.AuthenticationResultDto
 
 interface Repository {
 
-    suspend fun getAuthData(login: String,pass: String): AuthenticationResultDto
+    suspend fun getAuthData(email: String,pass: String): AuthenticationResultDto
 }
