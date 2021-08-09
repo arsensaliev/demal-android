@@ -31,7 +31,7 @@ object Versions {
     const val coroutinesAndroid = "1.1.1"
 
     //Cicerone
-    const val cicerone = "3.0.0"
+    const val cicerone = "6.6"
 
     //Retrofit
     const val retrofit = "2.6.0"
@@ -116,9 +116,9 @@ object Modules {
     const val model = ":model"
     const val repository = ":repository"
     const val utils = ":utils"
+    const val feat_profile = ":feat_profile"
 }
 
-//implementation 'ru.terrakok.cicerone:cicerone:3.0.0'
 object Cicerone {
-    const val cicerone = "ru.terrakok.cicerone:cicerone:${Versions.cicerone}"
+    const val cicerone = "com.github.terrakok:cicerone:${Versions.cicerone}"
 }

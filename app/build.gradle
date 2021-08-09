@@ -43,10 +43,12 @@ dependencies {
 
     //Modules
     implementation project(Modules.core)
-
     implementation project(Modules.model)
     implementation project(Modules.repository)
     implementation project(Modules.utils)
+
+    //Feature Modules
+    implementation project(Modules.feat_profile)
 
     //AndroidX
     implementation Tools.multidex

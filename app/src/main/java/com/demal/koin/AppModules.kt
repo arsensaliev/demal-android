@@ -1,16 +1,20 @@
 package com.demal.koin
 
+import com.demal.navigation.Navigator
+import com.demal.navigation.Screens
+import com.github.terrakok.cicerone.Cicerone
 import org.koin.dsl.module
-import ru.terrakok.cicerone.Cicerone
 
 val ciceroneModule = module {
     val cicerone = Cicerone.create()
 
-    factory { cicerone.navigatorHolder }
+    factory { cicerone.getNavigatorHolder() }
 
     factory { cicerone.router }
+
+    single { Screens() }
 }
 
 val navigatorsModule = module {
-
+    factory { Navigator(get(), get()) }
 }
