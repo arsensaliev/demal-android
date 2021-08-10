@@ -1,7 +1,7 @@
 package com.demal.repository.api
 
-import com.demal.model.dto.auth.AuthenticationResultDto
-import com.demal.model.dto.auth.AuthenticationServerDto
+import com.demal.model.data.user.entity.AuthenticationResult
+import com.demal.model.data.user.entity.AuthenticationServer
 import kotlinx.coroutines.Deferred
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -9,6 +9,6 @@ import retrofit2.http.POST
 interface ApiService {
 
     @POST("users/login")
-    fun getAuthData(@Body auth : AuthenticationServerDto): Deferred<AuthenticationResultDto>
+    fun login(@Body auth: AuthenticationServer): Deferred<AuthenticationResult>
 
 }

@@ -1,4 +1,4 @@
-package com.demal.model.dto.auth
+package com.demal.model.data.user.entity
 
 class User {
 

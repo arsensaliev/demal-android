@@ -1,11 +1,9 @@
 package com.demal
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.demal.di.injectDependencies
-import com.demal.model.dto.auth.AppStateAuth
-import com.demal.model.dto.auth.AuthenticationResultDto
+import com.demal.model.data.user.AppStateAuth
 import com.demal.view.main.AuthViewModel
 import kotlinx.coroutines.*
 import org.koin.android.scope.currentScope

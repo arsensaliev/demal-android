@@ -1,8 +1,7 @@
 package com.demal.view.main
 
-import com.demal.model.dto.auth.AppStateAuth
+import com.demal.model.data.user.AppStateAuth
 import com.demal.view.core.viewmodel.BaseViewModel
-
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -11,10 +10,11 @@ class AuthViewModel(private val interactor: MainInteractorRepository) :
     BaseViewModel<AppStateAuth>() {
 
     fun getData(email: String, pass: String) {
+        _mutableLiveData.value = AppStateAuth.Loading(null)
         cancelJob()
         viewModelCoroutineScope.launch {
             withContext(Dispatchers.IO) {
-                _mutableLiveData.postValue(interactor.getAuthData(email, pass))
+                _mutableLiveData.postValue(interactor.login(email, pass))
             }
         }
     }
