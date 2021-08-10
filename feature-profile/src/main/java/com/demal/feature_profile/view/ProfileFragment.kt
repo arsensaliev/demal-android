@@ -1,4 +1,4 @@
-package com.demal.featprofile.view
+package com.demal.feature_profile.view
 
 import androidx.fragment.app.Fragment
 import com.demal.`feat-profile`.R
