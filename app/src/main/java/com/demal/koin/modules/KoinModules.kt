@@ -1,10 +1,10 @@
-package com.demal.koin
+package com.demal.koin.modules
 
 import com.demal.main.MainViewModel
 import com.demal.navigation.MainActivityNavigator
 import com.demal.navigation.Navigator
 import com.demal.navigation.Screens
-import com.example.feat_profile.navigation.ProfileNavigator
+import com.demal.feat_profile.navigation.ProfileNavigator
 import com.github.terrakok.cicerone.Cicerone
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module

@@ -1,9 +1,9 @@
 package com.demal.app
 
 import androidx.multidex.MultiDexApplication
-import com.demal.koin.ciceroneModule
-import com.demal.koin.navigatorsModule
-import com.demal.koin.viewModelModule
+import com.demal.koin.modules.ciceroneModule
+import com.demal.koin.modules.navigatorsModule
+import com.demal.koin.modules.viewModelModule
 import org.koin.core.context.startKoin
 
 class App : MultiDexApplication() {

@@ -1,6 +1,6 @@
 package com.demal.navigation
 
-import com.example.feat_profile.navigation.ProfileNavigator
+import com.demal.feat_profile.navigation.ProfileNavigator
 import com.github.terrakok.cicerone.Router
 
 //Класс должен реализовать навигационные интерфейсы всех модулей
