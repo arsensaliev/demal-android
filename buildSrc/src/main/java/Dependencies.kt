@@ -116,7 +116,7 @@ object Modules {
     const val model = ":model"
     const val repository = ":repository"
     const val utils = ":utils"
-    const val feat_profile = ":feat_profile"
+    const val featProfile = ":feat-profile"
 }
 
 object Cicerone {

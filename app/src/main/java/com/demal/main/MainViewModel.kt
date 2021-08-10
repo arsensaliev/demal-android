@@ -1,4 +1,4 @@
-package com.demal.main.view_model
+package com.demal.main
 
 import androidx.lifecycle.ViewModel
 import com.demal.navigation.MainActivityNavigator

@@ -1,9 +1,8 @@
-package com.demal.main.view
+package com.demal.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.demal.R
-import com.demal.main.view_model.MainViewModel
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import org.koin.android.ext.android.inject

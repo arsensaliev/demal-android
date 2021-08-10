@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
 }
+apply plugin: 'kotlin-android'
 
 dependencies {
     implementation project(Modules.core)
@@ -14,4 +15,9 @@ dependencies {
     implementation Design.appcompat
     implementation Design.material
     implementation Design.constraintLayout
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

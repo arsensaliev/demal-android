@@ -1,6 +1,6 @@
 package com.demal.koin
 
-import com.demal.main.view_model.MainViewModel
+import com.demal.main.MainViewModel
 import com.demal.navigation.MainActivityNavigator
 import com.demal.navigation.Navigator
 import com.demal.navigation.Screens
