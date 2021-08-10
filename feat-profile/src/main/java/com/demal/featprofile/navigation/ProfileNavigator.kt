@@ -1,4 +1,4 @@
-package com.demal.feat_profile.navigation
+package com.demal.featprofile.navigation
 
 interface ProfileNavigator {
     //Методы для навигации ИЗ ProfileFragment
