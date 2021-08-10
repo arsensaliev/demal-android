@@ -31,8 +31,9 @@ abstract class BaseViewModel<T>(
         viewModelCoroutineScope.coroutineContext.cancelChildren()
     }
 
+    open fun handleError(error: Throwable) {
 
-    abstract fun handleError(error: Throwable)
+    }
 
 
 }
