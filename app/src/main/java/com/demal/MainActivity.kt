@@ -3,7 +3,8 @@ package com.demal
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.demal.di.injectDependencies
-import com.demal.model.data.user.AppStateAuth
+import com.demal.model.data.user.AppState
+import com.demal.model.data.user.entity.AuthenticationResult
 import com.demal.view.main.AuthViewModel
 import kotlinx.coroutines.*
 import org.koin.android.scope.currentScope
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         authViewModel.getData("vladimir@mail.ru", "password")
     }
 
-    private fun renderData(appState: AppStateAuth) {
+    private fun renderData(appState: AppState<AuthenticationResult>) {
 
     }
 
