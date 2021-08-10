@@ -20,8 +20,9 @@ object Versions {
     const val multidex = "2.0.1"
 
     //Design
-    const val appcompat = "1.1.0-rc01"
+    const val appcompat = "1.3.1"
     const val material = "1.4.0"
+    const val constraintLayout = "2.1.0"
 
     //Kotlin
     const val core = "1.0.2"
@@ -65,13 +66,17 @@ object Tools {
 object Design {
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 }
 
 object Kotlin {
     const val core = "androidx.core:core-ktx:${Versions.core}"
     const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.stdlib}"
-    const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
-    const val coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesAndroid}"
+    const val coroutines_core =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
+    const val coroutines_android =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesAndroid}"
 }
 
 object Retrofit {
@@ -79,7 +84,8 @@ object Retrofit {
     const val converter_gson = "com.squareup.retrofit2:converter-gson:${Versions.converterGson}"
     const val adapter_coroutines =
         "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.adapterCoroutines}"
-    const val logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
+    const val logging_interceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
 }
 
 object Koin {
