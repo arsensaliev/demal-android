@@ -35,6 +35,7 @@ subprojects {
                     targetSdkVersion Config.target_sdk
                     versionCode Releases.version_code
                     versionName Releases.version_name
+                    multiDexEnabled true
 
                     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
                 }
