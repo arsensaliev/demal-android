@@ -4,7 +4,7 @@ import com.demal.main.view_model.MainViewModel
 import com.demal.navigation.MainActivityNavigator
 import com.demal.navigation.Navigator
 import com.demal.navigation.Screens
-import com.example.feat_profile.ProfileNavigator
+import com.example.feat_profile.navigation.ProfileNavigator
 import com.github.terrakok.cicerone.Cicerone
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module

@@ -8,6 +8,6 @@ class MainViewModel(
 ) : ViewModel() {
 
     fun init() {
-        navigator.toProfile() //TODO: Navigate to first fragment
+        navigator.toProfileScreen() //TODO: Navigate to first fragment
     }
 }
