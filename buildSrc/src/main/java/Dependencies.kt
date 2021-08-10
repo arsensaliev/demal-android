@@ -73,9 +73,9 @@ object Design {
 object Kotlin {
     const val core = "androidx.core:core-ktx:${Versions.core}"
     const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.stdlib}"
-    const val coroutines_core =
+    const val coroutinesCore =
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
-    const val coroutines_android =
+    const val coroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesAndroid}"
 }
 
@@ -89,13 +89,13 @@ object Retrofit {
 }
 
 object Koin {
-    const val koin_android = "org.koin:koin-android:${Versions.koinAndroid}"
-    const val koin_view_model = "org.koin:koin-android-viewmodel:${Versions.koinViewModel}"
+    const val koinAndroid = "org.koin:koin-android:${Versions.koinAndroid}"
+    const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koinViewModel}"
 }
 
 object Glide {
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
-    const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glideCompiler}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideCompiler}"
 }
 
 /*object Room {

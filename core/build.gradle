@@ -15,8 +15,8 @@ dependencies {
     //Kotlin
     implementation Kotlin.core
     implementation Kotlin.stdlib
-    implementation Kotlin.coroutines_core
-    implementation Kotlin.coroutines_android
+    implementation Kotlin.coroutinesCore
+    implementation Kotlin.coroutinesAndroid
 
     //Test
     testImplementation TestImpl.junit
@@ -24,8 +24,8 @@ dependencies {
     androidTestImplementation TestImpl.espresso
 
     //Koin
-    implementation Koin.koin_android
-    implementation Koin.koin_view_model
+    implementation Koin.koinAndroid
+    implementation Koin.koinViewModel
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
