@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_margin_top">30dp</dimen>
+    <dimen name="recycler_margin_top">20dp</dimen>
+    <dimen name="margin_standard">20dp</dimen>
+</resources>
