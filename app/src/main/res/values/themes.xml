@@ -12,7 +12,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/black_transparent</item>
         <!-- Customize your theme here. -->
-        <item name="chipStyle">@style/ToursChip</item>
     </style>
 
     <style name="ProfileBottomSheetTextButton" parent="Widget.MaterialComponents.Button.TextButton">
@@ -38,15 +37,6 @@
     <style name="ItemDescriptionTextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:textColor">@color/gray_dark</item>
         <item name="android:textSize">10sp</item>
-        <item name="fontFamily">@font/roboto_regular</item>
-    </style>
-
-    <style name="ToursChip" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="android:textColor">@color/chip_text_color</item>
-        <item name="android:textSize">12sp</item>
-        <item name="chipBackgroundColor">@color/chip_background_color</item>
-        <item name="chipStrokeWidth">1dp</item>
-        <item name="chipStrokeColor">@color/chip_stroke_color</item>
         <item name="fontFamily">@font/roboto_regular</item>
     </style>
 

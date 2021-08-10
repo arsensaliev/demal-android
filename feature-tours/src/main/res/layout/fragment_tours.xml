@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/header_margin_top"
-        android:text="@string/nearest_tours"
+        android:text="@string/tours_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,13 +20,13 @@
         android:id="@+id/tours_chips_horizontal_scroll"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginTop="@dimen/margin_standard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tours_recyclerView"
         app:layout_constraintTop_toBottomOf="@+id/textView_tours_header">
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chip_group"
+            android:id="@+id/chip_categories_group"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:selectionRequired="true"
@@ -35,9 +35,11 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_all_activities"
+                style="@style/ToursChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                tools:ignore="TouchTargetSizeCheck"
                 tools:text="Все" />
 
         </com.google.android.material.chip.ChipGroup>
@@ -47,13 +49,12 @@
         android:id="@+id/tours_recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/recycler_margin_side"
-        android:layout_marginTop="@dimen/standard_margin"
-        android:layout_marginEnd="@dimen/recycler_margin_side"
+        android:layout_marginStart="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/recycler_margin_top"
+        android:layout_marginEnd="@dimen/margin_standard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tours_chips_horizontal_scroll"
-        tools:listitem="@layout/item_tour" />
+        app:layout_constraintTop_toBottomOf="@+id/tours_chips_horizontal_scroll" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

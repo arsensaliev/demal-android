@@ -13,5 +13,5 @@
     <dimen name="header_margin_top">30dp</dimen>
     <dimen name="recycler_margin_top">15dp</dimen>
     <dimen name="recycler_margin_side">20dp</dimen>
-    <dimen name="standard_margin">20dp</dimen>
+    <dimen name="margin_standard">20dp</dimen>
 </resources>
