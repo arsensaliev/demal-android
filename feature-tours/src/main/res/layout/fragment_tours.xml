@@ -34,7 +34,7 @@
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip_all_activities"
+                android:id="@+id/chip_category_default"
                 style="@style/ToursChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
