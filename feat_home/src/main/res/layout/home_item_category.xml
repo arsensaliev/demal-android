@@ -5,7 +5,7 @@
     android:id="@+id/home_card_view"
     android:layout_width="@dimen/item_activities_width"
     android:layout_height="@dimen/item_activities_height"
-    android:backgroundTint="@color/purple_light_10"
+    android:backgroundTint="@color/purple_light_variant"
     android:layout_marginBottom="@dimen/item_activities_layout_bottom_margin"
     android:layout_marginStart="@dimen/item_home_right_margin"
     app:cardCornerRadius="@dimen/home_card_corner_radius">
@@ -13,7 +13,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <ImageView
             android:id="@+id/item_activities_image"

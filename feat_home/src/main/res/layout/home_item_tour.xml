@@ -7,8 +7,8 @@
     android:layout_width="@dimen/item_home_width"
     android:layout_height="match_parent"
     android:layout_marginStart="@dimen/item_home_right_margin"
-    tool:backgroundTint="@color/black_transparent"
-    app:cardCornerRadius="@dimen/home_card_corner_radius">
+    app:cardCornerRadius="@dimen/home_card_corner_radius"
+    tool:backgroundTint="@color/black_transparent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -67,8 +67,8 @@
             style="@style/ItemHomeDescriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_home_top_margin"
             android:layout_marginStart="@dimen/item_text_to_icon_margin"
+            android:layout_marginTop="@dimen/item_home_top_margin"
             app:layout_constraintStart_toEndOf="@id/home_user_image"
             app:layout_constraintTop_toTopOf="parent"
             tool:text="24" />
