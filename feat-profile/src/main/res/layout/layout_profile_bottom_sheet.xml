@@ -16,7 +16,7 @@
         android:layout_marginTop="14dp"
         android:src="@drawable/ic_draggable" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         style="@style/ProfileBottomSheetTextButton"
         android:id="@+id/button_edit"
         android:layout_width="match_parent"
@@ -25,14 +25,13 @@
         android:drawableStart="@drawable/ic_edit"
         android:text="@string/edit" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         style="@style/ProfileBottomSheetTextButton"
         android:id="@+id/button_payment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:drawableStart="@drawable/ic_payment"
-        android:textColor="@color/black"
         android:text="@string/payment_methods" />
 
 </LinearLayout>
