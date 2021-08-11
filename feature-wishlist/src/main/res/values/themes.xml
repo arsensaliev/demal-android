@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="HeaderTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/black_dark</item>
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+</resources>

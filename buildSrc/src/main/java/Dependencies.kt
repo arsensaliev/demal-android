@@ -117,6 +117,7 @@ object Modules {
     const val repository = ":repository"
     const val utils = ":utils"
     const val featProfile = ":feature-profile"
+    const val featWishlist = ":feature-wishlist"
 }
 
 object Cicerone {
