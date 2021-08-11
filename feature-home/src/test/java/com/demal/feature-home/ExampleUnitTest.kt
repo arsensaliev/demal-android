@@ -1,4 +1,4 @@
-package com.demal.feat_home
+package com.demal.`feature-home`
 
 import org.junit.Test
 

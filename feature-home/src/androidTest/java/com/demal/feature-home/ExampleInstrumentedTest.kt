@@ -1,4 +1,4 @@
-package com.demal.feat_home
+package com.demal.`feature-home`
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
