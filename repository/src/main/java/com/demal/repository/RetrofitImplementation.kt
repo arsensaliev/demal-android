@@ -1,7 +1,7 @@
 package com.demal.repository
 
-import com.demal.model.data.user.entity.AuthenticationResult
-import com.demal.model.data.user.entity.AuthenticationServer
+import com.demal.model.data.entity.AuthenticationResult
+import com.demal.model.data.entity.AuthenticationServer
 import com.demal.repository.api.ApiService
 import retrofit2.Retrofit
 

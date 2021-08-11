@@ -1,4 +1,4 @@
-package com.demal.model.data.user.entity
+package com.demal.model.data.entity
 
 import com.google.gson.annotations.SerializedName
 

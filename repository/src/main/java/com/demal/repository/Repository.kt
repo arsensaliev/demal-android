@@ -1,6 +1,6 @@
 package com.demal.repository
 
-import com.demal.model.data.user.entity.AuthenticationResult
+import com.demal.model.data.entity.AuthenticationResult
 
 interface Repository {
 
