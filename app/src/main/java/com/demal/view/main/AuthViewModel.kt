@@ -2,7 +2,7 @@ package com.demal.view.main
 
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.AuthenticationResult
-import com.demal.view.core.viewmodel.BaseViewModel
+import com.demal.view.core.view_model.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

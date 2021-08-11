@@ -1,19 +1,20 @@
-package com.demal.view.core.viewmodel
+package com.demal.view.core.view_model
 
+import androidx.annotation.CallSuper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.demal.model.data.app_state.BaseState
+import com.demal.model.data.exceptions.NoAuthException
+import com.demal.view.core.BaseNavigator
 import kotlinx.coroutines.*
 
-abstract class BaseViewModel<T>(
-    protected open val _mutableLiveData: MutableLiveData<T> = MutableLiveData()
+abstract class BaseViewModel<D>(
+    private val navigator: BaseNavigator
 ) : ViewModel() {
 
-    private val liveDataForViewToObserve: LiveData<T> = _mutableLiveData
-
-    fun subscribe(): LiveData<T> {
-        return liveDataForViewToObserve
-    }
+    private val mStateLiveData = MutableLiveData<BaseState<D>>()
+    val stateLiveData get() = mStateLiveData as LiveData<BaseState<D>>
 
     protected val viewModelCoroutineScope = CoroutineScope(
         Dispatchers.Main
@@ -31,9 +32,11 @@ abstract class BaseViewModel<T>(
         viewModelCoroutineScope.coroutineContext.cancelChildren()
     }
 
+    @CallSuper
     open fun handleError(error: Throwable) {
-
+        if (error is NoAuthException) {
+            navigator.toLoginScreen()
+            //TODO: Delete token from shared preferences
+        }
     }
-
-
 }

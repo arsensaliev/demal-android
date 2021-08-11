@@ -3,7 +3,7 @@ package com.demal.view.main
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.AuthenticationResult
 import com.demal.repository.Repository
-import com.demal.view.core.viewmodel.Interactor
+import com.demal.view.core.view_model.Interactor
 
 
 class MainInteractorRepository(
