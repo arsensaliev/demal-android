@@ -19,7 +19,6 @@
     <androidx.appcompat.widget.AppCompatButton
         style="@style/ProfileBottomSheetTextButton"
         android:id="@+id/button_edit"
-        android:fontFamily="@font/roboto_medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium"
@@ -29,12 +28,10 @@
     <androidx.appcompat.widget.AppCompatButton
         style="@style/ProfileBottomSheetTextButton"
         android:id="@+id/button_payment"
-        android:fontFamily="@font/roboto_medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:drawableStart="@drawable/ic_payment"
-        android:textColor="@color/black"
         android:text="@string/payment_methods" />
 
 </LinearLayout>
