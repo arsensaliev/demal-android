@@ -16,7 +16,7 @@ abstract class BaseViewModel<D>(
     private val mStateLiveData = MutableLiveData<BaseState<D>>()
     val stateLiveData get() = mStateLiveData as LiveData<BaseState<D>>
 
-    protected val viewModelCoroutineScope = CoroutineScope(
+    private val viewModelCoroutineScope = CoroutineScope(
         Dispatchers.Main
                 + SupervisorJob()
                 + CoroutineExceptionHandler { _, throwable ->
@@ -28,7 +28,7 @@ abstract class BaseViewModel<D>(
         cancelJob()
     }
 
-    protected fun cancelJob() {
+    protected open fun cancelJob() {
         viewModelCoroutineScope.coroutineContext.cancelChildren()
     }
 
@@ -36,7 +36,19 @@ abstract class BaseViewModel<D>(
     open fun handleError(error: Throwable) {
         if (error is NoAuthException) {
             navigator.toLoginScreen()
+            println("It Works")
             //TODO: Delete token from shared preferences
         }
     }
+
+    protected fun runAsync(block: suspend () -> Unit) =
+        viewModelCoroutineScope.launch {
+            block()
+        }
+
+
+    protected fun <T> runAsyncWithResult(block: suspend () -> T) =
+        viewModelCoroutineScope.async {
+            block()
+        }
 }

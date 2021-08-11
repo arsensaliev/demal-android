@@ -12,4 +12,6 @@ class UserRepositoryImpl(
         //TODO: Save token to sharedPreferences
         return response.user
     }
+
+    override suspend fun myUser() = remoteDataSource.myUser()
 }

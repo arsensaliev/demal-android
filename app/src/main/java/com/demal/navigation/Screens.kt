@@ -1,6 +1,6 @@
 package com.demal.navigation
 
-import com.demal.feature_profile.view.ProfileFragment
+import com.demal.feature_profile.main.ProfileFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 //Все фрагменты должны быть объявленны здесь в виде FragmentScreen

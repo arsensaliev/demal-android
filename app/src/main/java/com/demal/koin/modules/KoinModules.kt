@@ -1,12 +1,18 @@
 package com.demal.koin.modules
 
+import com.demal.feature_profile.main.ProfileViewModel
 import com.demal.main.MainViewModel
 import com.demal.navigation.MainActivityNavigator
 import com.demal.navigation.Navigator
 import com.demal.navigation.Screens
 import com.demal.feature_profile.navigation.ProfileNavigator
-import com.demal.repository.RetrofitImplementation
+import com.demal.repository.api.ApiService
 import com.demal.repository.api.BaseInterceptor
+import com.demal.repository.data_sources.RemoteDataSource
+import com.demal.repository.data_sources.RemoteDataSourceImpl
+import com.demal.repository.repository.UserRepository
+import com.demal.repository.repository.UserRepositoryImpl
+import com.demal.view.core.BaseNavigator
 import com.github.terrakok.cicerone.Cicerone
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
@@ -31,10 +37,12 @@ val navigatorsModule = module {
 
     factory<MainActivityNavigator> { get<Navigator>() }
     factory<ProfileNavigator> { get<Navigator>() }
+    factory<BaseNavigator> { get<Navigator>() }
 }
 
 val viewModelModule = module {
     viewModel { MainViewModel(get()) }
+    viewModel { ProfileViewModel(get(), get()) }
 }
 
 val retrofitModule = module {
@@ -45,10 +53,20 @@ val retrofitModule = module {
             .build()
 
         Retrofit.Builder()
-            .baseUrl(RetrofitImplementation.BASE_URL_LOCATIONS)
+            .baseUrl(BASE_URL_LOCATIONS)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(client)
-            .build()
+            .build().create(ApiService::class.java)
     }
 }
+
+val dataSourceModule = module {
+    single<RemoteDataSource> { RemoteDataSourceImpl(get()) }
+}
+
+val repositoryModule = module {
+    single<UserRepository> { UserRepositoryImpl(get()) }
+}
+
+const val BASE_URL_LOCATIONS = "https://demal-api.herokuapp.com/api/v1/"
