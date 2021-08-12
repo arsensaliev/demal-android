@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    ImageView dimens-->
+    <dimen name="marginStartImageView">20dp</dimen>
+    <dimen name="marginEndImageView">295dp</dimen>
+    <dimen name="marginBottomImageView">722dp</dimen>
+    <dimen name="marginTopImageView">30dp</dimen>
+
+    <!--    TextViewTitle dimens-->
+    <dimen name="textSizeTextViewTitle">32dp</dimen>
+    <dimen name="marginStartTextViewTitle">20dp</dimen>
+    <dimen name="marginEndTextViewTitle">48dp</dimen>
+    <dimen name="marginEndTextView">35dp</dimen>
+
+    <!--    TextViewBody dimens-->
+    <dimen name="textSizeTextViewBody">18dp</dimen>
+    <dimen name="marginBottomTextViewBody">168dp</dimen>
+    <dimen name="marginEndTextViewBody">47dp</dimen>
+    <dimen name="marginStartTextViewBody">20dp</dimen>
+
+    <!--    Button dimens-->
+    <dimen name="widthButton">335dp</dimen>
+    <dimen name="heightButton">50dp</dimen>
+    <dimen name="marginStartEndButton">20dp</dimen>
+    <dimen name="marginBottomButton">28dp</dimen>
+    <dimen name="cornerRadius">10dp</dimen>
+
+</resources>

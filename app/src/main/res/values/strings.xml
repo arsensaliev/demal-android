@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Demal</string>
+
+    <!--    First-->
+    <string name="welcomeTitle">Туризм по подписке</string>
+    <string name="welcomeBody">Занимайтесь туризмом в неограниченном количестве, купив одну подписку.
+        Хайкинг, походы, туры - все по одной подписке</string>
+
+    <!--    Second-->
+    <string name="welcomeSecondTitle">Гибкий поиск и умные фильтры</string>
+    <string name="welcomeSecondBody">Возможность подобрать отдых максимально отвечающий вашим предпочтениям</string>
+
+    <!--    Third-->
+    <string name="welcomeThirdTitle">Поможем 24/7</string>
+    <string name="welcomeThirdBody">Ответим на ваши вопросы по телефону и в мессенджерах</string>
+
+    <!--    Buttons-->
+    <string name="welcomeButton">Дальше</string>
+    <string name="welcomeButtonThird">Начать путешествовать</string>
 </resources>
