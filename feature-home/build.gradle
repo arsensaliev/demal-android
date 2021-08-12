@@ -3,41 +3,6 @@ plugins {
     id 'kotlin-android'
 }
 
-android {
-    compileSdkVersion Config.compile_sdk
-    buildToolsVersion Config.build_tools
-
-    defaultConfig {
-        applicationId Config.application_id
-        minSdkVersion Config.min_sdk
-        targetSdkVersion Config.target_sdk
-        versionCode Releases.version_code
-        versionName Releases.version_name
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility Config.java_version
-        targetCompatibility Config.java_version
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    buildFeatures {
-        viewBinding true
-    }
-}
-
 dependencies {
     //Modules
     implementation project(Modules.core)
@@ -50,8 +15,8 @@ dependencies {
     //Kotlin
     implementation Kotlin.core
     implementation Kotlin.stdlib
-    implementation Kotlin.coroutines_core
-    implementation Kotlin.coroutines_android
+    implementation Kotlin.coroutinesCore
+    implementation Kotlin.coroutinesAndroid
 
     //Test
     testImplementation TestImpl.junit
