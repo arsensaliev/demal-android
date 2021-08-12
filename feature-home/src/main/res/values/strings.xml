@@ -1,0 +1,5 @@
+<resources>
+    <string name="popular_tours">Популярные туры</string>
+    <string name="recommendations_for_you">Рекомендации для вас</string>
+    <string name="activities">Активности</string>
+</resources>

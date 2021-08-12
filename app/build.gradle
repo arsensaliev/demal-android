@@ -14,6 +14,7 @@ dependencies {
 
     //Feature Modules
     implementation project(Modules.featProfile)
+    implementation project(Modules.featHome)
 
     //AndroidX
     implementation Tools.multidex
