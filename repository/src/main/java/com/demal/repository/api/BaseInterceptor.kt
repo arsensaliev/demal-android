@@ -5,10 +5,6 @@ import kotlinx.coroutines.CancellationException
 import okhttp3.Interceptor
 import okhttp3.Response
 
-/**
- * Custom interceptor to intercept basic responses and to show basic errors to the user
- * (not fully implemented)
- */
 class BaseInterceptor private constructor() : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
