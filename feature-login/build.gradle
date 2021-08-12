@@ -14,6 +14,9 @@ dependencies {
     implementation Design.appcompat
     implementation Design.material
     implementation Design.constraintLayout
+    implementation TestImpl.junit
+    implementation TestImpl.runner
+    implementation TestImpl.espresso
 }
 repositories {
     mavenCentral()
