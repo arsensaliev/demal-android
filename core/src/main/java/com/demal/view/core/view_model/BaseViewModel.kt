@@ -5,11 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.demal.model.data.app_state.BaseState
+import com.demal.model.data.entity.AppStateEntity
 import com.demal.model.data.exceptions.NoAuthException
 import com.demal.view.core.BaseNavigator
 import kotlinx.coroutines.*
 
-abstract class BaseViewModel<D>(
+abstract class BaseViewModel<D : AppStateEntity>(
     private val navigator: BaseNavigator
 ) : ViewModel() {
 

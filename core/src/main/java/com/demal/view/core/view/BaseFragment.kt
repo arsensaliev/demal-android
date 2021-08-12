@@ -5,9 +5,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.demal.model.data.app_state.BaseState
+import com.demal.model.data.entity.AppStateEntity
 import com.demal.view.core.view_model.BaseViewModel
 
-abstract class BaseFragment<VB : ViewBinding, D, VM : BaseViewModel<D>> :
+abstract class BaseFragment<VB : ViewBinding, D : AppStateEntity, VM : BaseViewModel<D>> :
     Fragment() {
 
     protected abstract var bindingNullable: VB?

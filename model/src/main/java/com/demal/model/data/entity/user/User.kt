@@ -1,5 +1,7 @@
 package com.demal.model.data.entity.user
 
+import com.demal.model.data.entity.AppStateEntity
+
 data class User(
     val id: Int? = null,
     val firstName: String,
@@ -7,4 +9,4 @@ data class User(
     val email: String,
     val password: String,
     val createdAt: String? = null
-)
+) : AppStateEntity
