@@ -6,4 +6,9 @@
     <string name="payment_methods">Способы оплаты</string>
     <string name="saved">Сохраненные</string>
     <string name="tours_title">Ближайшие туры</string>
+    <string name="login">Войти в аккаунт</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="sign_in">Войти</string>
 </resources>
