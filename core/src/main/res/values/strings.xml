@@ -5,10 +5,6 @@
     <string name="edit">Редактировать</string>
     <string name="payment_methods">Способы оплаты</string>
 
-    <string name="popular_tours">Популярные туры</string>
-    <string name="recommendations_for_you">Рекомендации для вас</string>
-    <string name="activities">Активности</string>
-
     <string name="saved">Сохраненные</string>
     <string name="tours_title">Ближайшие туры</string>
 </resources>

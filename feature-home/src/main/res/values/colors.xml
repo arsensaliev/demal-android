@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="black_transparent">#6F000000</color>
-    <color name="purple_light">#6550EE</color>
     <color name="purple_light_variant">#1A6550EE</color>
 </resources>
