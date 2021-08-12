@@ -10,5 +10,5 @@
     <string name="activities">Активности</string>
 
     <string name="saved">Сохраненные</string>
-
+    <string name="tours_title">Ближайшие туры</string>
 </resources>
