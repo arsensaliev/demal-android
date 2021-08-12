@@ -1,2 +1,9 @@
 include ':app'
 rootProject.name = "Demal"
+include ':core'
+include ':model'
+include ':utils'
+include ':repository'
+include ':feature-profile'
+include ':feature-tours'
+include ':feature-onboarding'
