@@ -1,0 +1,55 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="ProfileEditBottom" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/ProfileEditTextStyle</item>
+        <item name="android:paddingEnd">50dp</item>
+        <item name="android:paddingStart">50dp</item>
+        <item name="android:drawablePadding">20dp</item>
+    </style>
+
+    <style name="ProfileEditTextStyle" parent="@android:style/TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="profileEdittextInputLayout"  parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+
+        <item name="endIconMode">custom</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+
+    </style>
+
+    <style name="profileEditPhoto">
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">130dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="cardCornerRadius">250dp</item>
+    </style>
+
+    <style name="btn_backspace">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:contentDescription">@string/btn_backspace_description</item>
+        <item name="android:backgroundTint">#808080</item>
+        <item name="srcCompat">@drawable/ic_backspace_24</item>
+        <item name="tint">#FFFFFF</item>
+        <item name="strokeColor">#FFFFFF</item>
+    </style>
+
+    <style name="profileEditeditText" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+</resources>
