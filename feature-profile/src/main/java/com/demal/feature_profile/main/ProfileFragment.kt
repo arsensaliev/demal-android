@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.demal.feature_profile.R
 import com.demal.feature_profile.databinding.FragmentProfileBinding
 import com.demal.model.data.entity.user.User
 import com.demal.view.core.view.BaseFragment

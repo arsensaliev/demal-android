@@ -1,14 +1,24 @@
 package com.demal.repository.api
 
 import com.demal.model.data.exceptions.NoAuthException
-import kotlinx.coroutines.CancellationException
+import com.demal.repository.data_sources.TokenRepository
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class BaseInterceptor private constructor() : Interceptor {
+class BaseInterceptor(
+    private val tokenRepository: TokenRepository
+) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val response = chain.proceed(chain.request())
+        val token = tokenRepository.getToken()
+
+        val newRequest = token?.let {
+            chain.request().newBuilder()
+                .addHeader("Authorization", "Bearer $token")
+                .build()
+        } ?: chain.request()
+
+        val response = chain.proceed(newRequest)
         val responseCode = response.code()
         processResponseCode(responseCode)
         return response
@@ -17,11 +27,5 @@ class BaseInterceptor private constructor() : Interceptor {
     private fun processResponseCode(responseCode: Int) {
         if (responseCode == 401)
             throw NoAuthException()
-    }
-
-    companion object {
-
-        val interceptor: BaseInterceptor
-            get() = BaseInterceptor()
     }
 }

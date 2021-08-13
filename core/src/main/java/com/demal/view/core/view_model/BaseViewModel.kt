@@ -7,11 +7,13 @@ import androidx.lifecycle.ViewModel
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.AppStateEntity
 import com.demal.model.data.exceptions.NoAuthException
+import com.demal.repository.data_sources.TokenRepository
 import com.demal.view.core.BaseNavigator
 import kotlinx.coroutines.*
 
 abstract class BaseViewModel<D : AppStateEntity>(
-    private val navigator: BaseNavigator
+    private val navigator: BaseNavigator,
+    private val tokenRepository: TokenRepository
 ) : ViewModel() {
 
     private val mStateLiveData = MutableLiveData<BaseState<D>>()
@@ -36,9 +38,11 @@ abstract class BaseViewModel<D : AppStateEntity>(
     @CallSuper
     open fun handleError(error: Throwable) {
         if (error is NoAuthException) {
+            runAsync {
+                tokenRepository.removeToken()
+            }
+
             navigator.toLoginScreen()
-            println("It Works")
-            //TODO: Delete token from shared preferences
         }
     }
 
