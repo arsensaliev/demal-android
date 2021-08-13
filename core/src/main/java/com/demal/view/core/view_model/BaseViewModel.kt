@@ -13,7 +13,6 @@ import kotlinx.coroutines.*
 
 abstract class BaseViewModel<D : AppStateEntity>(
     private val navigator: BaseNavigator,
-    private val tokenRepository: TokenRepository
 ) : ViewModel() {
 
     private val mStateLiveData = MutableLiveData<BaseState<D>>()
@@ -38,11 +37,8 @@ abstract class BaseViewModel<D : AppStateEntity>(
     @CallSuper
     open fun handleError(error: Throwable) {
         if (error is NoAuthException) {
-            runAsync {
-                tokenRepository.removeToken()
-            }
-
             navigator.toLoginScreen()
+            //Token will be removed in LoginViewModel
         }
     }
 

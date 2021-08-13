@@ -8,9 +8,8 @@ import com.demal.view.core.view_model.BaseViewModel
 
 class ProfileViewModel(
     navigator: ProfileNavigator,
-    tokenRepository: TokenRepository,
     private val repository: UserRepository
-) : BaseViewModel<User>(navigator, tokenRepository) {
+) : BaseViewModel<User>(navigator) {
 
     fun init() {
         //Для теста ошибки 401
