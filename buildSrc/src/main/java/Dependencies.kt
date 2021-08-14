@@ -31,7 +31,7 @@ object Versions {
     const val coroutinesAndroid = "1.1.1"
 
     //Cicerone
-    const val cicerone = "3.0.0"
+    const val cicerone = "6.6"
 
     //Retrofit
     const val retrofit = "2.6.0"
@@ -73,9 +73,9 @@ object Design {
 object Kotlin {
     const val core = "androidx.core:core-ktx:${Versions.core}"
     const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.stdlib}"
-    const val coroutines_core =
+    const val coroutinesCore =
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
-    const val coroutines_android =
+    const val coroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesAndroid}"
 }
 
@@ -89,13 +89,13 @@ object Retrofit {
 }
 
 object Koin {
-    const val koin_android = "org.koin:koin-android:${Versions.koinAndroid}"
-    const val koin_view_model = "org.koin:koin-android-viewmodel:${Versions.koinViewModel}"
+    const val koinAndroid = "org.koin:koin-android:${Versions.koinAndroid}"
+    const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koinViewModel}"
 }
 
 object Glide {
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
-    const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glideCompiler}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideCompiler}"
 }
 
 /*object Room {
@@ -116,9 +116,11 @@ object Modules {
     const val model = ":model"
     const val repository = ":repository"
     const val utils = ":utils"
+    const val featProfile = ":feature-profile"
+    const val featTours = ":feature-tours"
+    const val featHome = ":feature-home"
 }
 
-//implementation 'ru.terrakok.cicerone:cicerone:3.0.0'
 object Cicerone {
-    const val cicerone = "ru.terrakok.cicerone:cicerone:${Versions.cicerone}"
+    const val cicerone = "com.github.terrakok:cicerone:${Versions.cicerone}"
 }
