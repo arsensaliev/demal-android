@@ -1,8 +1,10 @@
 package com.demal.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.demal.R
+import com.demal.databinding.ActivityMainBinding
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import org.koin.android.ext.android.inject
@@ -13,14 +15,22 @@ class MainActivity : AppCompatActivity() {
     private val navigatorHolder: NavigatorHolder by inject()
     private val viewModel: MainViewModel by viewModel()
 
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        initNavigation()
+
+        viewModel.init()
+    }
+
+    private fun initNavigation() {
         navigatorHolder.setNavigator(
             AppNavigator(this, R.id.main_fragment_container)
         )
-
-        viewModel.init()
     }
 }
