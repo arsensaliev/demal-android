@@ -32,5 +32,17 @@ class MainActivity : AppCompatActivity() {
         navigatorHolder.setNavigator(
             AppNavigator(this, R.id.main_fragment_container)
         )
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.nav_home -> viewModel.toHomeScreen()
+                R.id.nav_tours -> viewModel.toToursScreen()
+                R.id.nav_my_tours -> viewModel.toMyToursScreen()
+                R.id.nav_wishlist -> viewModel.toWishlistScreen()
+                R.id.nav_profile -> viewModel.toProfileScreen()
+            }
+
+            true
+        }
     }
 }
