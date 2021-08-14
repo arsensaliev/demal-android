@@ -20,6 +20,7 @@
         app:itemBackground="@drawable/navigation_item_selector"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:itemIconTint="@color/navigation_item_colors"
         app:menu="@menu/menu_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,8 +8,9 @@ class MainViewModel(
     private val navigator: MainActivityNavigator
 ) : ViewModel(), MainBottomNavigation {
 
+    //TODO: Delete when HomeFragment appears
     fun init() {
-        navigator.toProfileScreen() //TODO: Navigate to first fragment
+        navigator.toProfileScreen()
     }
 
     override fun toHomeScreen() {
