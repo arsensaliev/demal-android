@@ -3,7 +3,6 @@ package com.demal.repository.repository
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.model.data.entity.user.User
 import com.demal.repository.data_sources.RemoteDataSource
-import com.demal.repository.data_sources.TokenRepository
 
 class UserRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,

@@ -1,7 +1,7 @@
 package com.demal.repository.api
 
 import com.demal.model.data.exceptions.NoAuthException
-import com.demal.repository.data_sources.TokenRepository
+import com.demal.repository.repository.TokenRepository
 import okhttp3.Interceptor
 import okhttp3.Response
 

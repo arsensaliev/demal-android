@@ -1,4 +1,4 @@
-package com.demal.repository.data_sources
+package com.demal.repository.repository
 
 interface TokenRepository {
     fun saveToken(token: String)

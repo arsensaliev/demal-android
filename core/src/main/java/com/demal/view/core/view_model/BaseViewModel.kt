@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.AppStateEntity
 import com.demal.model.data.exceptions.NoAuthException
-import com.demal.repository.data_sources.TokenRepository
 import com.demal.view.core.BaseNavigator
 import kotlinx.coroutines.*
 
