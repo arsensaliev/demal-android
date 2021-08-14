@@ -1,4 +1,4 @@
-package com.demal.fragments
+package com.demal.feature_onboarding.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.demal.R
-import com.demal.ViewPagerAdapter
+import com.demal.feature_onboarding.R
+import com.demal.feature_onboarding.adapter.ViewPagerAdapter
 import me.relex.circleindicator.CircleIndicator3
 
 class ViewPagerFragment : Fragment() {

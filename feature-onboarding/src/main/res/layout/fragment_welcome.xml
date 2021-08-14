@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_welcome_third"
-    tools:context=".fragments.WelcomeThirdFragment">
+    android:background="@drawable/background_welcome"
+    tools:context="com.demal.feature_onboarding.fragments.WelcomeFragment">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -24,8 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginStartTextViewTitle"
-        android:layout_marginEnd="@dimen/marginEndTextView"
-        android:text="@string/welcomeThirdTitle"
+        android:layout_marginEnd="@dimen/marginEndTextViewTitle"
+        android:text="@string/welcomeTitle"
         app:layout_constraintBottom_toTopOf="@+id/materialTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -38,7 +38,7 @@
         android:layout_marginStart="@dimen/marginStartTextViewBody"
         android:layout_marginEnd="@dimen/marginEndTextViewBody"
         android:layout_marginBottom="@dimen/marginBottomTextViewBody"
-        android:text="@string/welcomeThirdBody"
+        android:text="@string/welcomeBody"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -51,7 +51,7 @@
         android:layout_marginStart="@dimen/marginStartEndButton"
         android:layout_marginEnd="@dimen/marginStartEndButton"
         android:layout_marginBottom="@dimen/marginBottomButton"
-        android:text="@string/welcomeButtonThird"
+        android:text="@string/welcomeButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

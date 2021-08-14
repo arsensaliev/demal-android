@@ -1,12 +1,12 @@
-package com.demal
+package com.demal.feature_onboarding.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.demal.fragments.WelcomeFragment
-import com.demal.fragments.WelcomeSecondFragment
-import com.demal.fragments.WelcomeThirdFragment
+import com.demal.feature_onboarding.fragments.WelcomeFragment
+import com.demal.feature_onboarding.fragments.WelcomeSecondFragment
+import com.demal.feature_onboarding.fragments.WelcomeThirdFragment
 
 class ViewPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fm, lifecycle) {
