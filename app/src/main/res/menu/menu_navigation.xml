@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/tree"
+        android:icon="@drawable/ic_tours"
+        android:title="@string/tree" />
+
+    <item
+        android:id="@+id/map"
+        android:icon="@drawable/ic_my_tours"
+        android:title="@string/map" />
+
+    <item
+        android:id="@+id/favorites"
+        android:icon="@drawable/ic_wishlist"
+        android:title="@string/favorites" />
+
+    <item
+        android:id="@+id/user"
+        android:icon="@drawable/ic_user"
+        android:title="@string/user" />
+</menu>
