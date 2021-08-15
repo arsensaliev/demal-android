@@ -31,9 +31,9 @@ class ProfileFragment :
     }
 
     override fun renderSuccess(data: User) {
-        binding.profileName.text = data.firstName
-
         with(data) {
+            binding.profileName.text = firstName
+
             binding.profileLocation.text = getString(
                 R.string.location_display,
                 country,
