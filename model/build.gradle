@@ -14,7 +14,7 @@ dependencies {
     implementation Kotlin.stdlib
 
     //Retrofit 2
-    implementation Retrofit.converter_gson
+    implementation Retrofit.converterGson
 
     //Test
     testImplementation TestImpl.junit

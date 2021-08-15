@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Demal</string>
-    <string name="profile">Профиль</string>
     <string name="profile_avatar">Profile avatar</string>
     <string name="edit">Редактировать</string>
     <string name="payment_methods">Способы оплаты</string>

@@ -46,6 +46,12 @@ dependencies {
     androidTestImplementation TestImpl.runner
     androidTestImplementation TestImpl.espresso
 
+    //Retrofit 2
+    implementation Retrofit.retrofit
+    implementation Retrofit.converterGson
+    implementation Retrofit.adapterCoroutines
+    implementation Retrofit.loggingInterceptor
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 repositories {
