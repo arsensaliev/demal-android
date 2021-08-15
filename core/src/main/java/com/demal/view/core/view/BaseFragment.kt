@@ -1,6 +1,7 @@
 package com.demal.view.core.view
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
@@ -24,9 +25,10 @@ abstract class BaseFragment<VB : ViewBinding, D : AppStateEntity, VM : BaseViewM
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.stateLiveData.observe(this) { state ->
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.stateLiveData.observe(viewLifecycleOwner) { state ->
             renderData(state)
         }
     }
