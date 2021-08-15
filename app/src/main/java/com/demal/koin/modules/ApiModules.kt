@@ -25,4 +25,4 @@ val retrofitModule = module {
     }
 }
 
-const val BASE_URL_LOCATIONS = "https://demal-api.herokuapp.com/api/v1/"
+const val BASE_URL_LOCATIONS = "https://demal-api.herokuapp.com/"

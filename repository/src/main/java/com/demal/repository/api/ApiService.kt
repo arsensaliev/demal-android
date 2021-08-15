@@ -10,10 +10,10 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-    @POST("users/login")
+    @POST("api/v1/users/login")
     fun login(@Body auth: LoginRequest): Deferred<LoginResponse>
 
-    @GET("users/me")
+    @GET("api/v1/users/me")
     fun myUser(): Deferred<User>
 
 }
