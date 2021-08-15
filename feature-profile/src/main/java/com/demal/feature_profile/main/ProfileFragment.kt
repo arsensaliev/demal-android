@@ -2,8 +2,8 @@ package com.demal.feature_profile.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import com.demal.feature_profile.R
 import com.demal.feature_profile.databinding.FragmentProfileBinding
 import com.demal.model.data.entity.user.User
 import com.demal.view.core.view.BaseFragment
@@ -33,7 +33,13 @@ class ProfileFragment :
     override fun renderSuccess(data: User) {
         binding.profileName.text = data.firstName
 
-        //Location пока что не приходит с сервера
-        binding.profileLocation.text = data.email
+        with(data) {
+            binding.profileLocation.text = getString(
+                R.string.location_display,
+                country,
+                city
+            )
+        }
+
     }
 }
