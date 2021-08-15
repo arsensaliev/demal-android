@@ -81,10 +81,10 @@ object Kotlin {
 
 object Retrofit {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val converter_gson = "com.squareup.retrofit2:converter-gson:${Versions.converterGson}"
-    const val adapter_coroutines =
+    const val converterGson = "com.squareup.retrofit2:converter-gson:${Versions.converterGson}"
+    const val adapterCoroutines =
         "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.adapterCoroutines}"
-    const val logging_interceptor =
+    const val loggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
 }
 
