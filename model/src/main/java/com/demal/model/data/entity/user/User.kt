@@ -7,8 +7,9 @@ data class User(
     val firstName: String,
     val lastName: String,
     val email: String,
-    val country: String,
-    val city: String,
+    val country: String?,
+    val city: String?,
+    val imagePath: String?,
     val password: String,
     val createdAt: String? = null
 ) : AppStateEntity

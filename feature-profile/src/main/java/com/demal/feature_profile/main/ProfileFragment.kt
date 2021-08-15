@@ -34,11 +34,16 @@ class ProfileFragment :
         with(data) {
             binding.profileName.text = firstName
 
-            binding.profileLocation.text = getString(
-                R.string.location_display,
-                country,
-                city
-            )
+            val locationStr =
+                if (city == null && country != null) country
+                else if (country == null && city != null) city
+                else if (city != null && country != null) getString(
+                    R.string.location_display,
+                    country,
+                    city
+                ) else ""
+
+            binding.profileLocation.text = locationStr
         }
 
     }
