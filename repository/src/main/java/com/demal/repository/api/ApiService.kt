@@ -10,10 +10,13 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-    @POST("api/v1/users/login")
+    @POST("api/$API_VERSION/users/login")
     fun login(@Body auth: LoginRequest): Deferred<LoginResponse>
 
-    @GET("api/v1/users/me")
+    @GET("api/$API_VERSION/users/me")
     fun myUser(): Deferred<User>
 
+    companion object {
+        private const val API_VERSION = "v1"
+    }
 }
