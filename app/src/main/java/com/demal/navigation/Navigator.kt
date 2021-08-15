@@ -8,7 +8,7 @@ import com.github.terrakok.cicerone.Router
 class Navigator(
     private val router: Router,
     private val screens: Screens
-) : MainActivityNavigator, BaseNavigator, ProfileNavigator {
+) : BaseNavigator, MainActivityNavigator, ProfileNavigator {
 
     override fun toProfileScreen() = router.navigateTo(screens.profileScreen())
 
