@@ -21,3 +21,6 @@ dependencies {
     implementation Design.material
     implementation Design.constraintLayout
 }
+repositories {
+    mavenCentral()
+}
