@@ -9,20 +9,20 @@
     <item
         android:id="@+id/nav_tours"
         android:icon="@drawable/ic_tours"
-        android:title="@string/tree" />
+        android:title="@string/tours" />
 
     <item
         android:id="@+id/nav_my_tours"
         android:icon="@drawable/ic_my_tours"
-        android:title="@string/map" />
+        android:title="@string/my_tours" />
 
     <item
         android:id="@+id/nav_wishlist"
         android:icon="@drawable/ic_wishlist"
-        android:title="@string/favorites" />
+        android:title="@string/wishlist" />
 
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_user"
-        android:title="@string/user" />
+        android:title="@string/profile" />
 </menu>

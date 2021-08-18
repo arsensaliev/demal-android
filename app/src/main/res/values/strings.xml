@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home">home</string>
-    <string name="user">user</string>
-    <string name="favorites">favorites</string>
-    <string name="map">map</string>
-    <string name="tree">tree</string>
+    <string name="profile">profile</string>
+    <string name="wishlist">wishlist</string>
+    <string name="my_tours">my tours</string>
+    <string name="tours">tours</string>
 </resources>
