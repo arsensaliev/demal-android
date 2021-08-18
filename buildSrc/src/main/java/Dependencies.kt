@@ -2,17 +2,17 @@ import org.gradle.api.JavaVersion
 
 object Config {
     const val application_id = "com.demal"
-    const val compile_sdk = 30
-    const val min_sdk = 24
-    const val target_sdk = 30
-    const val kotlin_version = "1.4.32"
-    const val build_tools = "30.0.3"
-    val java_version = JavaVersion.VERSION_1_8
+    const val compileSdk = 30
+    const val minSdk = 24
+    const val targetSdk = 30
+    const val kotlinVersion = "1.5.0"
+    const val buildTools = "30.0.3"
+    val javaVersion = JavaVersion.VERSION_1_8
 }
 
 object Releases {
-    const val version_code = 1
-    const val version_name = "1.0"
+    const val versionCode = 1
+    const val versionName = "1.0"
 }
 
 object Versions {
@@ -81,10 +81,10 @@ object Kotlin {
 
 object Retrofit {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val converter_gson = "com.squareup.retrofit2:converter-gson:${Versions.converterGson}"
-    const val adapter_coroutines =
+    const val converterGson = "com.squareup.retrofit2:converter-gson:${Versions.converterGson}"
+    const val adapterCoroutines =
         "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.adapterCoroutines}"
-    const val logging_interceptor =
+    const val loggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
 }
 
@@ -119,6 +119,7 @@ object Modules {
     const val featProfile = ":feature-profile"
     const val featTours = ":feature-tours"
     const val featHome = ":feature-home"
+    const val featWishlist = ":feature-wishlist"
 }
 
 object Cicerone {
