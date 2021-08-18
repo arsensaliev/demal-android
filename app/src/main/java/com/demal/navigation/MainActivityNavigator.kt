@@ -1,3 +1,5 @@
 package com.demal.navigation
 
-interface MainActivityNavigator : MainBottomNavigation
+import com.demal.view.core.BaseNavigator
+
+interface MainActivityNavigator : MainBottomNavigation, BaseNavigator
