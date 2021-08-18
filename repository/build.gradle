@@ -19,6 +19,9 @@ dependencies {
     implementation Retrofit.adapterCoroutines
     implementation Retrofit.loggingInterceptor
 
+    implementation Glide.glide
+    implementation Glide.glideCompiler
+
     //Test
     testImplementation TestImpl.junit
     androidTestImplementation TestImpl.runner
