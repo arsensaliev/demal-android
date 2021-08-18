@@ -6,4 +6,10 @@
     <string name="profile_edit_сountry">Страна</string>
     <string name="profile_edit_сity">Город</string>
     <string name="profile_edit_btn">Сохранить</string>
+
+    <string name="profile_edit_name_err">Заполните имя</string>
+    <string name="profile_edit_surname_err">Заполните фамилию</string>
+    <string name="profile_edit_сountry_err">Заполните cтрану</string>
+    <string name="profile_edit_сity_err">Заполните город</string>
+
 </resources>
