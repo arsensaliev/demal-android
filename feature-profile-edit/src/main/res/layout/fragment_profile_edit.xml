@@ -87,8 +87,8 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/profile_edit_btn_send"
                     style="@style/ProfileEditBottom"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/profile_edit_btn"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/profile_edit_сity"
