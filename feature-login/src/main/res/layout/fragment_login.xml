@@ -9,7 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/margin_login_top_bottom"
         android:layout_marginEnd="@dimen/margin_standard"
+        android:layout_marginBottom="@dimen/margin_login_top_bottom"
         android:background="@drawable/content_container"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,23 +20,19 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textview.MaterialTextView
+            style="@style/TextLoginHeaderStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/roboto_medium"
-            android:text="@string/login"
-            android:textColor="@color/black_dark"
-            android:textSize="22sp"
-            android:textStyle="normal" />
+            android:text="@string/login" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_layout_email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/TextInputLayoutLoginStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:hint="@string/email"
-            app:errorEnabled="true">
+            android:layout_marginTop="20dp"
+            android:hint="@string/email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_email"
@@ -46,12 +44,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_layout_password"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/TextInputLayoutLoginStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30.5dp"
-            android:hint="@string/password"
-            app:passwordToggleEnabled="true">
+            android:layout_marginTop="19.5dp"
+            android:hint="@string/password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_password"
