@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:id="@+id/scrollView">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/profile_bg_dark">
+
 
 
         <com.google.android.material.button.MaterialButton
@@ -29,10 +34,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="70dp"
             android:layout_marginEnd="20dp"
             android:background="@color/white"
             app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -43,15 +49,15 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/profile_edit_name_layout"
+                    android:id="@+id/profile_edit_firstName_layout"
                     style="@style/profileEdittextInputLayout"
                     android:layout_marginTop="86dp"
-                    android:hint="@string/profile_edit_name"
+                    android:hint="@string/profile_firstName_name"
                     app:layout_constraintBottom_toTopOf="@+id/profile_edit_surname_layout"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_edit_name"
+                        android:id="@+id/profile_edit_firstName"
                         style="@style/profileEditeditText" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,7 +66,7 @@
                     style="@style/profileEdittextInputLayout"
                     android:hint="@string/profile_edit_surname"
                     app:layout_constraintBottom_toTopOf="@+id/profile_edit_сountry_layout"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_edit_name_layout">
+                    app:layout_constraintTop_toBottomOf="@+id/profile_edit_firstName_layout">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/profile_edit_surname"
@@ -94,7 +100,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/profile_edit_btn_send"
-                    style="@style/ProfileEditBottom"
+                    style="@style/ProfileEditButton"
                     android:layout_marginTop="0dp"
                     android:layout_marginBottom="20dp"
                     android:text="@string/profile_edit_btn"
@@ -136,10 +142,13 @@
                 android:alpha="0.5"
                 android:contentDescription="@string/profile_avatar"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_camera" />
+                android:src="@drawable/ic_bx_camera" />
 
 
         </androidx.cardview.widget.CardView>
 
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

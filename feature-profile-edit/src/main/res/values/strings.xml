@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="btn_backspace_description">Назад</string>
-    <string name="profile_edit_name">Имя</string>
+    <string name="profile_firstName_name">Имя</string>
     <string name="profile_edit_surname">Фамилия</string>
     <string name="profile_edit_сountry">Страна</string>
     <string name="profile_edit_сity">Город</string>
     <string name="profile_edit_btn">Сохранить</string>
 
-    <string name="profile_edit_name_err">Заполните имя</string>
+    <string name="profile_edit_firstName_err">Заполните имя</string>
     <string name="profile_edit_surname_err">Заполните фамилию</string>
     <string name="profile_edit_сountry_err">Заполните cтрану</string>
     <string name="profile_edit_сity_err">Заполните город</string>
