@@ -4,27 +4,23 @@ plugins {
 }
 
 dependencies {
-
-    implementation project(Modules.model)
-
-    implementation Design.appcompat
+    implementation project(Modules.core)
 
     //Kotlin
     implementation Kotlin.core
     implementation Kotlin.stdlib
 
-    //Retrofit 2
-    implementation Retrofit.retrofit
-    implementation Retrofit.converterGson
-    implementation Retrofit.adapterCoroutines
-    implementation Retrofit.loggingInterceptor
-
-    implementation Glide.glide
-    implementation Glide.glideCompiler
+    //Design
+    implementation Design.appcompat
+    implementation Design.material
 
     //Test
     testImplementation TestImpl.junit
     androidTestImplementation TestImpl.runner
     androidTestImplementation TestImpl.espresso
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+repositories {
+    mavenCentral()
 }
