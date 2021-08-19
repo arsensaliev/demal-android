@@ -10,6 +10,22 @@ class Navigator(
     private val screens: Screens
 ) : BaseNavigator, MainActivityNavigator, ProfileNavigator {
 
+    override fun toHomeScreen() {
+        //TODO("Not yet implemented")
+    }
+
+    override fun toToursScreen() {
+        //TODO("Not yet implemented")
+    }
+
+    override fun toMyToursScreen() {
+        //TODO("Not yet implemented")
+    }
+
+    override fun toWishlistScreen() {
+        //TODO("Not yet implemented")
+    }
+
     override fun toProfileScreen() = router.navigateTo(screens.profileScreen())
 
     //TODO: Navigate to Login Screen

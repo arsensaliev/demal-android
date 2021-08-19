@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_log_out_arrow"
+        android:top="5.42dp"
+        android:bottom="5.42dp"
+        android:end="5.42dp"
+        />
+
+    <item android:drawable="@drawable/ic_log_out_stroke" />
+</layer-list>
