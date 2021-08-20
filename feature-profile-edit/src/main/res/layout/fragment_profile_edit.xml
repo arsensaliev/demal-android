@@ -4,151 +4,158 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:id="@+id/scrollView">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/profile_bg_dark">
+        android:fillViewport="true">
 
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/profile_edit_btn_backspace"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ic_backspace"
-            android:contentDescription="@string/btn_backspace_description"
-            app:backgroundTint="@null"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewEdit"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/white"
-            app:cardCornerRadius="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            android:background="@drawable/profile_bg_dark">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/profile_edit_btn_backspace"
+                android:layout_width="@dimen/button_backspace_height_width"
+                android:layout_height="@dimen/button_backspace_height_width"
+                android:layout_marginStart="@dimen/button_backspace_margin_start_top"
+                android:layout_marginTop="@dimen/button_backspace_margin_start_top"
+                android:background="@drawable/ic_backspace"
+                android:contentDescription="@string/btn_backspace_description"
+                app:backgroundTint="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewEdit"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/profile_edit_firstName_layout"
-                    style="@style/profileEdittextInputLayout"
-                    android:layout_marginTop="86dp"
-                    android:hint="@string/profile_firstName_name"
-                    app:layout_constraintBottom_toTopOf="@+id/profile_edit_surname_layout"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_edit_firstName"
-                        style="@style/profileEditeditText" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/profile_edit_surname_layout"
-                    style="@style/profileEdittextInputLayout"
-                    android:hint="@string/profile_edit_surname"
-                    app:layout_constraintBottom_toTopOf="@+id/profile_edit_сountry_layout"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_edit_firstName_layout">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_edit_surname"
-                        style="@style/profileEditeditText" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/profile_edit_сountry_layout"
-                    style="@style/profileEdittextInputLayout"
-                    android:hint="@string/profile_edit_сountry"
-                    app:layout_constraintBottom_toTopOf="@+id/profile_edit_сity_layout"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_edit_surname_layout">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_edit_сountry"
-                        style="@style/profileEditeditText" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/profile_edit_сity_layout"
-                    style="@style/profileEdittextInputLayout"
-                    android:hint="@string/profile_edit_сity"
-                    app:hintAnimationEnabled="false"
-                    app:layout_constraintBottom_toTopOf="@+id/profile_edit_btn_send"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_edit_сountry_layout">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_edit_сity"
-                        style="@style/profileEditeditText" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/profile_edit_btn_send"
-                    style="@style/ProfileEditButton"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/profile_edit_btn"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/profile_edit_сity_layout"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_edit_сity_layout" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            style="@style/profileEditPhoto"
-
-            app:layout_constraintBottom_toTopOf="@+id/cardViewEdit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cardViewEdit">
-
-            <ImageView
-                android:id="@+id/profile_edit_img_avatar1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:contentDescription="@string/profile_avatar"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ex_profile_avatar"
-                android:tint="#80000000"
-                tools:ignore="UseAppTint" />
-
-            <ImageView
-                android:id="@+id/profile_edit_img_avatar"
-                android:layout_width="91dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:alpha="0.5"
-                android:contentDescription="@string/profile_avatar"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_bx_camera" />
+                android:layout_marginStart="@dimen/margin_profile_edit_left_right"
+                android:layout_marginTop="@dimen/margin_profile_edit_top"
+                android:layout_marginEnd="@dimen/margin_profile_edit_left_right"
+                android:background="@color/white"
+                app:cardCornerRadius="@dimen/radius_profile_edit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        </androidx.cardview.widget.CardView>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_edit_firstName_layout"
+                        style="@style/profileEdittextInputLayout"
+                        android:layout_marginTop="@dimen/margin_top_first_edit_text_first_name"
+                        android:hint="@string/profile_edit_first_name"
 
+                        app:layout_constraintBottom_toTopOf="@+id/profile_edit_surname_layout"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profile_edit_firstName"
+                            style="@style/profileEditeditText" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_edit_surname_layout"
+                        style="@style/profileEdittextInputLayout"
+                        android:hint="@string/profile_edit_last_name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/profile_edit_сountry_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_edit_firstName_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profile_edit_surname"
+                            style="@style/profileEditeditText" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_edit_сountry_layout"
+                        style="@style/profileEdittextInputLayout"
+                        android:hint="@string/profile_edit_сountry"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/profile_edit_сity_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_edit_surname_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profile_edit_сountry"
+                            style="@style/profileEditeditText" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_edit_сity_layout"
+                        style="@style/profileEdittextInputLayout"
+                        android:hint="@string/profile_edit_сity"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/profile_edit_btn_send"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_edit_сountry_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profile_edit_сity"
+                            style="@style/profileEditeditText" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/profile_edit_btn_send"
+                        style="@style/ProfileEditButton"
+                        android:layout_marginBottom="@dimen/button_save_margin_bottom"
+                        android:text="@string/profile_edit_btn"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/profile_edit_сity_layout"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_edit_сity_layout" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                style="@style/profileEditPhoto"
+                app:layout_constraintBottom_toTopOf="@+id/cardViewEdit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cardViewEdit">
+
+                <ImageView
+                    android:id="@+id/profile_edit_img_avatar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/profile_avatar"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ex_profile_avatar"
+                    android:tint="@color/fogging_80"
+                    tools:ignore="UseAppTint" />
+
+                <ImageView
+                    android:id="@+id/profile_edit_img_camera"
+                    android:layout_width="@dimen/img_camera_width"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/profile_avatar"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_bx_camera" />
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

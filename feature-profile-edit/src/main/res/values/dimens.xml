@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size">15sp</dimen>
+    <dimen name="button_backspace_height_width">34dp</dimen>
+    <dimen name="button_backspace_margin_start_top">34dp</dimen>
+    <dimen name="margin_profile_edit_left_right">20dp</dimen>
+    <dimen name="margin_profile_edit_top">70dp</dimen>
+    <dimen name="radius_profile_edit">25dp</dimen>
+    <dimen name="margin_top_first_edit_text_first_name">86dp</dimen>
+    <dimen name="edit_text_size_text">20sp</dimen>
+    <dimen name="edit_text_layout_height">80sp</dimen>
+    <dimen name="edit_text_layout_margin_start">20sp</dimen>
+    <dimen name="edit_text_layout_marginEnd">20sp</dimen>
+    <dimen name="button_save_radius">10dp</dimen>
+    <dimen name="button_save_height">50dp</dimen>
+    <dimen name="button_save_margin_bottom">30dp</dimen>
+    <dimen name="button_save_margin_start">20dp</dimen>
+    <dimen name="button_save_margin_top">10dp</dimen>
+    <dimen name="button_save_margin_end">20dp</dimen>
+    <dimen name="img_camera_width">91dp</dimen>
+    <dimen name="profile_photo_width_height">140dp</dimen>
+    <dimen name="profile_photo_radius">70dp</dimen>
+</resources>
