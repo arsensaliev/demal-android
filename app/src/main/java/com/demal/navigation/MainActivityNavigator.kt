@@ -1,5 +1,5 @@
 package com.demal.navigation
 
-interface MainActivityNavigator {
-    fun toProfileScreen() //TODO: Change to navigation to first fragment
-}
+import com.demal.view.core.BaseNavigator
+
+interface MainActivityNavigator : BaseNavigator, MainBottomNavigation
