@@ -1,6 +1,6 @@
 package com.demal.model.data.entity.tours.network
 
-data class NetworkTour(
+data class Tour(
     val id: Int,
     val title: String?,
     val subTitle: String?,
