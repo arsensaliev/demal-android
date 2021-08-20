@@ -26,7 +26,7 @@ object Versions {
 
     //Kotlin
     const val core = "1.0.2"
-    const val stdlib = "1.3.41"
+    const val stdlib = "1.4.32"
     const val coroutinesCore = "1.2.1"
     const val coroutinesAndroid = "1.1.1"
 
