@@ -18,7 +18,7 @@ class EnumConverterFactory: Converter.Factory() {
                         .getAnnotation(SerializedName::class.java)?.value
                 } catch (exception: Exception) {
                     null
-                } ?: enum.toString()
+                } ?: enum.name
             }
         } else {
             null

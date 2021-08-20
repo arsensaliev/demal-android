@@ -1,13 +1,15 @@
 package com.demal.repository.types
 
-enum class SortBy(val value : String) {
-    CREATED_AT("createdAt"),
-    ID("id"),
-    PLACE("place"),
-    PRICE("price"),
-    COUNTRY("country"),
-    DURATION("duration"),
-    TRAVELERS_COUNT("travelersCount"),
-    START_DATE("startDate"),
-    CATEGORY_ID("categoryId"),
+import com.google.gson.annotations.SerializedName
+
+enum class SortBy {
+    @SerializedName("createdAt") CREATED_AT,
+    @SerializedName("id") ID,
+    @SerializedName("place") PLACE,
+    @SerializedName("price") PRICE,
+    @SerializedName("country") COUNTRY,
+    @SerializedName("duration") DURATION,
+    @SerializedName("travelersCount") TRAVELERS_COUNT,
+    @SerializedName("startDate") START_DATE,
+    @SerializedName("categoryId") CATEGORY_ID,
 }

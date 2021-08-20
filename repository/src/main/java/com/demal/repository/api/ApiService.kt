@@ -1,8 +1,8 @@
 package com.demal.repository.api
 
-import com.demal.model.data.entity.tours.network.TourResponse
-import com.demal.model.data.entity.user.LoginResponse
+import com.demal.model.data.entity.tours.network.NetworkTour
 import com.demal.model.data.entity.user.LoginRequest
+import com.demal.model.data.entity.user.LoginResponse
 import com.demal.model.data.entity.user.User
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
@@ -21,12 +21,12 @@ interface ApiService {
     fun getTours(
         @Query("sortBy") sortBy: SortBy,
         @Query("order") order: Order,
-    ): Deferred<List<TourResponse>>
+    ): Deferred<List<NetworkTour>>
 
     @GET("api/$API_VERSION/tours/{id}")
     fun getTourById(
         @Path("id") id: Int,
-    ): Deferred<TourResponse>
+    ): Deferred<NetworkTour>
 
     companion object {
         private const val API_VERSION = "v1"
