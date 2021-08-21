@@ -2,7 +2,6 @@ package com.demal.model.data.entity.user
 
 import android.os.Parcelable
 import com.demal.model.data.entity.AppStateEntity
-import com.demal.model.data.entity.Wish
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

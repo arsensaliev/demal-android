@@ -4,6 +4,6 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Wish(
+data class AddToWishListEntity(
     val id: Int
 ) : Parcelable

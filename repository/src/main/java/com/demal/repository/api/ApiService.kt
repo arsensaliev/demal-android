@@ -1,5 +1,6 @@
 package com.demal.repository.api
 
+import com.demal.model.data.entity.AddToWishListEntity
 import com.demal.model.data.entity.tours.network.Tour
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.model.data.entity.user.LoginResponse
@@ -33,6 +34,18 @@ interface ApiService {
     fun getUserWishList(
         @Path("id") id: Int
     ): Deferred<List<Tour>>
+
+    @POST("api/$API_VERSION/users/{id}/wishlist")
+    fun addToWishList(
+        @Path("id") id: Int,
+        @Body wish: AddToWishListEntity
+    )
+
+    @DELETE("api/$API_VERSION/users/{uid}/wishlist/{tourId}")
+    fun deleteFromWishList(
+        @Path("uid") uid: Int,
+        @Path("tourId") tourId: Int
+    )
 
     companion object {
         private const val API_VERSION = "v1"
