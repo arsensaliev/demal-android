@@ -22,7 +22,7 @@
     <style name="profileEdittextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="errorEnabled">true</item>
         <item name="errorIconTint">@null</item>
-        <item name="boxStrokeColor">@color/edit_text_layout</item>
+        <item name="boxStrokeColor">@color/purple_light</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/edit_text_layout_height</item>
         <item name="android:layout_marginStart">@dimen/edit_text_layout_margin_start</item>

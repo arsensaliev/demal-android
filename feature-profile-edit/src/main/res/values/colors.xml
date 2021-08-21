@@ -2,5 +2,4 @@
 <resources>
     <color name="fogging_80">#80000000</color>
     <color name="button_save_color">#6550EE</color>
-    <color name="edit_text_layout">#6200EE</color>
 </resources>

@@ -3,6 +3,7 @@
     <dimen name="text_size">15sp</dimen>
     <dimen name="button_backspace_height_width">34dp</dimen>
     <dimen name="button_backspace_margin_start_top">34dp</dimen>
+    <dimen name="button_backspace_margin_bottom">85dp</dimen>
     <dimen name="margin_profile_edit_left_right">20dp</dimen>
     <dimen name="margin_profile_edit_top">70dp</dimen>
     <dimen name="radius_profile_edit">25dp</dimen>
