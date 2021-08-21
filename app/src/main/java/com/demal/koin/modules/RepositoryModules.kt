@@ -28,7 +28,7 @@ val preferencesModule = module {
 }
 
 val repositoryModule = module {
-    single<LoginResponseRepositoryLocal> { LoginResponseRepositoryLocalImpl(get()) }
+    single<UserRepositoryLocal> { userRepositoryLocalImpl(get()) }
     single<UserRepository> { UserRepositoryImpl(get(), get(), get()) }
     single<ToursRepository> { ToursRepositoryImpl(get()) }
 }

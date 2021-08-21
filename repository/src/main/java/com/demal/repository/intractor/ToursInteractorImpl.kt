@@ -4,17 +4,17 @@ import com.demal.model.data.entity.AddToWishListEntity
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.Tours
 import com.demal.model.data.entity.tours.network.Tour
-import com.demal.repository.repository.LoginResponseRepositoryLocal
+import com.demal.repository.repository.UserRepositoryLocal
 import com.demal.repository.repository.ToursRepository
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 
 class ToursInteractorImpl(
     private val toursRepository: ToursRepository,
-    private val loginResponseRepository: LoginResponseRepositoryLocal
+    private val userRepository: UserRepositoryLocal
 ) : ToursInteractor {
 
-    private val userId get() = loginResponseRepository.getUser()?.id
+    private val userId get() = userRepository.getUser()?.id
 
     override suspend fun getTours(sortBy: SortBy, order: Order) =
         Tours(toLikable(toursRepository.getTours(sortBy, order)))

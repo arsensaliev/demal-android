@@ -10,7 +10,7 @@ class ToursRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,
 ) : ToursRepository {
 
-    private var wishList: List<Tour>? = null
+    private var wishList: MutableList<Tour>? = null
 
     override suspend fun getTours(sortBy: SortBy, order: Order) =
         remoteDataSource.getTours(sortBy, order)
@@ -22,12 +22,21 @@ class ToursRepositoryImpl(
         wishList ?: remoteDataSource
             .getUserWishList(userId)
             .apply {
-                wishList = this
+                wishList = wishList ?: mutableListOf()
+                wishList?.clear()
+                wishList?.addAll(this)
             }
 
-    override suspend fun addToWishList(userId: Int, wish: AddToWishListEntity) =
-        remoteDataSource.addToWishList(userId, wish)
+    override suspend fun addToWishList(userId: Int, wish: AddToWishListEntity) {
+        remoteDataSource.addToWishList(userId, wish)?.let { tour ->
+            wishList?.add(tour)
+        }
+    }
 
-    override suspend fun deleteFromWishList(userId: Int, wishId: Int) =
-        remoteDataSource.deleteFromWishList(userId, wishId)
+    override suspend fun deleteFromWishList(userId: Int, tourId: Int) {
+        remoteDataSource.deleteFromWishList(userId, tourId)
+        wishList?.removeIf { tour ->
+            tour.id == tourId
+        }
+    }
 }

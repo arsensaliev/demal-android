@@ -3,9 +3,9 @@ package com.demal.repository.repository
 import com.demal.model.data.entity.user.LoginResponse
 import com.demal.repository.data_sources.preferences.GeneralPreferencesDataSource
 
-class LoginResponseRepositoryLocalImpl(
+class userRepositoryLocalImpl(
     private val preferencesDataSource: GeneralPreferencesDataSource
-) : LoginResponseRepositoryLocal {
+) : UserRepositoryLocal {
 
     override suspend fun saveResponse(response: LoginResponse) {
         preferencesDataSource.putParcelable(RESPONSE_KEY, response)

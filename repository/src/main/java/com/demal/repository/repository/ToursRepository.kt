@@ -10,5 +10,5 @@ interface ToursRepository {
     suspend fun getTourById(id: Int): Tour
     suspend fun getFavoriteTours(userId: Int): List<Tour>
     suspend fun addToWishList(userId: Int, wish: AddToWishListEntity)
-    suspend fun deleteFromWishList(userId: Int, wishId: Int)
+    suspend fun deleteFromWishList(userId: Int, tourId: Int)
 }

@@ -18,7 +18,7 @@ interface RemoteDataSource {
     suspend fun addToWishList(
         id: Int,
         wish: AddToWishListEntity
-    )
+    ): Tour?
 
     suspend fun deleteFromWishList(
         userId: Int,

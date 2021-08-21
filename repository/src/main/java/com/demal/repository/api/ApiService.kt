@@ -39,7 +39,7 @@ interface ApiService {
     fun addToWishList(
         @Path("id") id: Int,
         @Body wish: AddToWishListEntity
-    )
+    ): Deferred<Tour?>
 
     @DELETE("api/$API_VERSION/users/{uid}/wishlist/{tourId}")
     fun deleteFromWishList(

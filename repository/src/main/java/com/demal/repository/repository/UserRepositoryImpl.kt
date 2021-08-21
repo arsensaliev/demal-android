@@ -8,7 +8,7 @@ import com.demal.repository.data_sources.RemoteDataSource
 
 class UserRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,
-    private val responseRepository: LoginResponseRepositoryLocal,
+    private val responseRepository: UserRepositoryLocal,
     private val toursRepository: ToursRepository
 ) : UserRepository {
     override suspend fun login(email: String, password: String): User {
