@@ -15,6 +15,11 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class ProfileEditFragment :
     BaseFragment<FragmentProfileEditBinding, User, ProfileEditViewModel>() {
 
+    lateinit var validatorFirstName: EditTextValidator
+    lateinit var validatorLastName: EditTextValidator
+    lateinit var validatorCountry: EditTextValidator
+    lateinit var validatorCity: EditTextValidator
+
     override var bindingNullable: FragmentProfileEditBinding? = null
 
     override val viewModel: ProfileEditViewModel by viewModel()
@@ -37,23 +42,36 @@ class ProfileEditFragment :
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setEditorListener()
+        initEditTextValidator()
         setButtonSaveListener()
     }
 
-    private fun setEditorListener() {
-        bindingNullable?.inputEditTextFirstName?.setOnEditorActionListener { _, _, _ ->
-            this.checkForErrorFirstName()
-        }
-        bindingNullable?.inputEditTextLastname?.setOnEditorActionListener { _, _, _ ->
-            this.checkForErrorLastName()
-        }
-        bindingNullable?.inputEditTextCountry?.setOnEditorActionListener { _, _, _ ->
-            this.checkForErrorCountry()
-        }
-        bindingNullable?.inputEditTextCity?.setOnEditorActionListener { _, _, _ ->
-            this.checkForErrorCity()
-        }
+    private fun initEditTextValidator() {
+
+        validatorFirstName = EditTextValidator(
+            bindingNullable?.inputLayoutFirstName,
+            bindingNullable?.inputEditTextFirstName,
+            resources.getString(R.string.profile_edit_first_name_err)
+        )
+
+        validatorLastName = EditTextValidator(
+            bindingNullable?.inputLayoutLastName,
+            bindingNullable?.inputEditTextLastname,
+            resources.getString(R.string.profile_edit_last_name_err)
+        )
+
+        validatorCountry = EditTextValidator(
+            bindingNullable?.inputLayoutCountry,
+            bindingNullable?.inputEditTextCountry,
+            resources.getString(R.string.profile_edit_сountry_err)
+        )
+
+        validatorCity = EditTextValidator(
+            bindingNullable?.inputLayoutCity,
+            bindingNullable?.inputEditTextCity,
+            resources.getString(R.string.profile_edit_сity_err)
+        )
+
     }
 
     private fun setButtonSaveListener() {
@@ -63,77 +81,13 @@ class ProfileEditFragment :
     }
 
     fun checkForErrorsAll() {
-        checkForErrorFirstName()
-        checkForErrorLastName()
-        checkForErrorCountry()
-        checkForErrorCity()
+        validatorFirstName.checkForError()
+        validatorLastName.checkForError()
+        validatorCountry.checkForError()
+        validatorCity.checkForError()
     }
 
-    private fun checkForErrorFirstName(): Boolean {
-        return errorMessage(
-            bindingNullable?.inputLayoutFirstName,
-            bindingNullable?.inputEditTextFirstName,
-            resources.getString(R.string.profile_edit_first_name_err)
-        )
-    }
 
-    private fun checkForErrorLastName(): Boolean {
-        return errorMessage(
-            bindingNullable?.inputLayoutLastName,
-            bindingNullable?.inputEditTextLastname,
-            resources.getString(R.string.profile_edit_last_name_err)
-        )
-    }
-
-    fun checkForErrorCountry(): Boolean {
-        return errorMessage(
-            bindingNullable?.inputLayoutCountry,
-            bindingNullable?.inputEditTextCountry,
-            resources.getString(R.string.profile_edit_сountry_err)
-        )
-    }
-
-    fun checkForErrorCity(): Boolean {
-        return errorMessage(
-            bindingNullable?.inputLayoutCity,
-            bindingNullable?.inputEditTextCity,
-            resources.getString(R.string.profile_edit_сity_err)
-        )
-    }
-
-    private fun errorMessage(
-        inputLayout: TextInputLayout?,
-        inputEditText: TextInputEditText?,
-        textMessageError: String
-    ): Boolean {
-        if (inputLayout != null && inputEditText != null) {
-
-            return if (shouldShowError(inputEditText)) {
-                showErrorOff(inputLayout)
-                false
-            } else {
-                showErrorOn(inputLayout, textMessageError)
-                true
-            }
-        }
-        return false
-    }
-
-    private fun showErrorOn(inputLayout: TextInputLayout, textMessageError: String) {
-        inputLayout.error = textMessageError
-    }
-
-    private fun showErrorOff(inputLayout: TextInputLayout) {
-        inputLayout.setError(null)
-    }
-
-    private fun shouldShowError(inputEditText: TextInputEditText): Boolean {
-        if (inputEditText.text != null) {
-            val textLength = inputEditText.text!!.length
-            return textLength > 0
-        }
-        return false
-    }
 }
 
 
