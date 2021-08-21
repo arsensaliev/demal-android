@@ -18,7 +18,7 @@ class LoginResponseRepositoryLocalImpl(
         preferencesDataSource.remove(RESPONSE_KEY)
     }
 
-    override suspend fun getUser() =
+    override fun getUser() =
         getResponse()?.user
 
     private fun getResponse() = preferencesDataSource.getParcelable<LoginResponse>(RESPONSE_KEY)
