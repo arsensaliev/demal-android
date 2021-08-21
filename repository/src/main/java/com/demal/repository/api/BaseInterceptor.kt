@@ -1,16 +1,16 @@
 package com.demal.repository.api
 
 import com.demal.model.data.exceptions.NoAuthException
-import com.demal.repository.repository.TokenRepository
+import com.demal.repository.repository.LoginResponseRepositoryLocal
 import okhttp3.Interceptor
 import okhttp3.Response
 
 class BaseInterceptor(
-    private val tokenRepository: TokenRepository
+    private val loginResponseRepositoryLocal: LoginResponseRepositoryLocal
 ) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val token = tokenRepository.getToken()
+        val token = loginResponseRepositoryLocal.getUserToken()
 
         val newRequest = token?.let {
             chain.request().newBuilder()
