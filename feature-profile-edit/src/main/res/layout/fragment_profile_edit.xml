@@ -5,6 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/profile_edit_btn_backspace"
+        android:layout_width="@dimen/button_backspace_height_width"
+        android:layout_height="@dimen/button_backspace_height_width"
+        android:layout_marginStart="@dimen/button_backspace_margin_start_top"
+        android:layout_marginTop="@dimen/button_backspace_margin_start_top"
+        android:background="@drawable/ic_backspace"
+        android:contentDescription="@string/btn_backspace_description"
+        app:backgroundTint="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -16,19 +28,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/profile_bg_dark">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/profile_edit_btn_backspace"
-                android:layout_width="@dimen/button_backspace_height_width"
-                android:layout_height="@dimen/button_backspace_height_width"
-                android:layout_marginStart="@dimen/button_backspace_margin_start_top"
-                android:layout_marginTop="@dimen/button_backspace_margin_start_top"
-                android:layout_marginBottom="@dimen/button_backspace_margin_bottom"
-                android:background="@drawable/ic_backspace"
-                android:contentDescription="@string/btn_backspace_description"
-                app:backgroundTint="@null"
-                app:layout_constraintBottom_toTopOf="@+id/cardViewEdit"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewEdit"

@@ -9,7 +9,7 @@
     <dimen name="radius_profile_edit">25dp</dimen>
     <dimen name="margin_top_first_edit_text_first_name">86dp</dimen>
     <dimen name="edit_text_size_text">20sp</dimen>
-    <dimen name="edit_text_layout_height">80sp</dimen>
+    <dimen name="edit_text_layout_height">85sp</dimen>
     <dimen name="edit_text_layout_margin_start">20sp</dimen>
     <dimen name="edit_text_layout_marginEnd">20sp</dimen>
     <dimen name="button_save_radius">10dp</dimen>
