@@ -3,7 +3,8 @@
     <string name="profile_avatar">Profile avatar</string>
     <string name="edit">Редактировать</string>
     <string name="payment_methods">Способы оплаты</string>
-
     <string name="saved">Сохраненные</string>
-    <string name="tours_title">Ближайшие туры</string>
+    <string name="booking">Забронировать</string>
+    <string name="attraction_picture">картинка достопримечательности</string>
+    <string name="close_button">кнопка закрыть</string>
 </resources>

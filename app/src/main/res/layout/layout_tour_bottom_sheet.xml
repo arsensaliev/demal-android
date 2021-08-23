@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:background="@drawable/bottom_sheet_bg"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="45dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_draggable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_place"
+        style="@style/ItemMainTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
+        tools:text="Тур на озера Каинды и Кольсай" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView_people"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView_people"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_place"
+        app:srcCompat="@drawable/ic_human" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_people"
+        style="@style/ItemSupportTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/item_text_to_icon_margin"
+        android:layout_marginEnd="@dimen/item_text_to_icon_margin"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_people"
+        app:layout_constraintEnd_toStartOf="@+id/imageView_calendar"
+        app:layout_constraintStart_toEndOf="@+id/imageView_people"
+        app:layout_constraintTop_toTopOf="@+id/imageView_people"
+        tools:text="11" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView_calendar"
+        android:layout_width="15dp"
+        android:layout_height="9dp"
+        android:layout_marginStart="@dimen/item_text_to_icon_margin"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_people"
+        app:layout_constraintEnd_toStartOf="@+id/textView_date"
+        app:layout_constraintStart_toEndOf="@+id/textView_people"
+        app:layout_constraintTop_toTopOf="@+id/textView_people"
+        app:srcCompat="@drawable/ic_calendar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_date"
+        style="@style/ItemSupportTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_calendar"
+        app:layout_constraintStart_toEndOf="@+id/imageView_calendar"
+        app:layout_constraintTop_toTopOf="@+id/imageView_calendar"
+        tools:text="29 июня 2021" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_description"
+        style="@style/ItemDescriptionTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView_like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_people"
+        tools:text="Восхождение подготовлено, спланировано и будет проведено европейскими горными гидами в соответствии с высочайшими международными стандартами горовосхождения. Этот поход позволит не только взойти на вершину Казбека, но и познакомиться с местными традициями и интересными местами, получить ценный опыт в горах под руководством сертифицированных альпийских горных гидов." />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView_like"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/square_button" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#6550ee"
+        android:text="@string/booking"
+        android:textAppearance="?attr/textAppearanceBody1"
+        app:icon="@drawable/backpack"
+        app:iconGravity="textStart"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_like"
+        app:layout_constraintTop_toTopOf="@+id/imageView_like" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
