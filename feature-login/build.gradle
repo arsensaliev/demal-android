@@ -6,6 +6,7 @@ plugins {
 dependencies {
     implementation project(Modules.core)
     implementation project(Modules.utils)
+    implementation project(Modules.model)
 
     implementation Kotlin.core
     implementation Kotlin.stdlib
@@ -17,6 +18,9 @@ dependencies {
     implementation TestImpl.junit
     implementation TestImpl.runner
     implementation TestImpl.espresso
+    implementation Koin.koinAndroid
+    implementation Koin.koinViewModel
+    implementation AwesomeValidation.valid
 }
 repositories {
     mavenCentral()

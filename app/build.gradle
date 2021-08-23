@@ -15,6 +15,7 @@ dependencies {
     //Feature Modules
     implementation project(Modules.featProfile)
     implementation project(Modules.featHome)
+    implementation project(Modules.featLogin)
 
     //AndroidX
     implementation Tools.multidex
@@ -51,6 +52,9 @@ dependencies {
     implementation Retrofit.converterGson
     implementation Retrofit.adapterCoroutines
     implementation Retrofit.loggingInterceptor
+
+    //AwesomeValidation
+    implementation AwesomeValidation.valid
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
