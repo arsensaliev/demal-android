@@ -6,18 +6,16 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.util.DisplayMetrics
 import android.view.MotionEvent
-import android.view.View
 import androidx.core.content.ContextCompat
 import com.demal.feature_mytours.R
-import java.lang.RuntimeException
+import com.google.android.material.card.MaterialCardView
 import kotlin.math.roundToInt
 
 class ActiveInactiveView @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
     defStyleAttr: Int = 0,
-    defStyleRes: Int = 0
-) : View(context, attributeSet, defStyleAttr, defStyleRes) {
+) : MaterialCardView(context, attributeSet, defStyleAttr) {
 
     var activeState = false
         private set
@@ -189,7 +187,8 @@ class ActiveInactiveView @JvmOverloads constructor(
         if (action == MotionEvent.ACTION_UP) {
             activeState = !activeState
             listenerState?.onStateChanged(activeState)
-                ?: throw RuntimeException("For the view to work correctly, you must declare listener")
+//              Когда буду писать вьюмодель раскомментирую
+//                ?: throw RuntimeException("For the view to work correctly, you must declare listener")
             click = true
         }
 
@@ -288,7 +287,7 @@ class ActiveInactiveView @JvmOverloads constructor(
     private fun initInactiveTextText(canvas: Canvas?) {
         canvas?.drawText(
             inactiveTextText,
-            (width!!/2 - inactiveTextPaddingEnd).toFloat(),
+            (width!! / 2 - inactiveTextPaddingEnd).toFloat(),
             (height!! - (inactiveTextPaddingBot)).toFloat(),
             inactiveTextPaint!!
         )

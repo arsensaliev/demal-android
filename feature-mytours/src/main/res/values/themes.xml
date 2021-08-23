@@ -24,6 +24,8 @@
         <item name="inactive_paddingEnd">@dimen/inactive_paddingEnd_active_inactive_button</item>
         <item name="inactive_text_color">@color/white</item>
         <item name="elevation">@dimen/elevation_active_inactive_button</item>
+        <item name="radius">@dimen/radius_active_inactive_button</item>
+        <item name="cardCornerRadius">@dimen/radius_active_inactive_button</item>
 
     </style>
 </resources>
