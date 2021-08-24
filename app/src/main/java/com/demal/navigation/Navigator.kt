@@ -29,5 +29,5 @@ class Navigator(
     override fun toProfileScreen() = router.navigateTo(screens.profileScreen())
 
     //TODO: Navigate to Login Screen
-    override fun toLoginScreen() = router.navigateTo(screens.profileScreen())
+    override fun toLoginScreen() = router.navigateTo(screens.loginScreen())
 }
