@@ -11,4 +11,7 @@
     <string name="email">Email</string>
     <string name="password">Пароль</string>
     <string name="sign_in">Войти</string>
+    <string name="wrong_email">Некорректный email</string>
+    <string name="password_rule">Пароль должен содержать 8 символов</string>
+    <string name="regex_password_validation">".{8,}"</string>
 </resources>
