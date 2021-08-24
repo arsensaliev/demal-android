@@ -3,7 +3,7 @@ package com.demal.repository.intractor
 import com.demal.model.data.entity.AddToWishListEntity
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.Tours
-import com.demal.model.data.entity.tours.network.Tour
+import com.demal.model.data.entity.tours.Tour
 import com.demal.repository.repository.UserRepositoryLocal
 import com.demal.repository.repository.ToursRepository
 import com.demal.repository.types.Order

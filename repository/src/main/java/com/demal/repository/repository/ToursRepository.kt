@@ -1,7 +1,7 @@
 package com.demal.repository.repository
 
 import com.demal.model.data.entity.AddToWishListEntity
-import com.demal.model.data.entity.tours.network.Tour
+import com.demal.model.data.entity.tours.Tour
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 

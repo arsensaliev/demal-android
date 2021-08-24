@@ -8,12 +8,12 @@ import com.demal.repository.data_sources.RemoteDataSource
 
 class UserRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,
-    private val responseRepository: UserRepositoryLocal,
+    private val userRepositoryLocal: UserRepositoryLocal,
     private val toursRepository: ToursRepository
 ) : UserRepository {
     override suspend fun login(email: String, password: String): User {
         val response = remoteDataSource.login(LoginRequest(email, password))
-        responseRepository.saveResponse(response)
+        userRepositoryLocal.saveResponse(response)
         response.user.id?.let { id ->
             toursRepository.getFavoriteTours(id)
         }
@@ -23,9 +23,9 @@ class UserRepositoryImpl(
 
     override suspend fun myUser() =
         remoteDataSource.myUser().apply {
-            val token = responseRepository.getUserToken()
+            val token = userRepositoryLocal.getUserToken()
             token?.let {
-                responseRepository.saveResponse(
+                userRepositoryLocal.saveResponse(
                         LoginResponse(Auth(token), this)
                     )
             }

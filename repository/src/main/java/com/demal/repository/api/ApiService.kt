@@ -1,11 +1,10 @@
 package com.demal.repository.api
 
 import com.demal.model.data.entity.AddToWishListEntity
-import com.demal.model.data.entity.tours.network.Tour
+import com.demal.model.data.entity.tours.Tour
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.model.data.entity.user.LoginResponse
 import com.demal.model.data.entity.user.User
-import com.demal.repository.api.ApiService.Companion.API_VERSION
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 import kotlinx.coroutines.Deferred
