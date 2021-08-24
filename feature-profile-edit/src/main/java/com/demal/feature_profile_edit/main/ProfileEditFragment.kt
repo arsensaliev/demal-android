@@ -49,33 +49,33 @@ class ProfileEditFragment :
     private fun initEditTextValidator() {
 
         validatorFirstName = EditTextValidator(
-            bindingNullable?.inputLayoutFirstName,
-            bindingNullable?.inputEditTextFirstName,
+            binding.inputLayoutFirstName,
+            binding.inputEditTextFirstName,
             resources.getString(R.string.profile_edit_first_name_err)
         )
 
         validatorLastName = EditTextValidator(
-            bindingNullable?.inputLayoutLastName,
-            bindingNullable?.inputEditTextLastname,
+            binding.inputLayoutLastName,
+            binding.inputEditTextLastname,
             resources.getString(R.string.profile_edit_last_name_err)
         )
 
         validatorCountry = EditTextValidator(
-            bindingNullable?.inputLayoutCountry,
+            binding.inputLayoutCountry,
             bindingNullable?.inputEditTextCountry,
             resources.getString(R.string.profile_edit_сountry_err)
         )
 
         validatorCity = EditTextValidator(
-            bindingNullable?.inputLayoutCity,
-            bindingNullable?.inputEditTextCity,
+            binding.inputLayoutCity,
+            binding.inputEditTextCity,
             resources.getString(R.string.profile_edit_сity_err)
         )
 
     }
 
     private fun setButtonSaveListener() {
-        bindingNullable?.buttonSend?.setOnClickListener {
+        binding.buttonSend.setOnClickListener {
             checkForErrorsAll()
         }
     }
