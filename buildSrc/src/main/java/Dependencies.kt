@@ -5,7 +5,7 @@ object Config {
     const val compileSdk = 30
     const val minSdk = 24
     const val targetSdk = 30
-    const val kotlinVersion = "1.5.0"
+    const val kotlinVersion = "1.5.30-RC"
     const val buildTools = "30.0.3"
     val javaVersion = JavaVersion.VERSION_1_8
 }
@@ -120,6 +120,7 @@ object Modules {
     const val featTours = ":feature-tours"
     const val featHome = ":feature-home"
     const val featWishlist = ":feature-wishlist"
+    const val featMyTours = ":feature-mytours"
 }
 
 object Cicerone {
