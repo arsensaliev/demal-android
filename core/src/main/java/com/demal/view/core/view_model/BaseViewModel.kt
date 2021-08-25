@@ -14,7 +14,7 @@ abstract class BaseViewModel<D : AppStateEntity>(
     private val navigator: BaseNavigator,
 ) : ViewModel() {
 
-    private val mStateLiveData = MutableLiveData<BaseState<D>>()
+    protected val mStateLiveData = MutableLiveData<BaseState<D>>()
     val stateLiveData get() = mStateLiveData as LiveData<BaseState<D>>
 
     private val viewModelCoroutineScope = CoroutineScope(
