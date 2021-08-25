@@ -3,7 +3,7 @@ package com.demal.repository.repository
 import com.demal.model.data.entity.user.LoginResponse
 import com.demal.repository.data_sources.preferences.GeneralPreferencesDataSource
 
-class userRepositoryLocalImpl(
+class UserRepositoryLocalImpl(
     private val preferencesDataSource: GeneralPreferencesDataSource
 ) : UserRepositoryLocal {
 
@@ -21,7 +21,7 @@ class userRepositoryLocalImpl(
     override fun getUser() =
         getResponse()?.user
 
-    private fun getResponse() = preferencesDataSource.getParcelable<LoginResponse>(RESPONSE_KEY)
+    private fun getResponse() = preferencesDataSource.getParcelable(RESPONSE_KEY, LoginResponse::class.java)
 
     companion object {
         private const val RESPONSE_KEY = "RESPONSE_KEY"
