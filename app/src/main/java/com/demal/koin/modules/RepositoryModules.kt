@@ -12,8 +12,8 @@ import com.demal.repository.data_sources.preferences.ParcelablePreferencesDataSo
 import com.demal.repository.data_sources.preferences.PreferencesDataSourceImpl
 import com.demal.repository.image.GlideImageLoader
 import com.demal.repository.image.ImageLoader
-import com.demal.repository.intractor.ToursInteractor
-import com.demal.repository.intractor.ToursInteractorImpl
+import com.demal.repository.interactor.ToursInteractor
+import com.demal.repository.interactor.ToursInteractorImpl
 import com.demal.repository.repository.*
 import org.koin.dsl.module
 
@@ -28,7 +28,7 @@ val preferencesModule = module {
 }
 
 val repositoryModule = module {
-    single<UserRepositoryLocal> { userRepositoryLocalImpl(get()) }
+    single<UserRepositoryLocal> { UserRepositoryLocalImpl(get()) }
     single<UserRepository> { UserRepositoryImpl(get(), get(), get()) }
     single<ToursRepository> { ToursRepositoryImpl(get()) }
 }
