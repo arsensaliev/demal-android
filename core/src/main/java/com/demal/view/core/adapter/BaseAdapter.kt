@@ -5,17 +5,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.demal.model.data.entity.tours.ListItem
+import com.demal.view.core.adapter.listeners.BaseClickListener
 
-class BaseAdapter<T : ListItem<T>>(
+class BaseAdapter<T : ListItem<T>, L : BaseClickListener>(
     private val itemLayoutId: Int,
-    private val bind: ((View, data: T, pos: Int) -> Unit)? = null,
+    private val bind: ((View, data: T, listener: L) -> Unit)? = null,
+    private val listener: L
 
-    ) : ListAdapter<T, BaseAdapter<T>.BaseViewHolder>(BaseDiffUtilCallback<T>()) {
+) : ListAdapter<T, BaseAdapter<T, L>.BaseViewHolder>(BaseDiffUtilCallback<T>()) {
 
     inner class BaseViewHolder(
         private val root: View
     ) : RecyclerView.ViewHolder(root) {
-        fun bind(data: T) = bind?.let { it(root, data, adapterPosition) }
+        fun bind(data: T, listener: L) = bind?.let { it(root, data, listener) }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
@@ -26,6 +29,6 @@ class BaseAdapter<T : ListItem<T>>(
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), listener)
     }
 }

@@ -1,6 +1,7 @@
 package com.demal.view.core.adapter
 
 import androidx.recyclerview.widget.DiffUtil
+import com.demal.model.data.entity.tours.ListItem
 
 class BaseDiffUtilCallback<T : ListItem<T>> : DiffUtil.ItemCallback<T>() {
     override fun areItemsTheSame(oldItem: T, newItem: T): Boolean =

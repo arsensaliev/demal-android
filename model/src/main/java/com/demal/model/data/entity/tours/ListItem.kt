@@ -1,4 +1,4 @@
-package com.demal.view.core.adapter
+package com.demal.model.data.entity.tours
 
 interface ListItem<T> {
     fun areContentsTheSame(other: T): Boolean
