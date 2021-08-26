@@ -6,6 +6,8 @@ plugins {
 dependencies {
     //Modules
     implementation project(Modules.core)
+    implementation project(Modules.repository)
+    implementation project(Modules.model)
 
     //Design
     implementation Design.material
@@ -17,6 +19,10 @@ dependencies {
     implementation Kotlin.stdlib
     implementation Kotlin.coroutinesCore
     implementation Kotlin.coroutinesAndroid
+
+    //Koin
+    implementation Koin.koinAndroid
+    implementation Koin.koinViewModel
 
     //Test
     testImplementation TestImpl.junit
