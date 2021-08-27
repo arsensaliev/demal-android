@@ -11,9 +11,7 @@ import com.demal.feature_profile_edit.R
 import com.demal.feature_profile_edit.databinding.FragmentProfileEditBinding
 import com.demal.model.data.entity.user.User
 import com.demal.view.core.view.BaseFragment
-import com.google.android.material.textfield.TextInputLayout
 import org.koin.android.viewmodel.ext.android.viewModel
-
 
 class ProfileEditFragment :
     BaseFragment<FragmentProfileEditBinding, User, ProfileEditViewModel>() {
