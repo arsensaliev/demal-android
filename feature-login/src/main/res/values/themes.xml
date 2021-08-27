@@ -46,7 +46,7 @@
         <item name="errorEnabled">true</item>
         <item name="hintTextAppearance">@style/HintTextAppearance</item>
         <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
-        <item name="boxStrokeColor">#6200EE</item>
+        <item name="boxStrokeColor">@color/purple_dark</item>
         <item name="errorIconDrawable">@null</item>
         <item name="boxStrokeErrorColor">@color/error_red_dark</item>
         <item name="errorTextColor">@color/error_red_dark</item>
