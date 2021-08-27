@@ -1,0 +1,5 @@
+<resources>
+    <string name="my_tours">Мои туры</string>
+    <string name="active">Активные</string>
+    <string name="past">Прошедшие</string>
+</resources>

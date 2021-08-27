@@ -1,7 +1,6 @@
 package com.demal.repository.data_sources.preferences
 
-interface GeneralPreferencesDataSource :
-    StringPreferencesDataSource {
+interface GeneralPreferencesDataSource : ParcelablePreferencesDataSource {
 
     fun remove(key: String)
 }

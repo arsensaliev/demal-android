@@ -20,7 +20,9 @@ class App : MultiDexApplication() {
                     retrofitModule,
                     dataSourceModule,
                     repositoryModule,
-                    imageModule
+                    interactorModule,
+                    imageModule,
+                    preferencesModule
                 )
             )
         }
