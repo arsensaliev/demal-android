@@ -2,6 +2,7 @@ package com.demal.koin.modules
 
 import com.demal.repository.api.ApiService
 import com.demal.repository.api.BaseInterceptor
+import com.demal.repository.types.EnumConverterFactory
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,6 +20,7 @@ val retrofitModule = module {
         Retrofit.Builder()
             .baseUrl(BASE_URL_LOCATIONS)
             .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(EnumConverterFactory())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(client)
             .build().create(ApiService::class.java)
