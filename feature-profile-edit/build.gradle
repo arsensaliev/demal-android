@@ -19,6 +19,7 @@ dependencies {
     implementation Design.appcompat
     implementation Design.material
     implementation Design.constraintLayout
+    implementation 'com.basgeekball:awesome-validation:4.3'
 }
 repositories {
     mavenCentral()

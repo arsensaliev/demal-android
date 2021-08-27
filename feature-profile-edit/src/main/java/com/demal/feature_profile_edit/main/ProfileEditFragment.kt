@@ -4,24 +4,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.basgeekball.awesomevalidation.AwesomeValidation
+import com.basgeekball.awesomevalidation.ValidationStyle
+import com.basgeekball.awesomevalidation.utility.RegexTemplate
 import com.demal.feature_profile_edit.R
 import com.demal.feature_profile_edit.databinding.FragmentProfileEditBinding
-import com.demal.view.core.view.BaseFragment
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.demal.model.data.entity.user.User
+import com.demal.view.core.view.BaseFragment
+import com.google.android.material.textfield.TextInputLayout
 import org.koin.android.viewmodel.ext.android.viewModel
+
 
 class ProfileEditFragment :
     BaseFragment<FragmentProfileEditBinding, User, ProfileEditViewModel>() {
 
-    lateinit var validatorFirstName: EditTextValidator
-    lateinit var validatorLastName: EditTextValidator
-    lateinit var validatorCountry: EditTextValidator
-    lateinit var validatorCity: EditTextValidator
-
+    private var mAwesomeValidation = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
     override var bindingNullable: FragmentProfileEditBinding? = null
-
     override val viewModel: ProfileEditViewModel by viewModel()
 
     override fun onCreateView(
@@ -42,33 +40,38 @@ class ProfileEditFragment :
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         initEditTextValidator()
         setButtonSaveListener()
     }
 
     private fun initEditTextValidator() {
 
-        validatorFirstName = EditTextValidator(
+        mAwesomeValidation = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
+        mAwesomeValidation.setTextInputLayoutErrorTextAppearance(R.style.errorTextInputLayout);
+
+        mAwesomeValidation.addValidation(
             binding.inputLayoutFirstName,
-            binding.inputEditTextFirstName,
-            resources.getString(R.string.profile_edit_first_name_err)
+            RegexTemplate.NOT_EMPTY,
+            getString(R.string.profile_edit_first_name_err)
         )
 
-        validatorLastName = EditTextValidator(
+        mAwesomeValidation.addValidation(
             binding.inputLayoutLastName,
-            binding.inputEditTextLastname,
+            RegexTemplate.NOT_EMPTY,
             resources.getString(R.string.profile_edit_last_name_err)
         )
 
-        validatorCountry = EditTextValidator(
+        mAwesomeValidation.addValidation(
             binding.inputLayoutCountry,
-            bindingNullable?.inputEditTextCountry,
+            RegexTemplate.NOT_EMPTY,
             resources.getString(R.string.profile_edit_сountry_err)
         )
 
-        validatorCity = EditTextValidator(
+        mAwesomeValidation.addValidation(
             binding.inputLayoutCity,
-            binding.inputEditTextCity,
+            RegexTemplate.NOT_EMPTY,
             resources.getString(R.string.profile_edit_сity_err)
         )
 
@@ -81,12 +84,8 @@ class ProfileEditFragment :
     }
 
     fun checkForErrorsAll() {
-        validatorFirstName.checkForError()
-        validatorLastName.checkForError()
-        validatorCountry.checkForError()
-        validatorCity.checkForError()
+        mAwesomeValidation.validate()
     }
-
 
 }
 
