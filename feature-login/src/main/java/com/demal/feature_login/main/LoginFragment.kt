@@ -18,7 +18,7 @@ class LoginFragment :
     override var bindingNullable: FragmentLoginBinding? = null
     override val viewModel: LoginViewModel by viewModel()
 
-    private var mAwesomeValidation = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
+    private val mAwesomeValidation = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
 
     override fun onCreateView(
         inflater: LayoutInflater,
