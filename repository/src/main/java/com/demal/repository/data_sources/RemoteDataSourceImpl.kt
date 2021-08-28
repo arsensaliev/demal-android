@@ -33,5 +33,5 @@ class RemoteDataSourceImpl(
     override suspend fun deleteFromWishList(
         userId: Int,
         tourId: Int
-    ) = service.deleteFromWishList(userId, tourId)
+    ) = service.deleteFromWishList(userId, tourId).await()
 }

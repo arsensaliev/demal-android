@@ -21,6 +21,7 @@ class ToursRepositoryImpl(
     override suspend fun getFavoriteTours(userId: Int) =
         wishList ?: remoteDataSource
             .getUserWishList(userId)
+            .tours
             .apply {
                 wishList = wishList ?: mutableListOf()
                 wishList?.clear()

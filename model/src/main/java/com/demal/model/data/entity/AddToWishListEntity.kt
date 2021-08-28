@@ -5,5 +5,5 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class AddToWishListEntity(
-    val id: Int
+    val tourId: Int
 ) : Parcelable
