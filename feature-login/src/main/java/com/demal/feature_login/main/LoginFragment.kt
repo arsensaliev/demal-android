@@ -54,7 +54,7 @@ class LoginFragment :
             if (mAwesomeValidation.validate()) {
                 // успешно
             } else {
-                renderMessage("Некорректный ввод")
+                renderMessage(getString(R.string.input_error))
             }
         }
     }
