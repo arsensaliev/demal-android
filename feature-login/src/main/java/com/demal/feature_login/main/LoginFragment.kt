@@ -18,7 +18,7 @@ class LoginFragment :
     override var bindingNullable: FragmentLoginBinding? = null
     override val viewModel: LoginViewModel by viewModel()
 
-    private val mAwesomeValidation = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
+    private val validator = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,13 +36,13 @@ class LoginFragment :
     }
 
     private fun initValidation() = with(binding) {
-        mAwesomeValidation.addValidation(
+        validator.addValidation(
             textInputLayoutEmail,
             android.util.Patterns.EMAIL_ADDRESS,
             getString(R.string.wrong_email)
         )
 
-        mAwesomeValidation.addValidation(
+        validator.addValidation(
             textInputLayoutPassword,
             getString(R.string.regex_password_validation),
             getString(R.string.password_rule)
@@ -51,7 +51,7 @@ class LoginFragment :
 
     private fun checkValidation() = with(binding) {
         buttonLogin.setOnClickListener {
-            if (mAwesomeValidation.validate()) {
+            if (validator.validate()) {
                 // успешно
             } else {
                 renderMessage(getString(R.string.input_error))
