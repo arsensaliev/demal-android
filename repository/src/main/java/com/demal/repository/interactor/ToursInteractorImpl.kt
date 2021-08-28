@@ -1,6 +1,6 @@
 package com.demal.repository.interactor
 
-import com.demal.model.data.entity.AddToWishListEntity
+import com.demal.model.data.entity.tours.network.AddToWishListEntity
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.Tour
 import com.demal.model.data.entity.tours.LikableTours

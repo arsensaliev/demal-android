@@ -1,13 +1,11 @@
 package com.demal.repository.data_sources
 
-import com.demal.model.data.entity.AddToWishListEntity
+import com.demal.model.data.entity.tours.network.AddToWishListEntity
 import com.demal.model.data.entity.tours.Tour
-import com.demal.model.data.entity.tours.LikableTours
 import com.demal.model.data.entity.tours.network.MeResponse
 import com.demal.model.data.entity.tours.network.Tours
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.model.data.entity.user.LoginResponse
-import com.demal.model.data.entity.user.User
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 
