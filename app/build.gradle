@@ -54,7 +54,7 @@ dependencies {
     implementation Retrofit.loggingInterceptor
 
     //AwesomeValidation
-    implementation AwesomeValidation.valid
+    implementation AwesomeValidation.validator
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

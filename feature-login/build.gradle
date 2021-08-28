@@ -21,7 +21,7 @@ dependencies {
     implementation TestImpl.espresso
     implementation Koin.koinAndroid
     implementation Koin.koinViewModel
-    implementation AwesomeValidation.valid
+    implementation AwesomeValidation.validator
 }
 repositories {
     mavenCentral()

@@ -5,7 +5,7 @@ object Config {
     const val compileSdk = 30
     const val minSdk = 24
     const val targetSdk = 30
-    const val kotlinVersion = "1.5.0"
+    const val kotlinVersion = "1.5.10"
     const val buildTools = "30.0.3"
     val javaVersion = JavaVersion.VERSION_1_8
 }
@@ -114,7 +114,7 @@ object TestImpl {
 }
 
 object AwesomeValidation {
-    const val valid = "com.basgeekball:awesome-validation:${Versions.validation}"
+    const val validator = "com.basgeekball:awesome-validation:${Versions.validation}"
 }
 
 object Modules {
