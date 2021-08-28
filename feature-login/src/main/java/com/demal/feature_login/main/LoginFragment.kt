@@ -31,27 +31,31 @@ class LoginFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bindingNullable?.let {
-            mAwesomeValidation.addValidation(
-                it.textInputLayoutEmail,
-                android.util.Patterns.EMAIL_ADDRESS,
-                getString(R.string.wrong_email)
-            )
+        initValidation()
+        checkValidation()
+    }
 
-            mAwesomeValidation.addValidation(
-                it.textInputLayoutPassword,
-                getString(R.string.regex_password_validation),
-                getString(R.string.password_rule)
-            )
+    private fun initValidation() = with(binding) {
+        mAwesomeValidation.addValidation(
+            textInputLayoutEmail,
+            android.util.Patterns.EMAIL_ADDRESS,
+            getString(R.string.wrong_email)
+        )
 
-            it.buttonLogin.setOnClickListener {
-                if (mAwesomeValidation.validate()) {
-                    // успешно
-                } else {
-                    // ошибка
-                }
+        mAwesomeValidation.addValidation(
+            textInputLayoutPassword,
+            getString(R.string.regex_password_validation),
+            getString(R.string.password_rule)
+        )
+    }
+
+    private fun checkValidation() = with(binding) {
+        buttonLogin.setOnClickListener {
+            if (mAwesomeValidation.validate()) {
+                // успешно
+            } else {
+                renderMessage("Некорректный ввод")
             }
-
         }
     }
 
