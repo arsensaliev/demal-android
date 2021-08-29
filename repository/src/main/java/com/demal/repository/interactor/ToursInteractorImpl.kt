@@ -1,11 +1,11 @@
-package com.demal.repository.intractor
+package com.demal.repository.interactor
 
-import com.demal.model.data.entity.AddToWishListEntity
+import com.demal.model.data.entity.tours.network.AddToWishListEntity
 import com.demal.model.data.entity.tours.LikableTour
-import com.demal.model.data.entity.tours.Tours
 import com.demal.model.data.entity.tours.Tour
-import com.demal.repository.repository.UserRepositoryLocal
+import com.demal.model.data.entity.tours.LikableTours
 import com.demal.repository.repository.ToursRepository
+import com.demal.repository.repository.UserRepositoryLocal
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 
@@ -17,10 +17,18 @@ class ToursInteractorImpl(
     private val userId get() = userRepository.getUser()?.id
 
     override suspend fun getTours(sortBy: SortBy, order: Order) =
-        Tours(toLikable(toursRepository.getTours(sortBy, order)))
+        LikableTours(toLikable(toursRepository.getTours(sortBy, order)))
 
     override suspend fun getTourById(id: Int) =
         toLikable(toursRepository.getTourById(id))
+
+    override suspend fun getFavoriteTours() =
+        executeIfUserIdExists { userId ->
+            LikableTours(
+                toLikable(toursRepository.getFavoriteTours(userId))
+            )
+        }
+
 
     override suspend fun addToWishList(wishId: Int) {
         executeIfUserIdExists {
