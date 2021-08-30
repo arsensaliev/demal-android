@@ -16,6 +16,7 @@ dependencies {
     implementation project(Modules.featProfile)
     implementation project(Modules.featHome)
     implementation project(Modules.featMyTours)
+    implementation project(Modules.featWishlist)
 
     //AndroidX
     implementation Tools.multidex

@@ -5,10 +5,19 @@ plugins {
 
 dependencies {
     implementation project(Modules.core)
+    implementation project(Modules.utils)
+    implementation project(Modules.repository)
+    implementation project(Modules.model)
 
     //Kotlin
     implementation Kotlin.core
     implementation Kotlin.stdlib
+    implementation Kotlin.coroutinesCore
+    implementation Kotlin.coroutinesAndroid
+
+    //Koin
+    implementation Koin.koinAndroid
+    implementation Koin.koinViewModel
 
     //Design
     implementation Design.appcompat
