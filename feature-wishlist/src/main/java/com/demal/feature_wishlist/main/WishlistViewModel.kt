@@ -26,8 +26,7 @@ class WishlistViewModel(
             userRepository.login("arsen@mail.ru", "password")
 
             mStateLiveData.postValue(BaseState.Loading(true))
-//            toursList = toursInteractor.getFavoriteTours()
-            likableTours = toursInteractor.getTours(SortBy.ID, Order.ASCENDING)
+            likableTours = toursInteractor.getFavoriteTours() ?: LikableTours(listOf())
             mStateLiveData.postValue(BaseState.Success(likableTours))
         }
     }
