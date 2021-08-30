@@ -16,15 +16,13 @@
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/indicator"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/circle_margin_size"
             android:orientation="horizontal"
             app:ci_gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +34,8 @@
             android:id="@+id/close_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="@dimen/button_margin"
+            android:layout_marginTop="@dimen/button_margin"
             android:backgroundTint="@color/gray_dark"
             android:contentDescription="@string/close_button"
             android:src="@drawable/close_cross"
@@ -51,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="140dp" />
+            app:layout_constraintGuide_end="@dimen/guide_line_margin" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

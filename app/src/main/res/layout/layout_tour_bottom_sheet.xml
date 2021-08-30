@@ -79,20 +79,31 @@
         app:layout_constraintTop_toTopOf="@+id/imageView_calendar"
         tools:text="29 июня 2021" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView_description"
-        style="@style/ItemDescriptionTextView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/imageView_like"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_people"
-        tools:text="Восхождение подготовлено, спланировано и будет проведено европейскими горными гидами в соответствии с высочайшими международными стандартами горовосхождения. Этот поход позволит не только взойти на вершину Казбека, но и познакомиться с местными традициями и интересными местами, получить ценный опыт в горах под руководством сертифицированных альпийских горных гидов." />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_people">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical" >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textView_description"
+                style="@style/ItemDescriptionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Восхождение подготовлено, спланировано и будет проведено европейскими горными гидами в соответствии с высочайшими международными стандартами горовосхождения. Этот поход позволит не только взойти на вершину Казбека, но и познакомиться с местными традициями и интересными местами, получить ценный опыт в горах под руководством сертифицированных альпийских горных гидов." />
+        </LinearLayout>
+    </ScrollView>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView_like"
