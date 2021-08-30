@@ -1,3 +1,4 @@
 <resources>
     <string name="wishlist_title">Сохраненные</string>
+    <string name="wishlist_empty_list">Нет сохраненных</string>
 </resources>
