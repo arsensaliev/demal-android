@@ -9,7 +9,4 @@ class ProfileEditViewModel(
     navigator: ProfileEditNavigator,
     private val repository: UserRepository
 ) : BaseViewModel<User>(navigator) {
-    fun init() {
-
-        }
     }

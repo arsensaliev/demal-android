@@ -139,7 +139,7 @@
                     android:contentDescription="@string/profile_avatar"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ex_profile_avatar"
-                    android:tint="@color/fogging_80"
+                    android:tint="@color/gray_dark"
                     tools:ignore="UseAppTint" />
 
                 <ImageView

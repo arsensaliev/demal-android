@@ -16,7 +16,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class ProfileEditFragment :
     BaseFragment<FragmentProfileEditBinding, User, ProfileEditViewModel>() {
 
-    private var mAwesomeValidation = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
+    private var validator = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
     override var bindingNullable: FragmentProfileEditBinding? = null
     override val viewModel: ProfileEditViewModel by viewModel()
 
@@ -29,10 +29,6 @@ class ProfileEditFragment :
         .apply { bindingNullable = this }
         .root
 
-    override fun onStart() {
-        super.onStart()
-        viewModel.init()
-    }
 
     override fun renderSuccess(data: User) {
     }
@@ -46,28 +42,28 @@ class ProfileEditFragment :
 
     private fun initEditTextValidator() {
 
-        mAwesomeValidation = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
-        mAwesomeValidation.setTextInputLayoutErrorTextAppearance(R.style.errorTextInputLayout);
+        validator = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
+        validator.setTextInputLayoutErrorTextAppearance(R.style.errorTextInputLayout);
 
-        mAwesomeValidation.addValidation(
+        validator.addValidation(
             binding.inputLayoutFirstName,
             RegexTemplate.NOT_EMPTY,
             getString(R.string.profile_edit_first_name_err)
         )
 
-        mAwesomeValidation.addValidation(
+        validator.addValidation(
             binding.inputLayoutLastName,
             RegexTemplate.NOT_EMPTY,
             resources.getString(R.string.profile_edit_last_name_err)
         )
 
-        mAwesomeValidation.addValidation(
+        validator.addValidation(
             binding.inputLayoutCountry,
             RegexTemplate.NOT_EMPTY,
             resources.getString(R.string.profile_edit_сountry_err)
         )
 
-        mAwesomeValidation.addValidation(
+        validator.addValidation(
             binding.inputLayoutCity,
             RegexTemplate.NOT_EMPTY,
             resources.getString(R.string.profile_edit_сity_err)
@@ -82,7 +78,7 @@ class ProfileEditFragment :
     }
 
     fun checkForErrorsAll() {
-        mAwesomeValidation.validate()
+        validator.validate()
     }
 
 }

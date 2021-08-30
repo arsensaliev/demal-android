@@ -4,7 +4,7 @@
         <item name="android:textAppearance">@style/ProfileEditTextStyle</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/text_size</item>
-        <item name="android:backgroundTint">@color/button_save_color</item>
+        <item name="android:backgroundTint">@color/purple_500</item>
         <item name="cornerRadius">@dimen/button_save_radius</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/button_save_height</item>
@@ -46,7 +46,7 @@
     </style>
 
     <style name="errorTextInputLayout">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/text_size_error_input_Layout</item>
     </style>
 
 </resources>
