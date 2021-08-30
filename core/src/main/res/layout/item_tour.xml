@@ -40,11 +40,13 @@
             android:layout_height="0dp"
             android:layout_marginEnd="@dimen/item_description_margin_end"
             android:layout_marginBottom="@dimen/item_standard_margin"
+            android:ellipsize="end"
+            android:maxLines="2"
             app:layout_constraintBottom_toTopOf="@+id/imageView_calendar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView_place"
             app:layout_constraintTop_toBottomOf="@+id/textView_place"
-            tools:text="Поход на знаменитое алматинское озеро с прекрасными видами" />
+            tools:text="Поход на знаменитое алматинское озеро с прекрасными видаминаменитое алматинское озеро с прекрасными видаминаменитое алматинское озеро с прекрасными видами" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_bottom"
