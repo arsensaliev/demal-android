@@ -2,6 +2,7 @@ package com.demal.repository.api
 
 import com.demal.model.data.entity.tours.network.AddToWishListEntity
 import com.demal.model.data.entity.tours.Tour
+import com.demal.model.data.entity.tours.network.AddToWishListResponse
 import com.demal.model.data.entity.tours.network.MeResponse
 import com.demal.model.data.entity.tours.network.Tours
 import com.demal.model.data.entity.user.LoginRequest
@@ -39,7 +40,7 @@ interface ApiService {
     fun addToWishList(
         @Path("id") id: Int,
         @Body wish: AddToWishListEntity
-    ): Deferred<Tour?>
+    ): Deferred<AddToWishListResponse?>
 
     @DELETE("api/$API_VERSION/users/{uid}/wishlist/{tourId}/")
     fun deleteFromWishList(
