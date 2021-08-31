@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.demal.model.data.entity.tours.ListItem
+import com.demal.model.data.entity.list.ListItem
 import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.listeners.BaseClickListener
 
