@@ -137,26 +137,31 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/cardViewEdit">
 
-                    <ImageView
-                        android:id="@+id/img_avatar"
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/profile_avatar"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ex_profile_avatar"
-                        android:tint="@color/gray_dark"
-                        tools:ignore="UseAppTint" />
+                        android:foreground="@color/gray_dark">
 
-                    <ImageView
-                        android:id="@+id/img_camera"
-                        android:layout_width="@dimen/img_camera_width"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:alpha="0.5"
-                        android:contentDescription="@string/profile_avatar"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_bx_camera" />
+                        <ImageView
+                            android:id="@+id/img_avatar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/profile_avatar"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ex_profile_avatar"/>
+
+                        <ImageView
+                            android:id="@+id/img_camera"
+                            android:layout_width="@dimen/img_camera_width"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:alpha="@dimen/img_camera_alpha"
+                            android:contentDescription="@string/profile_avatar"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_bx_camera" />
+
+                    </FrameLayout>
 
                 </androidx.cardview.widget.CardView>
 

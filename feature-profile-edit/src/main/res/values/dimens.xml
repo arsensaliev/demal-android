@@ -20,6 +20,7 @@
     <dimen name="button_save_margin_top">10dp</dimen>
     <dimen name="button_save_margin_end">20dp</dimen>
     <dimen name="img_camera_width">91dp</dimen>
+    <dimen name="img_camera_alpha">0.4</dimen>
     <dimen name="profile_photo_width_height">140dp</dimen>
     <dimen name="profile_photo_radius">70dp</dimen>
 </resources>
