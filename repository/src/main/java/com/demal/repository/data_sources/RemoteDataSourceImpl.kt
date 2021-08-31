@@ -28,7 +28,7 @@ class RemoteDataSourceImpl(
     override suspend fun addToWishList(
         id: Int,
         wish: AddToWishListEntity
-    ) = service.addToWishList(id, wish).await()
+    ) = service.addToWishList(id, wish).await()?.tour
 
     override suspend fun deleteFromWishList(
         userId: Int,
