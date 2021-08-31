@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         style="@style/ItemInfoTextView"
         android:text="@string/no_content_msg"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/popular_tours_textview"
         app:layout_constraintBottom_toTopOf="@id/recommendations_textview"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         style="@style/ItemInfoTextView"
         android:text="@string/no_content_msg"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/recommendations_textview"
         app:layout_constraintBottom_toTopOf="@id/activities_textview"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +112,38 @@
         android:layout_height="wrap_content"
         style="@style/ItemInfoTextView"
         android:text="@string/no_content_msg"
-        android:visibility="visible"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/margin_home_recycler_top"
+        app:layout_constraintTop_toBottomOf="@id/activities_textview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/popular_tours_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_constraintTop_toBottomOf="@id/recommendations_textview"
+        app:layout_constraintBottom_toTopOf="@id/activities_textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/recommendations_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_constraintTop_toBottomOf="@id/recommendations_textview"
+        app:layout_constraintBottom_toTopOf="@id/activities_textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/categories_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
         android:layout_marginBottom="@dimen/margin_home_recycler_top"
         app:layout_constraintTop_toBottomOf="@id/activities_textview"
         app:layout_constraintBottom_toBottomOf="parent"
