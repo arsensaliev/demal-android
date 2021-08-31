@@ -3,4 +3,5 @@
     <dimen name="header_margin_top">30dp</dimen>
     <dimen name="recycler_margin_top">20dp</dimen>
     <dimen name="margin_standard">20dp</dimen>
+    <dimen name="chipMinWidth">70dp</dimen>
 </resources>
