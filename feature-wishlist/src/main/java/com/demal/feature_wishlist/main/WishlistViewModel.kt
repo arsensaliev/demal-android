@@ -6,8 +6,6 @@ import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
 import com.demal.repository.interactor.ToursInteractor
 import com.demal.repository.repository.UserRepository
-import com.demal.repository.types.Order
-import com.demal.repository.types.SortBy
 import com.demal.view.core.view_model.BaseViewModel
 
 class WishlistViewModel(
@@ -46,6 +44,7 @@ class WishlistViewModel(
             } else {
                 toursInteractor.addToWishList(tour.id)
             }
+            getLikedTours()
         }
     }
 
