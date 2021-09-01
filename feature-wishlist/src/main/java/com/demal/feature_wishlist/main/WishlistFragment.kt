@@ -6,16 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.demal.feature_wishlist.R
 import com.demal.feature_wishlist.databinding.FragmentWishlistBinding
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
-import com.demal.repository.image.GlideImageLoader
 import com.demal.repository.image.ImageLoader
-import com.demal.view.core.adapter.BaseAdapter
 import com.demal.view.core.adapter.listeners.TourClickListener
-import com.demal.view.core.adapter.tourBind
+import com.demal.view.core.adapter.newone.ToursAdapter
 import com.demal.view.core.view.BaseFragment
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -25,7 +22,7 @@ class WishlistFragment : BaseFragment<FragmentWishlistBinding, LikableTours, Wis
 
     override val viewModel: WishlistViewModel by viewModel()
 
-    private var tourAdapter: BaseAdapter<LikableTour, TourClickListener>? = null
+    private val tourAdapter by lazy { ToursAdapter(tourClickListener, imageLoader) }
 
     private val imageLoader: ImageLoader<ImageView> by inject()
 
@@ -77,25 +74,21 @@ class WishlistFragment : BaseFragment<FragmentWishlistBinding, LikableTours, Wis
     override fun onDestroyView() {
         super.onDestroyView()
         bindingNullable = null
-        tourAdapter = null
     }
 
     private fun initRV() {
-        if (tourAdapter == null) {
-            tourAdapter = BaseAdapter(R.layout.item_tour, tourBind, tourClickListener, imageLoader)
-            binding.wishlistRecyclerView.adapter = tourAdapter
-            binding.wishlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        }
+        binding.wishlistRecyclerView.adapter = tourAdapter
+        binding.wishlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
     private fun listIsEmpty() {
         binding.wishlistEmptyTextview.visibility = View.VISIBLE
-        tourAdapter?.submitList(listOf())
+        tourAdapter.submitList(listOf())
     }
 
     private fun showList(data: List<LikableTour>) {
         binding.wishlistEmptyTextview.visibility = View.GONE
-        tourAdapter?.submitList(data)
+        tourAdapter.submitList(data)
     }
 
     private fun showLoading() {
