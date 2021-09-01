@@ -22,7 +22,7 @@ class UserRepositoryImpl(
     }
 
     override suspend fun myUser() =
-        remoteDataSource.myUser().apply {
+        remoteDataSource.myUser().user.apply {
             val token = userRepositoryLocal.getUserToken()
             token?.let {
                 userRepositoryLocal.saveResponse(
