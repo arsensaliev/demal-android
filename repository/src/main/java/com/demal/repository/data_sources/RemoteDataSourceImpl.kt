@@ -1,6 +1,6 @@
 package com.demal.repository.data_sources
 
-import com.demal.model.data.entity.AddToWishListEntity
+import com.demal.model.data.entity.tours.network.AddToWishListEntity
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.repository.api.ApiService
 import com.demal.repository.types.Order
@@ -28,10 +28,10 @@ class RemoteDataSourceImpl(
     override suspend fun addToWishList(
         id: Int,
         wish: AddToWishListEntity
-    ) = service.addToWishList(id, wish).await()
+    ) = service.addToWishList(id, wish).await()?.tour
 
     override suspend fun deleteFromWishList(
         userId: Int,
         tourId: Int
-    ) = service.deleteFromWishList(userId, tourId)
+    ) = service.deleteFromWishList(userId, tourId).await()
 }

@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.demal.model.data.entity.tours.ListItem
+import com.demal.model.data.entity.list.ListItem
 import com.demal.view.core.adapter.listeners.BaseClickListener
 
 class BaseAdapter<T : ListItem<T>, L : BaseClickListener>(
