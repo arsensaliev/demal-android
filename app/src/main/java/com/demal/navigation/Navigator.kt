@@ -2,6 +2,7 @@ package com.demal.navigation
 
 import com.demal.feature_profile.navigation.ProfileNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
+import com.demal.model.data.entity.tours.LikableTour
 import com.demal.view.core.BaseNavigator
 import com.github.terrakok.cicerone.Router
 
@@ -26,6 +27,10 @@ class Navigator(
     override fun toWishlistScreen() = router.navigateTo(screens.wishlistScreen())
 
     override fun toProfileScreen() = router.navigateTo(screens.profileScreen())
+
+    override fun toTourScreen(tourId: Int) {
+        //TODO("Not yet implemented")
+    }
 
     //TODO: Navigate to Login Screen
     override fun toLoginScreen() = router.navigateTo(screens.profileScreen())

@@ -17,6 +17,7 @@ import com.demal.view.core.adapter.BaseAdapter
 import com.demal.view.core.adapter.listeners.TourClickListener
 import com.demal.view.core.adapter.tourBind
 import com.demal.view.core.view.BaseFragment
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class WishlistFragment : BaseFragment<FragmentWishlistBinding, LikableTours, WishlistViewModel>() {
@@ -26,10 +27,7 @@ class WishlistFragment : BaseFragment<FragmentWishlistBinding, LikableTours, Wis
 
     private var tourAdapter: BaseAdapter<LikableTour, TourClickListener>? = null
 
-    private val imageLoader: ImageLoader<ImageView> by lazy {
-        //TODO: implement DI
-        GlideImageLoader()
-    }
+    private val imageLoader: ImageLoader<ImageView> by inject()
 
     private val tourClickListener = object : TourClickListener {
         override fun onLikeClick(tour: LikableTour) {
@@ -37,7 +35,7 @@ class WishlistFragment : BaseFragment<FragmentWishlistBinding, LikableTours, Wis
         }
 
         override fun onItemClick(tour: LikableTour) {
-            renderMessage("onItem click")
+            viewModel.openTour(tour)
         }
     }
 

@@ -9,7 +9,7 @@ import com.demal.repository.repository.UserRepository
 import com.demal.view.core.view_model.BaseViewModel
 
 class WishlistViewModel(
-    navigator: WishlistNavigator,
+    private val navigator: WishlistNavigator,
     private val toursInteractor: ToursInteractor,
     private val userRepository: UserRepository
 ) : BaseViewModel<LikableTours>(navigator) {
@@ -46,6 +46,10 @@ class WishlistViewModel(
             }
             getLikedTours()
         }
+    }
+
+    fun openTour(tour: LikableTour) {
+        navigator.toTourScreen(tour.id)
     }
 
     override fun handleError(error: Throwable) {
