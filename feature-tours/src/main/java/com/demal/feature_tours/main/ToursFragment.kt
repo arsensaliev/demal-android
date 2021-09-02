@@ -86,7 +86,7 @@ class ToursFragment : BaseFragment<FragmentToursBinding, LikableTours, ToursView
     }
 
     private fun initRV() {
-        if (tourAdapter == null) {
+        tourAdapter ?: let {
             tourAdapter =
                 BaseAdapter(R.layout.item_tour, tourClickListener) { view, data, listener ->
                     tourBind(view, data, listener, imageLoader)
