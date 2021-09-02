@@ -5,24 +5,17 @@ import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
 import com.demal.repository.interactor.ToursInteractor
-import com.demal.repository.repository.UserRepository
 import com.demal.view.core.view_model.BaseViewModel
 
 class WishlistViewModel(
     private val navigator: WishlistNavigator,
-    private val toursInteractor: ToursInteractor,
-    private val userRepository: UserRepository
+    private val toursInteractor: ToursInteractor
 ) : BaseViewModel<LikableTours>(navigator) {
 
     private var likableTours = LikableTours(listOf())
 
     fun getLikedTours() {
         runAsync {
-
-            //FOR TEST ONLY
-            //TODO:REMOVE USER REPO HERE AND IN VIEWMODELMODULES
-            userRepository.login("arsen@mail.ru", "password")
-
             mStateLiveData.postValue(BaseState.Loading(true))
             likableTours = toursInteractor.getFavoriteTours() ?: LikableTours(listOf())
             mStateLiveData.postValue(BaseState.Success(likableTours))
