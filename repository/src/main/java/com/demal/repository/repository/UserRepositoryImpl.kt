@@ -26,8 +26,8 @@ class UserRepositoryImpl(
             val token = userRepositoryLocal.getUserToken()
             token?.let {
                 userRepositoryLocal.saveResponse(
-                        LoginResponse(Auth(token), this)
-                    )
+                    LoginResponse(Auth(token), this)
+                )
             }
         }
 }

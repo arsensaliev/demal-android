@@ -9,6 +9,8 @@ dependencies {
     implementation project(Modules.repository)
     implementation project(Modules.model)
 
+    // Koin
+    implementation Koin.koinCore
     implementation Koin.koinAndroid
     implementation Koin.koinViewModel
 
@@ -21,6 +23,7 @@ dependencies {
     implementation Design.constraintLayout
     implementation 'com.basgeekball:awesome-validation:4.3'
 }
+
 repositories {
     mavenCentral()
 }

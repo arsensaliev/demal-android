@@ -7,4 +7,4 @@ import kotlinx.parcelize.Parcelize
 data class LoginResponse(
     val auth: Auth,
     val user: User
-): Parcelable
+) : Parcelable

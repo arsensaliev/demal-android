@@ -9,6 +9,8 @@ dependencies {
     implementation project(Modules.repository)
     implementation project(Modules.model)
 
+    // Koin
+    implementation Koin.koinCore
     implementation Koin.koinAndroid
     implementation Koin.koinViewModel
 
@@ -20,6 +22,7 @@ dependencies {
     implementation Design.material
     implementation Design.constraintLayout
 }
+
 repositories {
     mavenCentral()
 }
