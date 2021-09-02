@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/item_tour_height"
     android:layout_marginTop="@dimen/item_standard_margin"
-    android:layout_marginBottom="@dimen/item_standard_margin">
+    android:layout_marginBottom="@dimen/item_standard_margin"
+    app:cardElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,8 +15,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageView_place"
-            android:layout_width="@dimen/item_image_size"
-            android:layout_height="@dimen/item_image_size"
+            android:layout_width="@dimen/item_tour_height"
+            android:layout_height="@dimen/item_tour_height"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,19 +42,19 @@
             android:layout_marginEnd="@dimen/item_description_margin_end"
             android:layout_marginBottom="@dimen/item_standard_margin"
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="3"
             app:layout_constraintBottom_toTopOf="@+id/imageView_calendar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView_place"
             app:layout_constraintTop_toBottomOf="@+id/textView_place"
-            tools:text="Поход на знаменитое алматинское озеро с прекрасными видаминаменитое алматинское озеро с прекрасными видаминаменитое алматинское озеро с прекрасными видами" />
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat, dui ac maximus egestas, odio magna aliquet odio, ut tincidunt odio tortor quis magna. Nulla lorem felis, interdum accumsan ultrices gravida, pellentesque lacinia nibh. Integer vulputate arcu dolor, vitae fermentum diam consectetur vel. Donec eu turpis ut diam tristique ullamcorper ac sed dolor. Nunc eu maximus dolor. Praesent laoreet placerat sodales. Cras quis enim non justo porta lacinia vitae non lectus. Proin facilisis lacinia massa ac malesuada. Sed hendrerit, velit blandit viverra congue, enim velit tincidunt metus, nec eleifend dolor sapien ac sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed efficitur dapibus mattis." />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="@dimen/item_icon_margin" />
+            app:layout_constraintGuide_end="@dimen/item_icon_bottom_margin" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView_people"
@@ -100,7 +101,7 @@
             android:layout_width="@dimen/item_like_imageview_size"
             android:layout_height="@dimen/item_like_imageview_size"
             android:layout_marginTop="@dimen/item_icon_margin"
-            android:layout_marginEnd="@dimen/item_icon_margin"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_heart_empty" />
