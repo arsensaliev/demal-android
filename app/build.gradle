@@ -36,6 +36,7 @@ dependencies {
     implementation Cicerone.cicerone
 
     //Koin for Android
+    implementation Koin.koinCore
     implementation Koin.koinAndroid
     implementation Koin.koinViewModel
 
@@ -56,6 +57,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
+
 repositories {
     mavenCentral()
 }

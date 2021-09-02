@@ -3,7 +3,6 @@ package com.demal.repository.data_sources.preferences
 import android.content.SharedPreferences
 import android.os.Parcelable
 import com.google.gson.Gson
-import kotlin.reflect.KClass
 
 class ParcelablePreferencesDataSourceImpl(
     private val preferences: SharedPreferences

@@ -14,6 +14,11 @@ dependencies {
     implementation Design.appcompat
     implementation Design.material
 
+    // Koin
+    implementation Koin.koinCore
+    implementation Koin.koinAndroid
+    implementation Koin.koinViewModel
+
     //Test
     testImplementation TestImpl.junit
     androidTestImplementation TestImpl.runner

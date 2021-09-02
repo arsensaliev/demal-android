@@ -5,7 +5,7 @@ object Config {
     const val compileSdk = 30
     const val minSdk = 24
     const val targetSdk = 30
-    const val kotlinVersion = "1.5.10"
+    const val kotlinVersion = "1.5.30"
     const val buildTools = "30.0.3"
     val javaVersion = JavaVersion.VERSION_1_8
 }
@@ -25,23 +25,24 @@ object Versions {
     const val constraintLayout = "2.1.0"
 
     //Kotlin
-    const val core = "1.0.2"
-    const val stdlib = "1.4.32"
-    const val coroutinesCore = "1.2.1"
-    const val coroutinesAndroid = "1.1.1"
+    const val core = "1.6.0"
+    const val stdlib = "1.5.30"
+    const val coroutinesCore = "1.5.1"
+    const val coroutinesAndroid = "1.5.1"
 
     //Cicerone
     const val cicerone = "6.6"
 
     //Retrofit
-    const val retrofit = "2.6.0"
-    const val converterGson = "2.6.0"
+    const val retrofit = "2.9.0"
+    const val converterGson = "2.9.0"
     const val interceptor = "3.12.1"
     const val adapterCoroutines = "0.9.2"
 
     //Koin
-    const val koinAndroid = "2.0.1"
-    const val koinViewModel = "2.0.1"
+    const val koinCore = "2.2.3"
+    const val koinAndroid = "2.2.3"
+    const val koinViewModel = "2.2.3"
 
     //Glide
     const val glide = "4.9.0"
@@ -89,8 +90,9 @@ object Retrofit {
 }
 
 object Koin {
-    const val koinAndroid = "org.koin:koin-android:${Versions.koinAndroid}"
-    const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koinViewModel}"
+    const val koinCore = "io.insert-koin:koin-core:${Versions.koinCore}"
+    const val koinAndroid = "io.insert-koin:koin-android:${Versions.koinAndroid}"
+    const val koinViewModel = "io.insert-koin:koin-android-viewmodel:${Versions.koinViewModel}"
 }
 
 object Glide {

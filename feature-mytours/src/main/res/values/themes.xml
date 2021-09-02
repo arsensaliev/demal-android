@@ -1,4 +1,5 @@
 <resources>
+
     <style name="RecyclerViewMyToursStyle">
         <item name="android:layout_marginTop">@dimen/margin_top_recycler_view</item>
         <item name="android:layout_marginStart">@dimen/margin_start_recycler_view</item>

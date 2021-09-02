@@ -18,4 +18,4 @@ data class Tour(
     override val createdAt: String,
     override val category: CategoryResponse,
     override val images: List<ImageResponse>,
-): ITour
+) : ITour
