@@ -21,7 +21,8 @@ class UserRepositoryLocalImpl(
     override fun getUser() =
         getResponse()?.user
 
-    private fun getResponse() = preferencesDataSource.getParcelable(RESPONSE_KEY, LoginResponse::class.java)
+    private fun getResponse() =
+        preferencesDataSource.getParcelable(RESPONSE_KEY, LoginResponse::class.java)
 
     companion object {
         private const val RESPONSE_KEY = "RESPONSE_KEY"

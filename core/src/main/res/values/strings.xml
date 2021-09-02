@@ -3,8 +3,19 @@
     <string name="profile_avatar">Profile avatar</string>
     <string name="edit">Редактировать</string>
     <string name="payment_methods">Способы оплаты</string>
+
     <string name="saved">Сохраненные</string>
     <string name="booking">Забронировать</string>
     <string name="attraction_picture">картинка достопримечательности</string>
     <string name="close_button">кнопка закрыть</string>
+    <string name="tours_title">Ближайшие туры</string>
+    <string name="login">Войти в аккаунт</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="sign_in">Войти</string>
+    <string name="wrong_email">Некорректный email</string>
+    <string name="password_rule">Пароль должен содержать 8 символов</string>
+    <string name="regex_password_validation">".{8,}"</string>
+    <string name="input_error">Неккоректный ввод</string>
 </resources>
