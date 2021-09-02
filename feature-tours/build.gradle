@@ -16,6 +16,7 @@ dependencies {
     implementation Kotlin.coroutinesAndroid
 
     //Koin
+    implementation Koin.koinCore
     implementation Koin.koinAndroid
     implementation Koin.koinViewModel
 
