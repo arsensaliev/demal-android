@@ -80,7 +80,7 @@ class WishlistFragment : BaseFragment<FragmentWishlistBinding, LikableTours, Wis
     }
 
     private fun initRV() {
-        if (tourAdapter == null) {
+        tourAdapter ?: let {
             tourAdapter =
                 BaseAdapter(R.layout.item_tour, tourClickListener) { view, data, listener ->
                     tourBind(view, data, listener, imageLoader)
