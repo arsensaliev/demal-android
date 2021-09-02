@@ -1,5 +1,6 @@
 package com.demal.navigation
 
+import com.demal.feature_login.main.LoginFragment
 import com.demal.feature_profile.main.ProfileFragment
 import com.demal.feature_profile_edit.main.ProfileEditFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
@@ -8,4 +9,5 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 class Screens {
     fun profileScreen() = FragmentScreen { ProfileFragment() }
     fun profileEditScreen() = FragmentScreen { ProfileEditFragment() }
+    fun loginScreen() = FragmentScreen { LoginFragment.newInstance()}
 }
