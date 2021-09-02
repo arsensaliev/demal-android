@@ -2,6 +2,7 @@ package com.demal.koin.modules
 
 import com.demal.feature_home.navigation.HomeNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
+import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
 import com.demal.navigation.MainActivityNavigator
 import com.demal.navigation.Navigator
 import com.demal.navigation.Screens
@@ -25,5 +26,6 @@ val navigatorsModule = module {
     factory<MainActivityNavigator> { get<Navigator>() }
     factory<ProfileNavigator> { get<Navigator>() }
     factory<HomeNavigator> { get<Navigator>() }
+    factory<ProfileEditNavigator> { get<Navigator>() }
     factory<BaseNavigator> { get<Navigator>() }
 }

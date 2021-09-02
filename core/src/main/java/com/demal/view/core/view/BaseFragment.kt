@@ -21,7 +21,7 @@ abstract class BaseFragment<VB : ViewBinding, D : AppStateEntity, VM : BaseViewM
             is BaseState.Success -> renderSuccess(state.data)
             is BaseState.Error -> renderError(state.error)
             is BaseState.Message -> renderMessage(state.message)
-            is BaseState.Loading -> showLoading(state.isLoading)
+            is BaseState.Loading -> setLoading(true)
         }
     }
 
@@ -38,18 +38,22 @@ abstract class BaseFragment<VB : ViewBinding, D : AppStateEntity, VM : BaseViewM
         bindingNullable = null
     }
 
-    protected abstract fun renderSuccess(data: D)
+    protected open fun renderSuccess(data: D) {
+        setLoading(false)
+    }
 
     protected open fun renderError(error: Throwable) {
+        setLoading(false)
         error.message?.let { showMessage(it) }
     }
 
     protected open fun renderMessage(message: String) {
+        setLoading(false)
         showMessage(message)
     }
 
     //Может быть пустым, если экран не может отображать загрузку
-    protected open fun showLoading(isLoading: Boolean) {
+    protected open fun setLoading(isLoading: Boolean) {
     }
 
     private fun showMessage(message: String) {

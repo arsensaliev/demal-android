@@ -2,6 +2,7 @@ package com.demal.navigation
 
 import com.demal.feature_home.navigation.HomeNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
+import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
 import com.demal.view.core.BaseNavigator
 import com.github.terrakok.cicerone.Router
 
@@ -9,7 +10,7 @@ import com.github.terrakok.cicerone.Router
 class Navigator(
     private val router: Router,
     private val screens: Screens
-) : BaseNavigator, MainActivityNavigator, ProfileNavigator, HomeNavigator {
+) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator, HomeNavigator {
 
     override fun toHomeScreen() = router.navigateTo(screens.homeScreen())
 
