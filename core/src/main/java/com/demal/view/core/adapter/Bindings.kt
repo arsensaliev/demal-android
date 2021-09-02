@@ -12,7 +12,7 @@ import com.demal.repository.image.ImageLoadingListener
 import com.demal.view.core.adapter.listeners.TourClickListener
 
 
-val tourBind: ((View, LikableTour, TourClickListener, ImageLoader<ImageView>) -> Unit) =
+val tourBind: ((View, LikableTour, TourClickListener?, ImageLoader<ImageView>) -> Unit) =
     { view, data, listener, imageLoader ->
         val rvBinding = ItemTourBinding.bind(view)
         with(rvBinding) {
@@ -27,8 +27,8 @@ val tourBind: ((View, LikableTour, TourClickListener, ImageLoader<ImageView>) ->
                 AppCompatResources.getDrawable(rvBinding.root.context, R.drawable.ic_heart_empty)
             }
             imageViewLike.setImageDrawable(likeDrawable)
-            imageViewLike.setOnClickListener { listener.onLikeClick(data) }
-            view.setOnClickListener { listener.onItemClick(data) }
+            imageViewLike.setOnClickListener { listener?.onLikeClick(data) }
+            view.setOnClickListener { listener?.onItemClick(data) }
             //TODO:Load Image
 //            imageLoader.loadImage()
         }

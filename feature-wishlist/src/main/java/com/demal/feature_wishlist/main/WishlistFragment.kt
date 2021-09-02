@@ -11,7 +11,6 @@ import com.demal.feature_wishlist.databinding.FragmentWishlistBinding
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
-import com.demal.repository.image.GlideImageLoader
 import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.BaseAdapter
 import com.demal.view.core.adapter.listeners.TourClickListener
@@ -82,7 +81,10 @@ class WishlistFragment : BaseFragment<FragmentWishlistBinding, LikableTours, Wis
 
     private fun initRV() {
         if (tourAdapter == null) {
-            tourAdapter = BaseAdapter(R.layout.item_tour, tourBind, tourClickListener, imageLoader)
+            tourAdapter =
+                BaseAdapter(R.layout.item_tour, tourClickListener) { view, data, listener ->
+                    tourBind(view, data, listener, imageLoader)
+                }
             binding.wishlistRecyclerView.adapter = tourAdapter
             binding.wishlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         }
