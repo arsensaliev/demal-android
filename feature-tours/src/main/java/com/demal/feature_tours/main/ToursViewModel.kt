@@ -14,7 +14,7 @@ import com.demal.repository.types.SortBy
 import com.demal.view.core.view_model.BaseViewModel
 
 class ToursViewModel(
-    navigator: ToursNavigator,
+    private val navigator: ToursNavigator,
     private val toursInteractor: ToursInteractor,
     private val userRepository: UserRepository
 ) : BaseViewModel<LikableTours>(navigator) {
@@ -69,6 +69,10 @@ class ToursViewModel(
                 toursInteractor.addToWishList(tour.id)
             }
         }
+    }
+
+    fun openTour(tour: LikableTour) {
+        navigator.toTourScreen(tour.id)
     }
 
     private fun postTours() {

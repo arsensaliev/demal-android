@@ -12,13 +12,13 @@ import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
 import com.demal.model.data.entity.tours.network.CategoryResponse
-import com.demal.repository.image.GlideImageLoader
 import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.BaseAdapter
 import com.demal.view.core.adapter.listeners.TourClickListener
 import com.demal.view.core.adapter.tourBind
 import com.demal.view.core.view.BaseFragment
 import com.google.android.material.chip.Chip
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ToursFragment : BaseFragment<FragmentToursBinding, LikableTours, ToursViewModel>() {
@@ -29,10 +29,7 @@ class ToursFragment : BaseFragment<FragmentToursBinding, LikableTours, ToursView
 
     private var tourAdapter: BaseAdapter<LikableTour, TourClickListener>? = null
 
-    private val imageLoader: ImageLoader<ImageView> by lazy {
-        //TODO: implement DI
-        GlideImageLoader()
-    }
+    private val imageLoader: ImageLoader<ImageView> by inject()
 
     private val tourClickListener = object : TourClickListener {
         override fun onLikeClick(tour: LikableTour) {
@@ -40,8 +37,7 @@ class ToursFragment : BaseFragment<FragmentToursBinding, LikableTours, ToursView
         }
 
         override fun onItemClick(tour: LikableTour) {
-            //TODO: implement navigation to Tour screen
-            renderMessage("onItem click")
+            viewModel.openTour(tour)
         }
     }
 
@@ -85,13 +81,16 @@ class ToursFragment : BaseFragment<FragmentToursBinding, LikableTours, ToursView
         }
     }
 
-    override fun showLoading(isLoading: Boolean) {
+    override fun setLoading(isLoading: Boolean) {
         showLoading()
     }
 
     private fun initRV() {
         if (tourAdapter == null) {
-            tourAdapter = BaseAdapter(R.layout.item_tour, tourBind, tourClickListener, imageLoader)
+            tourAdapter =
+                BaseAdapter(R.layout.item_tour, tourClickListener) { view, data, listener ->
+                    tourBind(view, data, listener, imageLoader)
+                }
             binding.toursRecyclerView.adapter = tourAdapter
             binding.toursRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         }
