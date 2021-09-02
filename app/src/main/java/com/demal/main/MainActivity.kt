@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         initNavigation()
 
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         binding.bottomNavigation.setOnItemSelectedListener { item ->
-            when(item.itemId) {
+            when (item.itemId) {
                 R.id.nav_home -> viewModel.toHomeScreen()
                 R.id.nav_tours -> viewModel.toToursScreen()
                 R.id.nav_my_tours -> viewModel.toMyToursScreen()

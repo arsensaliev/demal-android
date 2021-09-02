@@ -5,7 +5,7 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import java.lang.reflect.Type
 
-class EnumConverterFactory: Converter.Factory() {
+class EnumConverterFactory : Converter.Factory() {
     override fun stringConverter(
         type: Type,
         annotations: Array<Annotation>,

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="ProfileEditButton" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textAppearance">@style/ProfileEditTextStyle</item>
