@@ -8,15 +8,13 @@ import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
 import com.demal.model.data.entity.tours.network.CategoryResponse
 import com.demal.repository.interactor.ToursInteractor
-import com.demal.repository.repository.UserRepository
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 import com.demal.view.core.view_model.BaseViewModel
 
 class ToursViewModel(
     private val navigator: ToursNavigator,
-    private val toursInteractor: ToursInteractor,
-    private val userRepository: UserRepository
+    private val toursInteractor: ToursInteractor
 ) : BaseViewModel<LikableTours>(navigator) {
 
     private var likableTours = LikableTours(listOf())
@@ -33,10 +31,6 @@ class ToursViewModel(
 
     fun getTours() {
         runAsync {
-            //FOR TEST ONLY
-            //TODO:REMOVE USER REPO HERE AND IN VIEWMODELMODULES
-            userRepository.login("arsen@mail.ru", "password")
-
             mStateLiveData.postValue(BaseState.Loading(true))
             likableTours = toursInteractor.getTours(SortBy.ID, Order.ASCENDING)
             likableTours.toursList.forEach {
