@@ -11,8 +11,8 @@ import com.github.terrakok.cicerone.Router
 class Navigator(
     private val router: Router,
     private val screens: Screens
-) : BaseNavigator, MainActivityNavigator, ProfileNavigator, WishlistNavigator {
-) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator {
+) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator,
+    WishlistNavigator {
 
     override fun toHomeScreen() {
         //TODO("Not yet implemented")

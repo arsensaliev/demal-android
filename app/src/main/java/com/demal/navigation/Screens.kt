@@ -9,6 +9,5 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 class Screens {
     fun profileScreen() = FragmentScreen { ProfileFragment() }
     fun wishlistScreen() = FragmentScreen { WishlistFragment() }
-    fun profileScreen() = FragmentScreen { ProfileEditFragment() }
     fun profileEditScreen() = FragmentScreen { ProfileEditFragment() }
 }

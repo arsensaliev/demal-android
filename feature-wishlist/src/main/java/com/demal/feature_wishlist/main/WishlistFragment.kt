@@ -69,7 +69,7 @@ class WishlistFragment : BaseFragment<FragmentWishlistBinding, LikableTours, Wis
         super.renderData(state)
     }
 
-    override fun showLoading(isLoading: Boolean) {
+    override fun setLoading(isLoading: Boolean) {
         showLoading()
     }
 
