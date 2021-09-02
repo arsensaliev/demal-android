@@ -1,5 +1,6 @@
 package com.demal.koin.modules
 
+import com.demal.feature_login.main.LoginViewModel
 import com.demal.feature_profile.main.ProfileViewModel
 import com.demal.feature_tours.main.ToursViewModel
 import com.demal.feature_wishlist.main.WishlistViewModel
@@ -13,5 +14,6 @@ val viewModelModule = module {
     viewModel { ProfileViewModel(get(), get()) }
     viewModel { WishlistViewModel(get(), get()) }
     viewModel { ProfileEditViewModel(get(), get()) }
+    viewModel { LoginViewModel(get(), get()) }
     viewModel { ToursViewModel(get(), get()) }
 }

@@ -1,5 +1,6 @@
 package com.demal.navigation
 
+import com.demal.feature_login.main.LoginFragment
 import com.demal.feature_profile.main.ProfileFragment
 import com.demal.feature_tours.main.ToursFragment
 import com.demal.feature_wishlist.main.WishlistFragment
@@ -10,6 +11,7 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 class Screens {
     fun profileScreen() = FragmentScreen { ProfileFragment() }
     fun profileEditScreen() = FragmentScreen { ProfileEditFragment() }
+    fun loginScreen() = FragmentScreen { LoginFragment.newInstance()}
     fun wishlistScreen() = FragmentScreen { WishlistFragment() }
     fun toursScreen() = FragmentScreen { ToursFragment() }
 }

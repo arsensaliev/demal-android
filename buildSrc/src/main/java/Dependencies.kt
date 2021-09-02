@@ -48,6 +48,9 @@ object Versions {
     const val glide = "4.9.0"
     const val glideCompiler = "4.9.0"
 
+    //AwesomeValidation
+    const val validation = "2.0"
+
 //    May be useful later
 //    Room
 //    const val roomKtx = "2.2.0-alpha01"
@@ -112,6 +115,10 @@ object TestImpl {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
 }
 
+object AwesomeValidation {
+    const val validator = "com.basgeekball:awesome-validation:${Versions.validation}"
+}
+
 object Modules {
     const val app = ":app"
     const val core = ":core"
@@ -123,7 +130,7 @@ object Modules {
     const val featTours = ":feature-tours"
     const val featHome = ":feature-home"
     const val featWishlist = ":feature-wishlist"
-    const val featMyTours = ":feature-mytours"
+    const val featLogin = ":feature-login"
 }
 
 object Cicerone {

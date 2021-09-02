@@ -1,5 +1,6 @@
 package com.demal.koin.modules
 
+import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
 import com.demal.feature_tours.navigation.ToursNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
@@ -28,6 +29,7 @@ val navigatorsModule = module {
     factory<ProfileNavigator> { get<Navigator>() }
     factory<ProfileEditNavigator> { get<Navigator>() }
     factory<BaseNavigator> { get<Navigator>() }
+    factory<LoginNavigator>{ get<Navigator>() }
     factory<WishlistNavigator> { get<Navigator>() }
     factory<ToursNavigator> { get<Navigator>() }
 }
