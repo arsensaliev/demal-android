@@ -2,7 +2,7 @@ package com.demal.model.data.entity.tours
 
 import com.demal.model.data.entity.list.ListItem
 
-class LikableTour(
+data class LikableTour(
     private val tour: ITour,
     val isLiked: Boolean
 ) : ITour by tour, ListItem<LikableTour> {

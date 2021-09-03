@@ -6,36 +6,24 @@ plugins {
 dependencies {
     implementation project(Modules.core)
     implementation project(Modules.utils)
-    implementation project(Modules.repository)
     implementation project(Modules.model)
+    implementation project(Modules.repository)
 
-    //Kotlin
     implementation Kotlin.core
     implementation Kotlin.stdlib
     implementation Kotlin.coroutinesCore
     implementation Kotlin.coroutinesAndroid
-
-    //Koin
-    implementation Koin.koinCore
-    implementation Koin.koinAndroid
-    implementation Koin.koinViewModel
-
-    //Design
     implementation Design.appcompat
     implementation Design.material
-
-    // Koin
-    implementation Koin.koinCore
+    implementation Design.constraintLayout
+    implementation TestImpl.junit
+    implementation TestImpl.runner
+    implementation TestImpl.espresso
     implementation Koin.koinAndroid
+    implementation Koin.koinCore
     implementation Koin.koinViewModel
-
-    //Test
-    testImplementation TestImpl.junit
-    androidTestImplementation TestImpl.runner
-    androidTestImplementation TestImpl.espresso
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation AwesomeValidation.validator
 }
-
 repositories {
     mavenCentral()
 }

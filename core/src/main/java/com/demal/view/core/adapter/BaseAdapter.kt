@@ -10,15 +10,15 @@ import com.demal.view.core.adapter.listeners.BaseClickListener
 
 class BaseAdapter<T : ListItem<T>, L : BaseClickListener>(
     private val itemLayoutId: Int,
-    private val bind: ((View, data: T, listener: L) -> Unit)? = null,
-    private val listener: L
-
+    private val listener: L? = null,
+    private val bind: ((View, data: T, listener: L?) -> Unit)
 ) : ListAdapter<T, BaseAdapter<T, L>.BaseViewHolder>(BaseDiffUtilCallback<T>()) {
 
     inner class BaseViewHolder(
         private val root: View
     ) : RecyclerView.ViewHolder(root) {
-        fun bind(data: T, listener: L) = bind?.let { it(root, data, listener) }
+        fun bind(data: T, listener: L?) =
+            bind(root, data, listener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
