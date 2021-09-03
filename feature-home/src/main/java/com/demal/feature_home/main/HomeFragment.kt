@@ -4,15 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.demal.feature_home.R
 import com.demal.feature_home.databinding.FragmentHomeBinding
 import com.demal.feature_home.main.adapter.homeTourBind
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
+import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.BaseAdapter
 import com.demal.view.core.adapter.listeners.TourClickListener
 import com.demal.view.core.view.BaseFragment
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, LikableTours, HomeViewModel>() {
@@ -22,6 +25,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, LikableTours, HomeViewMod
     override val viewModel: HomeViewModel by viewModel()
 
     private var tourAdapter: BaseAdapter<LikableTour, TourClickListener>? = null
+
+    private val imageLoader: ImageLoader<ImageView> by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,25 +62,32 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, LikableTours, HomeViewMod
         tourAdapter = null
     }
 
-    override fun showLoading(isLoading: Boolean) {
-        showLoading()
+    override fun setLoading(isLoading: Boolean) {
+        if (isLoading) {
+            showLoading()
+        } else {
+            hideLoading()
+        }
     }
 
     private fun initAdapter() {
         if (tourAdapter == null) {
-            tourAdapter = BaseAdapter(R.layout.home_item_tour, homeTourBind, clickListener)
+            tourAdapter = BaseAdapter(R.layout.home_item_tour, tourClickListener) { view, data, listener ->
+                homeTourBind(view, data, listener, imageLoader)
+            }
 
             binding.popularToursRecyclerview.adapter = tourAdapter
             binding.recommendationsRecyclerview.adapter = tourAdapter
         }
     }
 
-    private val clickListener = object : TourClickListener {
-        override fun onLikeClick(id: Int) {
-            viewModel.likePressed(id)
+    private val tourClickListener = object : TourClickListener {
+        override fun onLikeClick(tour: LikableTour) {
+            viewModel.likePressed(tour)
         }
 
         override fun onItemClick(tour: LikableTour) {
+            viewModel.openTour(tour)
         }
     }
 

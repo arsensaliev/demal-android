@@ -1,13 +1,20 @@
 package com.demal.feature_home.main.adapter
 
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
 import com.demal.feature_home.R
 import com.demal.feature_home.databinding.HomeItemTourBinding
 import com.demal.model.data.entity.tours.LikableTour
+import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.listeners.TourClickListener
 
-val homeTourBind: ((View, LikableTour, TourClickListener) -> Unit) = { view, data, listener ->
+fun homeTourBind(
+    view: View,
+    data: LikableTour,
+    listener: TourClickListener?,
+    imageLoader: ImageLoader<ImageView>
+) {
     val rvBinding = HomeItemTourBinding.bind(view)
     with(rvBinding) {
         itemHomeHeaderText.text = data.place
@@ -21,7 +28,7 @@ val homeTourBind: ((View, LikableTour, TourClickListener) -> Unit) = { view, dat
             AppCompatResources.getDrawable(rvBinding.root.context, R.drawable.ic_heart_empty_white)
         }
         homeHeartImage.setImageDrawable(likeDrawable)
-        homeHeartImage.setOnClickListener { listener.onLikeClick(data.id) }
-        view.setOnClickListener { listener.onItemClick(data) }
+        homeHeartImage.setOnClickListener { listener?.onLikeClick(data) }
+        view.setOnClickListener { listener?.onItemClick(data) }
     }
 }

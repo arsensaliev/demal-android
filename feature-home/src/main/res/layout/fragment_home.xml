@@ -1,84 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/popular_tours_textview"
-        style="@style/ItemMainTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_home_left"
-        android:layout_marginTop="@dimen/margin_home_textview_top"
+        style="@style/ItemMainTextView"
         android:text="@string/popular_tours"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="@dimen/margin_home_textview_top"
+        android:layout_marginStart="@dimen/margin_home_left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/popular_tours_recyclerview"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/margin_home_left"
+        app:layout_constraintHeight_percent="0.2"
+        android:paddingStart="@dimen/item_home_left_margin"
+        android:paddingEnd="@dimen/item_home_left_margin"
         android:layout_marginTop="@dimen/margin_home_recycler_top"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popular_tours_textview"
         tools:listitem="@layout/home_item_tour" />
 
     <TextView
         android:id="@+id/recommendations_textview"
-        style="@style/ItemMainTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_home_left"
-        android:layout_marginTop="@dimen/margin_home_textview_top"
+        style="@style/ItemMainTextView"
         android:text="@string/recommendations_for_you"
+        android:layout_marginTop="@dimen/margin_home_textview_top"
+        android:layout_marginStart="@dimen/margin_home_left"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/popular_tours_recyclerview" />
+        app:layout_constraintTop_toBottomOf="@id/popular_tours_recyclerview"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recommendations_recyclerview"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/margin_home_left"
-        android:layout_marginTop="@dimen/margin_home_recycler_top"
         android:orientation="horizontal"
+        app:layout_constraintHeight_percent="0.2"
+        android:layout_marginTop="@dimen/margin_home_recycler_top"
+        android:paddingStart="@dimen/item_home_left_margin"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recommendations_textview"
-        tools:listitem="@layout/home_item_tour" />
+        tools:listitem="@layout/home_item_tour"/>
 
     <TextView
         android:id="@+id/activities_textview"
-        style="@style/ItemMainTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_home_left"
-        android:layout_marginTop="@dimen/margin_home_textview_top"
+        style="@style/ItemMainTextView"
         android:text="@string/activities"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recommendations_recyclerview" />
+        android:layout_marginTop="@dimen/margin_home_textview_top"
+        app:layout_constraintTop_toBottomOf="@id/recommendations_recyclerview"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activities_recyclerview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_home_left"
-        android:layout_marginTop="@dimen/margin_home_recycler_top"
         android:orientation="horizontal"
+        app:spanCount="2"
+        android:layout_marginTop="@dimen/margin_home_recycler_top"
+        android:paddingStart="@dimen/item_home_left_margin"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activities_textview"
-        app:spanCount="2"
-        tools:listitem="@layout/home_item_category" />
+        tools:listitem="@layout/home_item_category"
+        />
 
     <TextView
         android:id="@+id/popular_tours_info_textview"
@@ -122,8 +125,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        app:layout_constraintTop_toBottomOf="@id/recommendations_textview"
-        app:layout_constraintBottom_toTopOf="@id/activities_textview"
+        app:layout_constraintTop_toBottomOf="@id/popular_tours_textview"
+        app:layout_constraintBottom_toTopOf="@id/recommendations_textview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
