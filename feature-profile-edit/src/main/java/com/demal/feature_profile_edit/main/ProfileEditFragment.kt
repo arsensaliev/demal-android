@@ -30,12 +30,16 @@ class ProfileEditFragment :
         .root
 
 
-    override fun renderSuccess(data: User) {
+    override fun renderSuccess(user: User) {
+        binding.inputEditTextFirstName.setText(user.firstName)
+        binding.inputEditTextLastname.setText(user.lastName)
+        binding.inputEditTextCountry.setText(user.country)
+        binding.inputEditTextCity.setText(user.city)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.init()
         initEditTextValidator()
         setButtonSaveListener()
     }
