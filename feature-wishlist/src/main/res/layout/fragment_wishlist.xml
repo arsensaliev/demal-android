@@ -29,4 +29,25 @@
         app:layout_constraintTop_toBottomOf="@+id/textView_wishlist_header"
         tools:listitem="@layout/item_tour" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/wishlistEmptyTextview"
+        style="@style/HeaderTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wishlist_empty_list"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/wishlist_recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/wishlist_recyclerView"
+        app:layout_constraintStart_toStartOf="@+id/wishlist_recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/wishlist_recyclerView" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/wishlist_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@+id/wishlist_recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/wishlist_recyclerView"
+        app:layout_constraintStart_toStartOf="@+id/wishlist_recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/wishlist_recyclerView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

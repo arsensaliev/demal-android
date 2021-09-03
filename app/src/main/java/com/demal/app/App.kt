@@ -11,19 +11,16 @@ class App : MultiDexApplication() {
 
         startKoin {
             androidContext(this@App)
-
             modules(
-                listOf(
-                    viewModelModule,
-                    ciceroneModule,
-                    navigatorsModule,
-                    retrofitModule,
-                    dataSourceModule,
-                    repositoryModule,
-                    interactorModule,
-                    imageModule,
-                    preferencesModule
-                )
+                viewModelModule,
+                ciceroneModule,
+                navigatorsModule,
+                retrofitModule,
+                dataSourceModule,
+                repositoryModule,
+                interactorModule,
+                imageModule,
+                preferencesModule
             )
         }
     }

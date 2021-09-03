@@ -43,7 +43,7 @@ class ProfileEditFragment :
     private fun initEditTextValidator() {
 
         validator = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
-        validator.setTextInputLayoutErrorTextAppearance(R.style.errorTextInputLayout);
+        validator.setTextInputLayoutErrorTextAppearance(R.style.errorTextInputLayout)
 
         validator.addValidation(
             binding.inputLayoutFirstName,
