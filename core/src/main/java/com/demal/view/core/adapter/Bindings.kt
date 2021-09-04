@@ -3,6 +3,7 @@ package com.demal.view.core.adapter
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
+import com.demal.constants.BASE_SPACES_URL
 import com.demal.core.R
 import com.demal.core.databinding.ItemTourBinding
 import com.demal.model.data.entity.tours.LikableTour
@@ -30,7 +31,6 @@ fun tourBind(
         imageViewLike.setImageDrawable(likeDrawable)
         imageViewLike.setOnClickListener { listener?.onLikeClick(data) }
         view.setOnClickListener { listener?.onItemClick(data) }
-        //TODO:Load Image
-//            imageLoader.loadImage()
+        imageLoader.loadImage(1, imageViewPlace, "$BASE_SPACES_URL/${data.images[0].imagePath}")
     }
 }
