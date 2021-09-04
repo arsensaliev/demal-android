@@ -14,7 +14,10 @@ dependencies {
 
     //Feature Modules
     implementation project(Modules.featProfile)
-    implementation project(Modules.featOnboarding)
+    implementation project(Modules.featProfileEdit)
+    implementation project(Modules.featHome)
+    implementation project(Modules.featLogin)
+    implementation project(Modules.featWishlist)
 
     //AndroidX
     implementation Tools.multidex
@@ -34,6 +37,7 @@ dependencies {
     implementation Cicerone.cicerone
 
     //Koin for Android
+    implementation Koin.koinCore
     implementation Koin.koinAndroid
     implementation Koin.koinViewModel
 
@@ -46,8 +50,18 @@ dependencies {
     androidTestImplementation TestImpl.runner
     androidTestImplementation TestImpl.espresso
 
+    //Retrofit 2
+    implementation Retrofit.retrofit
+    implementation Retrofit.converterGson
+    implementation Retrofit.adapterCoroutines
+    implementation Retrofit.loggingInterceptor
+
+    //AwesomeValidation
+    implementation AwesomeValidation.validator
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
+
 repositories {
     mavenCentral()
 }

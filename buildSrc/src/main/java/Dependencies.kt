@@ -2,17 +2,17 @@ import org.gradle.api.JavaVersion
 
 object Config {
     const val application_id = "com.demal"
-    const val compile_sdk = 30
-    const val min_sdk = 24
-    const val target_sdk = 30
-    const val kotlin_version = "1.4.32"
-    const val build_tools = "30.0.3"
-    val java_version = JavaVersion.VERSION_1_8
+    const val compileSdk = 30
+    const val minSdk = 24
+    const val targetSdk = 30
+    const val kotlinVersion = "1.5.30"
+    const val buildTools = "30.0.3"
+    val javaVersion = JavaVersion.VERSION_1_8
 }
 
 object Releases {
-    const val version_code = 1
-    const val version_name = "1.0"
+    const val versionCode = 1
+    const val versionName = "1.0"
 }
 
 object Versions {
@@ -25,27 +25,31 @@ object Versions {
     const val constraintLayout = "2.1.0"
 
     //Kotlin
-    const val core = "1.0.2"
-    const val stdlib = "1.3.41"
-    const val coroutinesCore = "1.2.1"
-    const val coroutinesAndroid = "1.1.1"
+    const val core = "1.6.0"
+    const val stdlib = "1.5.30"
+    const val coroutinesCore = "1.5.1"
+    const val coroutinesAndroid = "1.5.1"
 
     //Cicerone
     const val cicerone = "6.6"
 
     //Retrofit
-    const val retrofit = "2.6.0"
-    const val converterGson = "2.6.0"
+    const val retrofit = "2.9.0"
+    const val converterGson = "2.9.0"
     const val interceptor = "3.12.1"
     const val adapterCoroutines = "0.9.2"
 
     //Koin
-    const val koinAndroid = "2.0.1"
-    const val koinViewModel = "2.0.1"
+    const val koinCore = "2.2.3"
+    const val koinAndroid = "2.2.3"
+    const val koinViewModel = "2.2.3"
 
     //Glide
     const val glide = "4.9.0"
     const val glideCompiler = "4.9.0"
+
+    //AwesomeValidation
+    const val validation = "2.0"
 
 //    May be useful later
 //    Room
@@ -81,16 +85,17 @@ object Kotlin {
 
 object Retrofit {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val converter_gson = "com.squareup.retrofit2:converter-gson:${Versions.converterGson}"
-    const val adapter_coroutines =
+    const val converterGson = "com.squareup.retrofit2:converter-gson:${Versions.converterGson}"
+    const val adapterCoroutines =
         "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.adapterCoroutines}"
-    const val logging_interceptor =
+    const val loggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
 }
 
 object Koin {
-    const val koinAndroid = "org.koin:koin-android:${Versions.koinAndroid}"
-    const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koinViewModel}"
+    const val koinCore = "io.insert-koin:koin-core:${Versions.koinCore}"
+    const val koinAndroid = "io.insert-koin:koin-android:${Versions.koinAndroid}"
+    const val koinViewModel = "io.insert-koin:koin-android-viewmodel:${Versions.koinViewModel}"
 }
 
 object Glide {
@@ -110,6 +115,10 @@ object TestImpl {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
 }
 
+object AwesomeValidation {
+    const val validator = "com.basgeekball:awesome-validation:${Versions.validation}"
+}
+
 object Modules {
     const val app = ":app"
     const val core = ":core"
@@ -117,8 +126,11 @@ object Modules {
     const val repository = ":repository"
     const val utils = ":utils"
     const val featProfile = ":feature-profile"
+    const val featProfileEdit = ":feature-profile-edit"
     const val featTours = ":feature-tours"
-    const val featOnboarding = ":feature-onboarding"
+    const val featHome = ":feature-home"
+    const val featWishlist = ":feature-wishlist"
+    const val featLogin = ":feature-login"
 }
 
 object Cicerone {

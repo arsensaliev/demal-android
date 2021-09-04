@@ -15,13 +15,20 @@ dependencies {
 
     //Retrofit 2
     implementation Retrofit.retrofit
-    implementation Retrofit.converter_gson
-    implementation Retrofit.adapter_coroutines
-    implementation Retrofit.logging_interceptor
+    implementation Retrofit.converterGson
+    implementation Retrofit.adapterCoroutines
+    implementation Retrofit.loggingInterceptor
+
+    implementation Glide.glide
+    implementation Glide.glideCompiler
 
     //Test
     testImplementation TestImpl.junit
     androidTestImplementation TestImpl.runner
     androidTestImplementation TestImpl.espresso
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+repositories {
+    mavenCentral()
 }

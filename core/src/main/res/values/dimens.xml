@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_medium">30dp</dimen>
-    <dimen name="item_image_size">100dp</dimen>
-    <dimen name="item_standard_margin">10dp</dimen>
-    <dimen name="item_description_margin_end">44dp</dimen>
-    <dimen name="item_primary_margin">12dp</dimen>
-    <dimen name="item_support_imageview_size">12dp</dimen>
-    <dimen name="item_support_margin_start">12dp</dimen>
-    <dimen name="item_text_to_icon_margin">4dp</dimen>
-    <dimen name="item_icon_to_icon_margin">16dp</dimen>
-    <dimen name="item_like_imageview_size">15dp</dimen>
     <dimen name="header_margin_top">30dp</dimen>
     <dimen name="recycler_margin_top">15dp</dimen>
     <dimen name="recycler_margin_side">20dp</dimen>
     <dimen name="margin_standard">20dp</dimen>
+
+    <!--    item_tour dimens-->
+    <dimen name="item_tour_height">100dp</dimen>
+    <dimen name="item_image_size">100dp</dimen>
+    <dimen name="item_icon_imageview_size">12dp</dimen>
+    <dimen name="item_like_imageview_size">20dp</dimen>
+    <dimen name="item_standard_margin">10dp</dimen>
+    <dimen name="item_description_margin_end">44dp</dimen>
+    <dimen name="item_icon_margin">12dp</dimen>
+    <dimen name="item_icon_bottom_margin">4dp</dimen>
+    <dimen name="item_text_to_icon_margin">4dp</dimen>
+    <dimen name="item_icon_to_icon_margin">16dp</dimen>
 </resources>

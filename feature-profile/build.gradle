@@ -6,6 +6,13 @@ plugins {
 dependencies {
     implementation project(Modules.core)
     implementation project(Modules.utils)
+    implementation project(Modules.repository)
+    implementation project(Modules.model)
+
+    // Koin
+    implementation Koin.koinCore
+    implementation Koin.koinAndroid
+    implementation Koin.koinViewModel
 
     implementation Kotlin.core
     implementation Kotlin.stdlib
@@ -15,6 +22,7 @@ dependencies {
     implementation Design.material
     implementation Design.constraintLayout
 }
+
 repositories {
     mavenCentral()
 }

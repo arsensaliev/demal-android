@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
 }
 
 dependencies {
@@ -14,7 +15,7 @@ dependencies {
     implementation Kotlin.stdlib
 
     //Retrofit 2
-    implementation Retrofit.converter_gson
+    implementation Retrofit.converterGson
 
     //Test
     testImplementation TestImpl.junit
@@ -22,4 +23,8 @@ dependencies {
     androidTestImplementation TestImpl.espresso
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+repositories {
+    mavenCentral()
 }
