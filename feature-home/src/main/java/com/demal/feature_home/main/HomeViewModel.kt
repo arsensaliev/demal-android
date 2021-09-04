@@ -26,10 +26,8 @@ class HomeViewModel(
 
     fun likePressed(tour: LikableTour) {
         runAsync {
-            val pos = tours.toursList.indexOf(tour)
-            val newTour = tour.copy(tour, !tour.isLiked)
             val newList = tours.toursList.toMutableList()
-            newList[pos] = newTour
+            newList[tours.toursList.indexOf(tour)] =  LikableTour(tour, !tour.isLiked)
             tours = LikableTours(newList)
             mStateLiveData.postValue(BaseState.Success(tours))
         }

@@ -3,6 +3,7 @@ package com.demal.feature_home.main.adapter
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
+import com.demal.constants.BASE_SPACES_URL
 import com.demal.feature_home.R
 import com.demal.feature_home.databinding.HomeItemTourBinding
 import com.demal.model.data.entity.tours.LikableTour
@@ -30,5 +31,6 @@ fun homeTourBind(
         homeHeartImage.setImageDrawable(likeDrawable)
         homeHeartImage.setOnClickListener { listener?.onLikeClick(data) }
         view.setOnClickListener { listener?.onItemClick(data) }
+        imageLoader.loadImage(1, homeBackgroundImage, "$BASE_SPACES_URL/${data.images[0].imagePath}")
     }
 }
