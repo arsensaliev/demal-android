@@ -19,6 +19,7 @@
             android:layout_height="@dimen/item_tour_height"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/squircleImageView"
             tools:srcCompat="@drawable/tour_card__image" />
