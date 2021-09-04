@@ -13,7 +13,7 @@ class ProfileViewModel(
 
     fun init() {
         runAsync {
-            val user = repository.myUser()
+            val user = repository.login("arsen@mail.ru", "password")
             mStateLiveData.value = BaseState.Success(user)
         }
     }
