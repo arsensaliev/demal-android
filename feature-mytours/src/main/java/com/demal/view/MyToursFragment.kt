@@ -4,24 +4,41 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.demal.feature_mytours.R
 import com.demal.feature_mytours.databinding.FragmentMyToursBinding
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
+import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.BaseAdapter
 
 import com.demal.view.core.adapter.listeners.MyTourClickListener
+import com.demal.view.core.adapter.listeners.TourClickListener
+import com.demal.view.core.adapter.tourBind
 import com.demal.view.core.view.BaseFragment
 import com.demal.view_model.MyToursViewModel
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyToursViewModel>(),
     ListenerState {
 
     override var bindingNullable: FragmentMyToursBinding? = null
-    private var adapter: BaseAdapter<LikableTour, MyTourClickListener>? = null
+    private var adapter: BaseAdapter<LikableTour, TourClickListener>? = null
 
     override val viewModel: MyToursViewModel by viewModel()
+    private val imageLoader: ImageLoader<ImageView> by inject()
+
+    private val clickListener = object : TourClickListener {
+        override fun onLikeClick(tour: LikableTour) {
+            viewModel.onLikeClick(tour)
+        }
+
+        override fun onItemClick(tour: LikableTour) {
+            viewModel.onItemClick(tour)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,10 +54,16 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
     }
 
     private fun init() {
-//        adapter = BaseAdapter(R.layout.item_tour,clickListener,  )
+        adapter?: let {
+           adapter =
+               BaseAdapter(R.layout.item_tour,clickListener){ view, data, listener ->
+                   tourBind(view, data, listener, imageLoader)
+               }
+            binding.rvFragmentMyTours.adapter = adapter
+        }
+
         viewModel.getTours()
         binding.activeInactiveButton.listenerState = this
-        binding.rvFragmentMyTours.adapter = adapter
     }
 
     override fun onStateChanged(state: Boolean) {
@@ -62,15 +85,7 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
         }
     }
 
-    private val clickListener = object : MyTourClickListener {
-        override fun onLikeClick(tour: LikableTour) {
-            viewModel.onLikeClick(tour)
-        }
 
-        override fun onItemClick(tour: LikableTour) {
-            viewModel.onItemClick(tour)
-        }
-    }
 
     private fun showProgressBar() {
         binding.rvFragmentMyTours.visibility = View.INVISIBLE
