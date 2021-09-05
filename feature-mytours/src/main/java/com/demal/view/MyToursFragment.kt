@@ -33,7 +33,7 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
         }
 
         override fun onItemClick(tour: LikableTour) {
-            viewModel.onItemClick(tour)
+            viewModel.onItemClick(tour.id)
         }
     }
 
@@ -59,12 +59,16 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
             binding.rvFragmentMyTours.adapter = adapter
         }
 
-        viewModel.getTours()
+        viewModel.getInactiveTour()
         binding.activeInactiveButton.listenerState = this
     }
 
     override fun onStateChanged(state: Boolean) {
-        viewModel.getTours()
+        if (state){
+            viewModel.getActiveTour()
+        } else{
+            viewModel.getInactiveTour()
+        }
     }
 
     override fun setLoading(isLoading: Boolean) {
@@ -83,16 +87,19 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
     }
 
     private fun showProgressBar() {
+        binding.tvIfEmptyFragmentMyTours.visibility = View.GONE
         binding.rvFragmentMyTours.visibility = View.INVISIBLE
         binding.progressIndicatorFragmentMyTours.visibility = View.VISIBLE
     }
 
     private fun showList() {
         binding.rvFragmentMyTours.visibility = View.VISIBLE
+        binding.tvIfEmptyFragmentMyTours.visibility = View.GONE
         binding.progressIndicatorFragmentMyTours.visibility = View.GONE
     }
 
     private fun showTextIsEmpty() {
+        binding.rvFragmentMyTours.visibility = View.INVISIBLE
         binding.tvIfEmptyFragmentMyTours.visibility = View.VISIBLE
     }
 }

@@ -7,17 +7,15 @@ import com.demal.navigation.MyToursNavigator
 import com.demal.repository.interactor.ToursInteractor
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
+import com.demal.utill.DateIdentifier
 import com.demal.view.core.view_model.BaseViewModel
 
-class MyToursViewModel(navigator: MyToursNavigator, private val interactor: ToursInteractor) :
+class MyToursViewModel(
+    private val navigator: MyToursNavigator,
+    private val interactor: ToursInteractor,
+    private val dateUtill: DateIdentifier = DateIdentifier()
+) :
     BaseViewModel<LikableTours>(navigator) {
-
-    fun getTours() {
-        mStateLiveData.value = BaseState.Loading(true)
-        runAsync {
-            setLiveData()
-        }
-    }
 
     private suspend fun setLiveData() {
         mStateLiveData.value =
@@ -40,8 +38,33 @@ class MyToursViewModel(navigator: MyToursNavigator, private val interactor: Tour
         }
     }
 
-    //      Ещё нет экрана тура
-    fun onItemClick(tour: LikableTour) {}
+    fun getActiveTour() {
+        mStateLiveData.value = BaseState.Loading(true)
+        runAsync {
+            val tours = interactor.getTours(
+                SortBy.CREATED_AT,
+                Order.DESCENDING
+            )
+            val activeTours = LikableTours(tours.toursList.filter { dateUtill.statusTour(it) })
+            mStateLiveData.value = BaseState.Success(activeTours)
+        }
+    }
+
+    fun getInactiveTour() {
+        mStateLiveData.value = BaseState.Loading(true)
+        runAsync {
+            val tours = interactor.getTours(
+                SortBy.CREATED_AT,
+                Order.DESCENDING
+            )
+            val inactiveTours = LikableTours(tours.toursList.filter { !dateUtill.statusTour(it) })
+            mStateLiveData.value = BaseState.Success(inactiveTours)
+        }
+    }
+
+    fun onItemClick(tourId: Int) {
+        navigator.toTourScreen(tourId)
+    }
 
     override fun handleError(error: Throwable) {
         super.handleError(error)
