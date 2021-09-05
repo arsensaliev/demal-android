@@ -17,7 +17,7 @@ class MyToursViewModel(
 ) :
     BaseViewModel<LikableTours>(navigator) {
 
-    private suspend fun setLiveData() {
+    private suspend fun getTours() {
         mStateLiveData.value =
             BaseState.Success(
                 interactor.getTours(
@@ -34,7 +34,7 @@ class MyToursViewModel(
             } else {
                 interactor.addToWishList(tour.id)
             }
-            setLiveData()
+            getTours()
         }
     }
 
