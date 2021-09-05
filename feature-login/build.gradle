@@ -20,6 +20,7 @@ dependencies {
     implementation TestImpl.runner
     implementation TestImpl.espresso
     implementation Koin.koinAndroid
+    implementation Koin.koinCore
     implementation Koin.koinViewModel
     implementation AwesomeValidation.validator
 }

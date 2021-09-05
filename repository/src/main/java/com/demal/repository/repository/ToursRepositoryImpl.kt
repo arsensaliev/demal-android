@@ -1,16 +1,15 @@
 package com.demal.repository.repository
 
-import com.demal.model.data.entity.tours.Tour
 import com.demal.model.data.entity.tours.network.AddToWishListEntity
 import com.demal.repository.data_sources.RemoteDataSource
+import com.demal.repository.data_sources.WishlistDataSourceLocal
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 
 class ToursRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,
+    private val wishlistLocal: WishlistDataSourceLocal
 ) : ToursRepository {
-
-    private var wishList: MutableList<Tour>? = null
 
     override suspend fun getTours(sortBy: SortBy, order: Order) =
         remoteDataSource.getTours(sortBy, order)
@@ -19,25 +18,21 @@ class ToursRepositoryImpl(
         remoteDataSource.getTourById(id)
 
     override suspend fun getFavoriteTours(userId: Int) =
-        wishList ?: remoteDataSource
+        wishlistLocal.tours() ?: remoteDataSource
             .getUserWishList(userId)
             .tours
             .apply {
-                wishList = wishList ?: mutableListOf()
-                wishList?.clear()
-                wishList?.addAll(this)
+                wishlistLocal.addAll(this)
             }
 
     override suspend fun addToWishList(userId: Int, wish: AddToWishListEntity) {
         remoteDataSource.addToWishList(userId, wish)?.let { tour ->
-            wishList?.add(tour)
+            wishlistLocal.add(tour)
         }
     }
 
     override suspend fun deleteFromWishList(userId: Int, tourId: Int) {
         remoteDataSource.deleteFromWishList(userId, tourId)
-        wishList?.removeIf { tour ->
-            tour.id == tourId
-        }
+        wishlistLocal.delete(tourId)
     }
 }
