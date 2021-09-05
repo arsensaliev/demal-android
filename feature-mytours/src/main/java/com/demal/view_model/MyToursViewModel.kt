@@ -11,19 +11,15 @@ import com.demal.view.core.view_model.BaseViewModel
 
 class MyToursViewModel(navigator: MyToursNavigator, private val interactor: ToursInteractor) :
     BaseViewModel<LikableTours>(navigator) {
-    private var mState: Boolean = false
 
-    fun getTours(state: Boolean = false) {
-        mState = state
+    fun getTours() {
         mStateLiveData.value = BaseState.Loading(true)
         runAsync {
-            setLiveData(state)
+            setLiveData()
         }
     }
 
-    //          Когда будет готов запрос на бэке нужно будет изменить запрос,
-//          чтобы он зависил от state
-    private suspend fun setLiveData(state: Boolean) {
+    private suspend fun setLiveData() {
         mStateLiveData.value =
             BaseState.Success(
                 interactor.getTours(
@@ -40,7 +36,7 @@ class MyToursViewModel(navigator: MyToursNavigator, private val interactor: Tour
             } else {
                 interactor.addToWishList(tour.id)
             }
-            setLiveData(mState)
+            setLiveData()
         }
     }
 

@@ -5,15 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.demal.feature_mytours.R
 import com.demal.feature_mytours.databinding.FragmentMyToursBinding
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
 import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.BaseAdapter
-
-import com.demal.view.core.adapter.listeners.MyTourClickListener
 import com.demal.view.core.adapter.listeners.TourClickListener
 import com.demal.view.core.adapter.tourBind
 import com.demal.view.core.view.BaseFragment
@@ -54,11 +51,11 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
     }
 
     private fun init() {
-        adapter?: let {
-           adapter =
-               BaseAdapter(R.layout.item_tour,clickListener){ view, data, listener ->
-                   tourBind(view, data, listener, imageLoader)
-               }
+        adapter ?: let {
+            adapter =
+                BaseAdapter(R.layout.item_tour, clickListener) { view, data, listener ->
+                    tourBind(view, data, listener, imageLoader)
+                }
             binding.rvFragmentMyTours.adapter = adapter
         }
 
@@ -67,10 +64,10 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
     }
 
     override fun onStateChanged(state: Boolean) {
-        viewModel.getTours(state)
+        viewModel.getTours()
     }
 
-    override fun setLoading(isLoading: Boolean){
+    override fun setLoading(isLoading: Boolean) {
         if (isLoading) {
             showProgressBar()
         }
@@ -78,14 +75,12 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
 
     override fun renderSuccess(data: LikableTours) {
         showList()
-        if (data.toursList.isEmpty()){
+        if (data.toursList.isEmpty()) {
             showTextIsEmpty()
-        } else{
+        } else {
             adapter?.submitList(data.toursList)
         }
     }
-
-
 
     private fun showProgressBar() {
         binding.rvFragmentMyTours.visibility = View.INVISIBLE
@@ -96,7 +91,8 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
         binding.rvFragmentMyTours.visibility = View.VISIBLE
         binding.progressIndicatorFragmentMyTours.visibility = View.GONE
     }
-    private fun showTextIsEmpty(){
+
+    private fun showTextIsEmpty() {
         binding.tvIfEmptyFragmentMyTours.visibility = View.VISIBLE
     }
 }
