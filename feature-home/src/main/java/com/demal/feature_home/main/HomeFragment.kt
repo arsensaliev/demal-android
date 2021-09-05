@@ -37,8 +37,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, LikableTours, HomeViewMod
         .apply { bindingNullable = this }
         .root
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initAdapter()
         viewModel.getTours()
     }
