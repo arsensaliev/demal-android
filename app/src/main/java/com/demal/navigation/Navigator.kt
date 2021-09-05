@@ -33,10 +33,6 @@ class Navigator(
         //TODO("Not yet implemented")
     }
 
-    override fun toTourScreen(tour: LikableTour) {
-        TODO("Not yet implemented")
-    }
-
     //TODO: Navigate to Login Screen
     override fun toLoginScreen() = router.navigateTo(screens.loginScreen())
 }
