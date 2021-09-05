@@ -31,9 +31,7 @@ class Navigator(
 
     override fun toProfileScreen() = router.navigateTo(screens.profileScreen())
 
-    override fun toTourScreen(tourId: Int) {
-        //TODO("Not yet implemented")
-    }
+    override fun toTourScreen(tourId: Int) = router.navigateTo(screens.tourScreen(tourId))
 
     //TODO: Navigate to Login Screen
     override fun toLoginScreen() = router.navigateTo(screens.loginScreen())

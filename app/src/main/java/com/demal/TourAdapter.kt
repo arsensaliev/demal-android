@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
-class ViewPagerTourAdapter(
+class TourAdapter(
     private val images: List<Int>
-) : RecyclerView.Adapter<ViewPagerTourAdapter.ViewPagerTourViewHolder>() {
+) : RecyclerView.Adapter<TourAdapter.ViewPagerTourViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerTourViewHolder {
         return ViewPagerTourViewHolder(

@@ -1,5 +1,6 @@
 package com.demal.navigation
 
+import com.demal.TourFragment
 import com.demal.feature_login.main.LoginFragment
 import com.demal.feature_profile.main.ProfileFragment
 import com.demal.feature_wishlist.main.WishlistFragment
@@ -12,4 +13,5 @@ class Screens {
     fun profileEditScreen() = FragmentScreen { ProfileEditFragment() }
     fun loginScreen() = FragmentScreen { LoginFragment.newInstance()}
     fun wishlistScreen() = FragmentScreen { WishlistFragment() }
+    fun tourScreen(tourId: Int) = FragmentScreen { TourFragment()}
 }
