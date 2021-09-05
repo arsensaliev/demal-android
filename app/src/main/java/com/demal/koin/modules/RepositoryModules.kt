@@ -6,6 +6,8 @@ import android.content.SharedPreferences
 import android.widget.ImageView
 import com.demal.repository.data_sources.RemoteDataSource
 import com.demal.repository.data_sources.RemoteDataSourceImpl
+import com.demal.repository.data_sources.WishlistDataSourceLocal
+import com.demal.repository.data_sources.WishlistDataSourceLocalImpl
 import com.demal.repository.data_sources.preferences.GeneralPreferencesDataSource
 import com.demal.repository.data_sources.preferences.ParcelablePreferencesDataSource
 import com.demal.repository.data_sources.preferences.ParcelablePreferencesDataSourceImpl
@@ -19,6 +21,7 @@ import org.koin.dsl.module
 
 val dataSourceModule = module {
     single<RemoteDataSource> { RemoteDataSourceImpl(get()) }
+    single<WishlistDataSourceLocal> { WishlistDataSourceLocalImpl() }
 }
 
 val preferencesModule = module {
@@ -30,7 +33,7 @@ val preferencesModule = module {
 val repositoryModule = module {
     single<UserRepositoryLocal> { UserRepositoryLocalImpl(get()) }
     single<UserRepository> { UserRepositoryImpl(get(), get(), get()) }
-    single<ToursRepository> { ToursRepositoryImpl(get()) }
+    single<ToursRepository> { ToursRepositoryImpl(get(), get()) }
 }
 
 val interactorModule = module {
