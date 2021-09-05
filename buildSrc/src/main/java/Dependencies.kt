@@ -23,6 +23,7 @@ object Versions {
     const val appcompat = "1.3.1"
     const val material = "1.4.0"
     const val constraintLayout = "2.1.0"
+    const val viewPager2 = "1.0.0"
 
     //Kotlin
     const val core = "1.6.0"
@@ -72,6 +73,7 @@ object Design {
     const val material = "com.google.android.material:material:${Versions.material}"
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val viewPager2 = "androidx.viewpager2:viewpager2:${Versions.viewPager2}"
 }
 
 object Kotlin {
@@ -131,6 +133,7 @@ object Modules {
     const val featHome = ":feature-home"
     const val featWishlist = ":feature-wishlist"
     const val featLogin = ":feature-login"
+    const val featOnboarding = ":feature-onboarding"
 }
 
 object Cicerone {

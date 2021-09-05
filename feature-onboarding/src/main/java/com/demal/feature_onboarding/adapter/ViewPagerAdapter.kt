@@ -5,16 +5,20 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.demal.feature_onboarding.fragments.WelcomeFragment
-import com.demal.feature_onboarding.fragments.WelcomeSecondFragment
-import com.demal.feature_onboarding.fragments.WelcomeThirdFragment
 
 class ViewPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fm, lifecycle) {
 
+    companion object{
+        private const val POSITION_ONE = 1
+        private const val POSITION_TWO = 2
+        private const val POSITION_THREE = 3
+    }
+
     private val fragments = arrayListOf<Fragment>(
-        WelcomeFragment(),
-        WelcomeSecondFragment(),
-        WelcomeThirdFragment()
+        WelcomeFragment.newInstance(POSITION_ONE),
+        WelcomeFragment.newInstance(POSITION_TWO),
+        WelcomeFragment.newInstance(POSITION_THREE)
     )
 
     override fun getItemCount(): Int {
