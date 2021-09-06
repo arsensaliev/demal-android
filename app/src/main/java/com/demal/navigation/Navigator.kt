@@ -2,9 +2,8 @@ package com.demal.navigation
 
 import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
-import com.demal.feature_wishlist.navigation.WishlistNavigator
-import com.demal.model.data.entity.tours.LikableTour
 import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
+import com.demal.feature_wishlist.navigation.WishlistNavigator
 import com.demal.view.core.BaseNavigator
 import com.github.terrakok.cicerone.Router
 

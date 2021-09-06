@@ -7,7 +7,7 @@ import com.demal.repository.repository.UserRepository
 import com.demal.view.core.view_model.BaseViewModel
 
 class ProfileEditViewModel(
-    navigator: ProfileEditNavigator,
+    val navigator: ProfileEditNavigator,
     private val repository: UserRepository
 ) : BaseViewModel<User>(navigator) {
 

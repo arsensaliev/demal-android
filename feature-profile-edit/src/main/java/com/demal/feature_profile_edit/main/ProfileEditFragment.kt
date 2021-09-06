@@ -57,6 +57,8 @@ class ProfileEditFragment :
         initEditTextValidator()
         setButtonSaveListener()
         setSelectPhotoListener()
+        setSelectPhotoListener()
+        setButtonBackspaceListener()
     }
 
     private fun initEditTextValidator() {
@@ -100,6 +102,13 @@ class ProfileEditFragment :
         binding.photo.setOnClickListener {
             contentPhoto.launch("image/*")
         }
+    }
+
+    private fun setButtonBackspaceListener() {
+        binding.profileEditBtnBackspace.setOnClickListener {
+            viewModel.navigator.toProfileScreen()
+        }
+
     }
 
     fun checkForErrorsAll() {
