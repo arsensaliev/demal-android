@@ -32,4 +32,8 @@ class MainViewModel(
     override fun toProfileScreen() {
         navigator.toProfileScreen()
     }
+
+    override fun toProfileEditScreen() {
+        navigator.toProfileEditScreen()
+    }
 }

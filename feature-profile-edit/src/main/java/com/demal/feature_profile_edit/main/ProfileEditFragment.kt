@@ -5,19 +5,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import com.basgeekball.awesomevalidation.AwesomeValidation
 import com.basgeekball.awesomevalidation.ValidationStyle
 import com.basgeekball.awesomevalidation.utility.RegexTemplate
+import com.demal.constants.BASE_SPACES_URL
 import com.demal.feature_profile_edit.R
 import com.demal.feature_profile_edit.databinding.FragmentProfileEditBinding
 import com.demal.model.data.entity.user.User
+import com.demal.repository.image.ImageLoader
 import com.demal.view.core.view.BaseFragment
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ProfileEditFragment :
     BaseFragment<FragmentProfileEditBinding, User, ProfileEditViewModel>() {
 
+    private val imageLoader: ImageLoader<ImageView> by inject()
     private lateinit var validator: AwesomeValidation
     override var bindingNullable: FragmentProfileEditBinding? = null
     override val viewModel: ProfileEditViewModel by viewModel()
@@ -38,6 +43,8 @@ class ProfileEditFragment :
         .root
 
     override fun renderSuccess(user: User) {
+        imageLoader.loadImage(1, binding.imgAvatar, "$BASE_SPACES_URL/${user.imagePath}")
+
         binding.inputEditTextFirstName.setText(user.firstName)
         binding.inputEditTextLastname.setText(user.lastName)
         binding.inputEditTextCountry.setText(user.country)

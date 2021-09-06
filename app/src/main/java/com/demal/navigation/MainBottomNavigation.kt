@@ -6,4 +6,5 @@ interface MainBottomNavigation {
     fun toMyToursScreen()
     fun toWishlistScreen()
     fun toProfileScreen()
+    fun toProfileEditScreen()
 }

@@ -31,6 +31,8 @@ class Navigator(
 
     override fun toProfileScreen() = router.navigateTo(screens.profileScreen())
 
+    override fun toProfileEditScreen() = router.navigateTo(screens.profileEditScreen())
+
     override fun toTourScreen(tourId: Int) {
         //TODO("Not yet implemented")
     }
