@@ -52,6 +52,7 @@
         android:layout_marginStart="@dimen/recycler_margin_side"
         android:layout_marginTop="@dimen/recycler_margin_top"
         android:layout_marginEnd="@dimen/recycler_margin_side"
+        android:layout_marginBottom="@dimen/recycler_margin_top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
