@@ -24,6 +24,7 @@ class ProfileEditFragment :
 
     private val imageLoader: ImageLoader<ImageView> by inject()
     private lateinit var validator: AwesomeValidation
+    private val FILE_TYPE = "image/*"
     override var bindingNullable: FragmentProfileEditBinding? = null
     override val viewModel: ProfileEditViewModel by viewModel()
 
@@ -100,7 +101,7 @@ class ProfileEditFragment :
 
     private fun setSelectPhotoListener() {
         binding.photo.setOnClickListener {
-            contentPhoto.launch("image/*")
+            contentPhoto.launch(FILE_TYPE)
         }
     }
 
