@@ -5,38 +5,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.viewpager2.widget.ViewPager2
 import com.demal.databinding.FragmentTourBinding
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.tours.LikableTour
-import com.demal.model.data.entity.tours.LikableTours
-import com.demal.model.data.entity.tours.network.ImageResponse
 import com.demal.repository.image.ImageLoader
-import com.demal.view.core.adapter.BaseAdapter
-import com.demal.view.core.adapter.listeners.TourClickListener
-import com.demal.view.core.adapter.tourBind
 import com.demal.view.core.view.BaseFragment
-import org.koin.android.viewmodel.ext.android.viewModel
+import me.relex.circleindicator.CircleIndicator3
 import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 
-class TourFragment :
+class TourFragment(private val tourId: Int) :
     BaseFragment<FragmentTourBinding, LikableTour, TourViewModel>() {
 
     override var bindingNullable: FragmentTourBinding? = null
 
     override val viewModel: TourViewModel by viewModel()
 
-    private var imageAdapter: BaseAdapter<LikableTour, TourClickListener>? = null
+    private var adapter: TourAdapter? = null
+
+    private lateinit var viewPager: ViewPager2
+
+    private lateinit var indicator: CircleIndicator3
 
     private val imageLoader: ImageLoader<ImageView> by inject()
-
-    private val tourClickListener = object : TourClickListener {
-        override fun onLikeClick(tour: LikableTour) {
-            viewModel.likePressed(tour)
-        }
-
-        override fun onItemClick(tour: LikableTour) {
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,30 +41,41 @@ class TourFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initVP()
-        viewModel.getTourDescription(tourId) //error, help
+
+        val images = viewModel.getTourImages(tourId)
+        viewModel.getTourDescription(tourId)
+
+        viewPager = binding.viewPager
+        adapter = TourAdapter(images)
+        indicator = binding.indicator
+
+        viewPager.adapter = adapter
+        indicator.setViewPager(viewPager)
+
         binding.closeButton.setOnClickListener {
             viewModel.closeTour()
         }
     }
 
-    private fun initVP() {
-        imageAdapter ?: let {
-            imageAdapter =
-                BaseAdapter(R.layout.item_view_pager, tourClickListener) { view, data, listener ->
-                    tourBind(view, data, listener, imageLoader)
-                }
-            binding.viewPager.adapter = imageAdapter
-            binding.indicator.setViewPager(binding.viewPager)
+    override fun renderSuccess(data: LikableTour) {
+        if (data.description.isNullOrEmpty()){
+            tourIsEmpty()
+        }else {
+            initTour(data)
         }
     }
 
-    override fun renderSuccess(data: LikableTour) {
-        if (data.images.isNullOrEmpty()){
-            tourIsEmpty()
-        }else {
-            showImages(data.images) //error, help
+    private fun initTour(data: LikableTour) {
+        with(binding.tourBottomSheet){
+            textViewPlace.text = data.place
+            textViewDescription.text = data.description
+            textViewPeople.text= data.travelersCount.toString()
+            textViewDate.text = data.startDate
         }
+    }
+
+    private fun tourIsEmpty() {
+        binding.tourBottomSheet.textViewDescription.text = "Что-то пошло не так"
     }
 
     override fun renderData(state: BaseState<LikableTour>) {
@@ -87,15 +90,7 @@ class TourFragment :
     override fun onDestroyView() {
         super.onDestroyView()
         bindingNullable = null
-        imageAdapter = null
-    }
-
-    private fun tourIsEmpty(){
-        imageAdapter?.submitList(listOf())
-    }
-
-    private fun showImages(data: List<LikableTour>){
-        imageAdapter?.submitList(data)
+        adapter = null
     }
 
     private fun showLoading() {

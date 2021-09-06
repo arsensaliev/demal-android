@@ -7,7 +7,7 @@ import com.demal.view.core.view_model.BaseViewModel
 
 class TourViewModel(
     private val navigator: TourNavigator,
-    private val repository: ToursInteractor
+    private val toursInteractor: ToursInteractor
 ) : BaseViewModel<LikableTour>(navigator) {
 
     private lateinit var tour : LikableTour
@@ -15,19 +15,27 @@ class TourViewModel(
     fun getTourDescription(tourId: Int) {
         runAsync {
             mStateLiveData.postValue(BaseState.Loading(true))
-            tour = repository.getTourById(id = tourId)
+            tour = toursInteractor.getTourById(id = tourId)
             mStateLiveData.value = BaseState.Success(tour)
         }
+    }
+
+    fun getTourImages(tourId: Int): List<Int> {
+        //Надо написать загрузку картинок, не могу, прошу помочь.
+        return listOf(
+            R.drawable.tour_background_image,
+            R.drawable.profile_bg_bitmap,
+            R.drawable.profile_bg_dark
+        )
     }
 
     fun likePressed(tour: LikableTour) {
         runAsync {
             if (tour.isLiked){
-                repository.deleteFromWishList(tour.id)
+                toursInteractor.deleteFromWishList(tour.id)
             } else {
-                repository.addToWishList(tour.id)
+                toursInteractor.addToWishList(tour.id)
             }
-            getTourDescription(tour.id)
         }
     }
 
@@ -39,6 +47,4 @@ class TourViewModel(
         super.handleError(error)
         mStateLiveData.postValue(BaseState.Error(error))
     }
-
-
 }

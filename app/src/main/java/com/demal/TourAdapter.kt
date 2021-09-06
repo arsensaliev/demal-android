@@ -18,7 +18,7 @@ class TourAdapter(
 
     override fun onBindViewHolder(holder: ViewPagerTourViewHolder, position: Int) {
         val curImage = images[position]
-        holder.itemView.findViewById<ImageView>(R.id.imageView_tour).setImageResource(curImage)
+        holder.itemView.findViewById<ImageView>(R.id.imageViewTour).setImageResource(curImage)
     }
 
     override fun getItemCount(): Int = images.size
