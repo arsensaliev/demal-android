@@ -1,11 +1,10 @@
 package com.demal.feature_tours.main
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.demal.feature_tours.navigation.ToursNavigator
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
+import com.demal.model.data.entity.tours.ToursState
 import com.demal.model.data.entity.tours.network.CategoryResponse
 import com.demal.repository.interactor.ToursInteractor
 import com.demal.repository.types.Order
@@ -15,14 +14,11 @@ import com.demal.view.core.view_model.BaseViewModel
 class ToursViewModel(
     private val navigator: ToursNavigator,
     private val toursInteractor: ToursInteractor
-) : BaseViewModel<LikableTours>(navigator) {
+) : BaseViewModel<ToursState>(navigator) {
 
     private var likableTours = LikableTours(listOf())
     private var toursCategories = mutableListOf<CategoryResponse>()
     private var currentFilter: Int? = null
-
-    private val mCategoriesLiveData = MutableLiveData<List<CategoryResponse>>()
-    val categoriesLiveData: LiveData<List<CategoryResponse>> = mCategoriesLiveData
 
     override fun handleError(error: Throwable) {
         super.handleError(error)
@@ -33,18 +29,20 @@ class ToursViewModel(
         runAsync {
             mStateLiveData.postValue(BaseState.Loading(true))
             likableTours = toursInteractor.getTours(SortBy.ID, Order.ASCENDING)
+            var categories = mutableListOf<CategoryResponse>()
             likableTours.toursList.forEach {
-                toursCategories.add(it.category)
+                categories.add(it.category)
             }
-            toursCategories = toursCategories.distinct().toMutableList()
-            mCategoriesLiveData.postValue(toursCategories)
-            postTours()
+            categories = categories.distinct().toMutableList()
+            val difference = categories.minus(toursCategories)
+            toursCategories = categories
+            postTours(difference)
         }
     }
 
     fun setupFilter(categoryId: Int?) {
         currentFilter = categoryId
-        postTours()
+        postTours(listOf())
     }
 
     fun likePressed(tour: LikableTour) {
@@ -54,7 +52,7 @@ class ToursViewModel(
             val newList = likableTours.toursList.toMutableList()
             newList[pos] = newTour
             likableTours = LikableTours(newList)
-            postTours()
+            postTours(listOf())
         }
         runAsync {
             if (tour.isLiked) {
@@ -69,14 +67,28 @@ class ToursViewModel(
         navigator.toTourScreen(tour.id)
     }
 
-    private fun postTours() {
+    private fun postTours(newCategories: List<CategoryResponse>) {
         if (currentFilter == null) {
-            mStateLiveData.postValue(BaseState.Success(likableTours))
+            mStateLiveData.postValue(
+                BaseState.Success(
+                    ToursState(
+                        likableTours.toursList,
+                        newCategories
+                    )
+                )
+            )
         } else {
             val filteredTours = likableTours.toursList.filter { tour ->
                 tour.categoryId == currentFilter
             }
-            mStateLiveData.postValue(BaseState.Success(LikableTours(filteredTours)))
+            mStateLiveData.postValue(
+                BaseState.Success(
+                    ToursState(
+                        filteredTours,
+                        newCategories
+                    )
+                )
+            )
         }
     }
 }

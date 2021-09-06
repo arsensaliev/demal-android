@@ -10,7 +10,7 @@ import com.demal.feature_tours.R
 import com.demal.feature_tours.databinding.FragmentToursBinding
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.tours.LikableTour
-import com.demal.model.data.entity.tours.LikableTours
+import com.demal.model.data.entity.tours.ToursState
 import com.demal.model.data.entity.tours.network.CategoryResponse
 import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.BaseAdapter
@@ -21,7 +21,7 @@ import com.google.android.material.chip.Chip
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class ToursFragment : BaseFragment<FragmentToursBinding, LikableTours, ToursViewModel>() {
+class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewModel>() {
 
     override var bindingNullable: FragmentToursBinding? = null
 
@@ -56,9 +56,6 @@ class ToursFragment : BaseFragment<FragmentToursBinding, LikableTours, ToursView
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRV()
-        viewModel.categoriesLiveData.observe(viewLifecycleOwner) { categories ->
-            fillCategories(categories)
-        }
         viewModel.getTours()
     }
 
@@ -68,15 +65,16 @@ class ToursFragment : BaseFragment<FragmentToursBinding, LikableTours, ToursView
         tourAdapter = null
     }
 
-    override fun renderData(state: BaseState<LikableTours>) {
+    override fun renderData(state: BaseState<ToursState>) {
         hideLoading()
         super.renderData(state)
     }
 
-    override fun renderSuccess(data: LikableTours) {
+    override fun renderSuccess(data: ToursState) {
         if (data.toursList.isNullOrEmpty()) {
             listIsEmpty()
         } else {
+            fillCategories(data.toursCategories)
             showList(data.toursList)
         }
     }
