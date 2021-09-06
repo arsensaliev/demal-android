@@ -68,27 +68,22 @@ class ToursViewModel(
     }
 
     private fun postTours(newCategories: List<CategoryResponse>) {
-        if (currentFilter == null) {
-            mStateLiveData.postValue(
-                BaseState.Success(
-                    ToursState(
-                        likableTours.toursList,
-                        newCategories
-                    )
-                )
-            )
+        val toursList = if (currentFilter == null) {
+            likableTours.toursList
         } else {
             val filteredTours = likableTours.toursList.filter { tour ->
                 tour.categoryId == currentFilter
             }
-            mStateLiveData.postValue(
-                BaseState.Success(
-                    ToursState(
-                        filteredTours,
-                        newCategories
-                    )
+            filteredTours
+        }
+
+        mStateLiveData.postValue(
+            BaseState.Success(
+                ToursState(
+                    toursList,
+                    newCategories
                 )
             )
-        }
+        )
     }
 }
