@@ -1,5 +1,6 @@
 package com.demal.koin.modules
 
+import com.demal.constants.BASE_API_URL
 import com.demal.repository.api.ApiService
 import com.demal.repository.api.BaseInterceptor
 import com.demal.repository.types.EnumConverterFactory
@@ -18,7 +19,7 @@ val retrofitModule = module {
             .build()
 
         Retrofit.Builder()
-            .baseUrl(BASE_URL_LOCATIONS)
+            .baseUrl(BASE_API_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addConverterFactory(EnumConverterFactory())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
@@ -27,4 +28,3 @@ val retrofitModule = module {
     }
 }
 
-const val BASE_URL_LOCATIONS = "https://demal-api.herokuapp.com/"

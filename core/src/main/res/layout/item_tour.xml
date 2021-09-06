@@ -19,6 +19,7 @@
             android:layout_height="@dimen/item_tour_height"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/squircleImageView"
             tools:srcCompat="@drawable/tour_card__image" />
@@ -29,7 +30,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/item_standard_margin"
-            android:layout_marginTop="@dimen/item_standard_margin"
             app:layout_constraintStart_toEndOf="@+id/imageView_place"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Каинды" />
@@ -100,8 +100,8 @@
             android:id="@+id/imageView_like"
             android:layout_width="@dimen/item_like_imageview_size"
             android:layout_height="@dimen/item_like_imageview_size"
-            android:layout_marginTop="@dimen/item_icon_margin"
 
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_heart_empty" />
