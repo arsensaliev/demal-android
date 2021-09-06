@@ -129,7 +129,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
+                    android:id="@+id/photo"
                     style="@style/profileEditPhoto"
                     app:layout_constraintBottom_toTopOf="@+id/cardViewEdit"
                     app:layout_constraintEnd_toEndOf="parent"

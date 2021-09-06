@@ -1,9 +1,11 @@
 package com.demal.feature_profile_edit.main
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import com.basgeekball.awesomevalidation.AwesomeValidation
 import com.basgeekball.awesomevalidation.ValidationStyle
 import com.basgeekball.awesomevalidation.utility.RegexTemplate
@@ -16,9 +18,15 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class ProfileEditFragment :
     BaseFragment<FragmentProfileEditBinding, User, ProfileEditViewModel>() {
 
-    private var validator = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
+    private lateinit var validator: AwesomeValidation
     override var bindingNullable: FragmentProfileEditBinding? = null
     override val viewModel: ProfileEditViewModel by viewModel()
+
+    private val contentPhoto = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        it?.also {
+            updatePhoto(it)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +36,6 @@ class ProfileEditFragment :
         .inflate(inflater, container, false)
         .apply { bindingNullable = this }
         .root
-
 
     override fun renderSuccess(user: User) {
         binding.inputEditTextFirstName.setText(user.firstName)
@@ -42,6 +49,7 @@ class ProfileEditFragment :
         viewModel.init()
         initEditTextValidator()
         setButtonSaveListener()
+        setSelectPhotoListener()
     }
 
     private fun initEditTextValidator() {
@@ -81,8 +89,18 @@ class ProfileEditFragment :
         }
     }
 
+    private fun setSelectPhotoListener() {
+        binding.photo.setOnClickListener {
+            contentPhoto.launch("image/*")
+        }
+    }
+
     fun checkForErrorsAll() {
         validator.validate()
+    }
+
+    fun updatePhoto(uriPhoto: Uri) {
+        binding.imgAvatar.setImageURI(uriPhoto)
     }
 
 }
