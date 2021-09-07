@@ -1,14 +1,12 @@
-package com.demal.view.core
+package com.demal.utils.date
 
-import com.demal.model.data.entity.date.DateIntegerFormat
-import com.demal.model.data.entity.tours.LikableTour
 import java.text.SimpleDateFormat
 import java.util.*
 
 class DateIdentifier {
-    fun statusTour(tour: LikableTour): Boolean {
+    fun statusTour(startDateTour: String?): Boolean {
         val currentDate = getCurrentDate()
-        val tourDate = getTourDate(tour)
+        val tourDate = getTourDate(startDateTour)
         return (currentDate.year < tourDate.year
                 || currentDate.year <= tourDate.year
                 && currentDate.month < tourDate.month
@@ -52,8 +50,8 @@ class DateIdentifier {
         )
     }
 
-    fun getTourDate(tour: LikableTour): DateIntegerFormat {
-        val dateStringBuilder = StringBuilder().append(tour.startDate)
+    fun getTourDate(startDateTour: String?): DateIntegerFormat {
+        val dateStringBuilder = StringBuilder().append(startDateTour)
         dateStringBuilder.delete(dateStringBuilder.length - 5, dateStringBuilder.length)
         val startDateTour = dateStringBuilder.split("T")
         val dateTour = startDateTour[0].split("-")
@@ -68,7 +66,7 @@ class DateIdentifier {
         )
     }
 
-     val monthsMap = mapOf(
+    val monthsMap = mapOf(
         1 to "Янаря",
         2 to "Февраля",
         3 to "Марта",

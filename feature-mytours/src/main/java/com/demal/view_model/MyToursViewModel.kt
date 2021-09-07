@@ -7,7 +7,7 @@ import com.demal.navigation.MyToursNavigator
 import com.demal.repository.interactor.ToursInteractor
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
-import com.demal.view.core.DateIdentifier
+import com.demal.utils.date.DateIdentifier
 import com.demal.view.core.view_model.BaseViewModel
 
 class MyToursViewModel(
@@ -39,7 +39,7 @@ class MyToursViewModel(
                 SortBy.CREATED_AT,
                 Order.DESCENDING
             )
-            val activeTours = LikableTours(tours.toursList.filter { dateUtill.statusTour(it) })
+            val activeTours = LikableTours(tours.toursList.filter { dateUtill.statusTour(it.startDate) })
             mStateLiveData.value = BaseState.Success(activeTours)
         }
     }
@@ -51,7 +51,7 @@ class MyToursViewModel(
                 SortBy.CREATED_AT,
                 Order.DESCENDING
             )
-            val inactiveTours = LikableTours(tours.toursList.filter { !dateUtill.statusTour(it) })
+            val inactiveTours = LikableTours(tours.toursList.filter { !dateUtill.statusTour(it.startDate) })
             mStateLiveData.value = BaseState.Success(inactiveTours)
         }
     }

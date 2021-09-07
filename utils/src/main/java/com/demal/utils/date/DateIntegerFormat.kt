@@ -1,4 +1,4 @@
-package com.demal.model.data.entity.date
+package com.demal.utils.date
 
 data class DateIntegerFormat(
     val year: Int,
