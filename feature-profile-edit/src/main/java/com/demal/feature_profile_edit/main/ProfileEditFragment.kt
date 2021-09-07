@@ -99,8 +99,7 @@ class ProfileEditFragment :
 
     private fun setButtonSaveListener() {
         binding.buttonSend.setOnClickListener {
-            checkForErrorsAll()
-            updateUserApi()
+            if (checkForErrorsAll()) { updateUserApi()}
         }
     }
 
@@ -117,8 +116,8 @@ class ProfileEditFragment :
 
     }
 
-    private fun checkForErrorsAll() {
-        validator.validate()
+    private fun checkForErrorsAll(): Boolean {
+       return validator.validate()
     }
 
     private fun updatePhoto(uriPhoto: Uri) {
