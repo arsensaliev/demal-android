@@ -7,7 +7,7 @@ import com.demal.navigation.MyToursNavigator
 import com.demal.repository.interactor.ToursInteractor
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
-import com.demal.utill.DateIdentifier
+import com.demal.view.core.DateIdentifier
 import com.demal.view.core.view_model.BaseViewModel
 
 class MyToursViewModel(

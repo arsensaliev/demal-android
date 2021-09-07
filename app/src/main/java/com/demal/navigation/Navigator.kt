@@ -14,7 +14,7 @@ class Navigator(
     private val router: Router,
     private val screens: Screens
 ) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator, LoginNavigator,
-    WishlistNavigator, HomeNavigator {
+    WishlistNavigator, HomeNavigator, MyToursNavigator {
 
     override fun toHomeScreen() = router.navigateTo(screens.homeScreen())
 
@@ -22,9 +22,7 @@ class Navigator(
         //TODO("Not yet implemented")
     }
 
-    override fun toMyToursScreen() {
-        //TODO("Not yet implemented")
-    }
+    override fun toMyToursScreen() = router.navigateTo(screens.myToursScreen())
 
     override fun toWishlistScreen() = router.navigateTo(screens.wishlistScreen())
 
