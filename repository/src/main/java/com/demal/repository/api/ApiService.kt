@@ -7,6 +7,7 @@ import com.demal.model.data.entity.tours.network.MeResponse
 import com.demal.model.data.entity.tours.network.Tours
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.model.data.entity.user.LoginResponse
+import com.demal.model.data.entity.user.UserUpdate
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 import kotlinx.coroutines.Deferred
@@ -19,6 +20,12 @@ interface ApiService {
 
     @GET("api/$API_VERSION/users/me")
     fun myUser(): Deferred<MeResponse>
+
+
+    @PATCH("api/$API_VERSION/users/{id}")
+    fun updateUser(
+        @Path("id") id: Int,
+        @Body user: UserUpdate): Deferred<Unit>
 
     @GET("api/$API_VERSION/tours")
     fun getTours(

@@ -14,6 +14,7 @@ import com.demal.constants.BASE_SPACES_URL
 import com.demal.feature_profile_edit.R
 import com.demal.feature_profile_edit.databinding.FragmentProfileEditBinding
 import com.demal.model.data.entity.user.User
+import com.demal.model.data.entity.user.UserUpdate
 import com.demal.repository.image.ImageLoader
 import com.demal.view.core.view.BaseFragment
 import org.koin.android.ext.android.inject
@@ -25,8 +26,10 @@ class ProfileEditFragment :
     private val imageLoader: ImageLoader<ImageView> by inject()
     private lateinit var validator: AwesomeValidation
     private val FILE_TYPE = "image/*"
+    private lateinit var user: User
     override var bindingNullable: FragmentProfileEditBinding? = null
     override val viewModel: ProfileEditViewModel by viewModel()
+
 
     private val contentPhoto = registerForActivityResult(ActivityResultContracts.GetContent()) {
         it?.also {
@@ -44,6 +47,7 @@ class ProfileEditFragment :
         .root
 
     override fun renderSuccess(user: User) {
+        this.user = user
         imageLoader.loadImage(1, binding.imgAvatar, "$BASE_SPACES_URL/${user.imagePath}")
 
         binding.inputEditTextFirstName.setText(user.firstName)
@@ -96,6 +100,7 @@ class ProfileEditFragment :
     private fun setButtonSaveListener() {
         binding.buttonSend.setOnClickListener {
             checkForErrorsAll()
+            updateUserApi()
         }
     }
 
@@ -112,12 +117,23 @@ class ProfileEditFragment :
 
     }
 
-    fun checkForErrorsAll() {
+    private fun checkForErrorsAll() {
         validator.validate()
     }
 
-    fun updatePhoto(uriPhoto: Uri) {
+    private fun updatePhoto(uriPhoto: Uri) {
         binding.imgAvatar.setImageURI(uriPhoto)
+    }
+
+    private fun updateUserApi() {
+        val userUpdateData = UserUpdate(
+            binding.inputEditTextFirstName.text.toString(),
+            binding.inputEditTextLastname.text.toString(),
+            binding.inputEditTextCountry.text.toString(),
+            binding.inputEditTextCity.text.toString()
+        )
+
+        user.id?.let { viewModel.updateProfile(it,userUpdateData) }
     }
 
 }

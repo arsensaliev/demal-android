@@ -2,6 +2,7 @@ package com.demal.repository.data_sources
 
 import com.demal.model.data.entity.tours.network.AddToWishListEntity
 import com.demal.model.data.entity.user.LoginRequest
+import com.demal.model.data.entity.user.UserUpdate
 import com.demal.repository.api.ApiService
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
@@ -15,6 +16,9 @@ class RemoteDataSourceImpl(
 
     override suspend fun myUser() =
         service.myUser().await()
+
+    override suspend fun updateUser( id: Int,user: UserUpdate) =
+        service.updateUser(id, user).await()
 
     override suspend fun getTours(sortBy: SortBy, order: Order) =
         service.getTours(sortBy, order).await()
