@@ -1,5 +1,6 @@
 package com.demal.navigation
 
+import com.demal.feature_home.navigation.HomeNavigator
 import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
@@ -13,17 +14,17 @@ class Navigator(
     private val router: Router,
     private val screens: Screens
 ) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator, LoginNavigator,
-    WishlistNavigator, MyToursNavigator {
+    WishlistNavigator, HomeNavigator {
 
-    override fun toHomeScreen() {
-        //TODO("Not yet implemented")
-    }
+    override fun toHomeScreen() = router.navigateTo(screens.homeScreen())
 
     override fun toToursScreen() {
         //TODO("Not yet implemented")
     }
 
-    override fun toMyToursScreen() =router.navigateTo(screens.myToursScreen())
+    override fun toMyToursScreen() {
+        //TODO("Not yet implemented")
+    }
 
     override fun toWishlistScreen() = router.navigateTo(screens.wishlistScreen())
 
