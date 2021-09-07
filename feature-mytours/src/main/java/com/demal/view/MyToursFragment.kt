@@ -26,10 +26,11 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
 
     override val viewModel: MyToursViewModel by viewModel()
     private val imageLoader: ImageLoader<ImageView> by inject()
+    private var stateView = false
 
     private val clickListener = object : TourClickListener {
         override fun onLikeClick(tour: LikableTour) {
-            viewModel.onLikeClick(tour)
+            viewModel.onLikeClick(tour, stateView)
         }
 
         override fun onItemClick(tour: LikableTour) {
@@ -64,6 +65,7 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
     }
 
     override fun onStateChanged(state: Boolean) {
+        stateView = state
         if (state){
             viewModel.getActiveTour()
         } else{

@@ -17,24 +17,18 @@ class MyToursViewModel(
 ) :
     BaseViewModel<LikableTours>(navigator) {
 
-    private suspend fun getTours() {
-        mStateLiveData.value =
-            BaseState.Success(
-                interactor.getTours(
-                    SortBy.CREATED_AT,
-                    Order.DESCENDING
-                )
-            )
-    }
-
-    fun onLikeClick(tour: LikableTour) {
+    fun onLikeClick(tour: LikableTour, stateView: Boolean) {
         runAsync {
             if (tour.isLiked) {
                 interactor.deleteFromWishList(tour.id)
             } else {
                 interactor.addToWishList(tour.id)
             }
-            getTours()
+            if (stateView){
+                getActiveTour()
+            } else{
+                getInactiveTour()
+            }
         }
     }
 
