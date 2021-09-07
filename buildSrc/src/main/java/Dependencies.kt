@@ -49,7 +49,7 @@ object Versions {
     const val glideCompiler = "4.9.0"
 
     //AwesomeValidation
-    const val validation = "2.0"
+    const val validation = "4.3"
 
 //    May be useful later
 //    Room
