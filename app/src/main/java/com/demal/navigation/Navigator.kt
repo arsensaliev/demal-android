@@ -38,4 +38,6 @@ class Navigator(
 
     //TODO: Navigate to Login Screen
     override fun toLoginScreen() = router.navigateTo(screens.loginScreen())
+
+    override fun toBack() = router.exit()
 }

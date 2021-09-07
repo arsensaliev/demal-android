@@ -112,7 +112,7 @@ class ProfileEditFragment :
 
     private fun setButtonBackspaceListener() {
         binding.profileEditBtnBackspace.setOnClickListener {
-            viewModel.navigator.toProfileScreen()
+            viewModel.navigator.toBack()
         }
 
     }
@@ -134,6 +134,7 @@ class ProfileEditFragment :
         )
 
         user.id?.let { viewModel.updateProfile(it,userUpdateData) }
+        viewModel.navigator.toBack()
     }
 
 }
