@@ -45,7 +45,6 @@
     <style name="TextInputLayoutLoginStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="errorEnabled">true</item>
         <item name="hintTextAppearance">@style/HintTextAppearance</item>
-        <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
         <item name="boxStrokeColor">@color/purple_dark</item>
         <item name="errorIconDrawable">@null</item>
         <item name="boxStrokeErrorColor">@color/error_red_dark</item>
