@@ -71,6 +71,7 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
         } else{
             viewModel.getInactiveTour()
         }
+        adapter?.submitList(null)
     }
 
     override fun setLoading(isLoading: Boolean) {
