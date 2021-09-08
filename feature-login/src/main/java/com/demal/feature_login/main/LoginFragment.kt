@@ -40,8 +40,8 @@ class LoginFragment :
     }
 
     private fun setupListeners() = with(binding) {
-        editTextPassword.addTextChangedListener(TextFieldValidationTextWatcher(editTextPassword))
-        editTextEmail.addTextChangedListener(TextFieldValidationTextWatcher(editTextEmail))
+        editTextPassword.addTextChangedListener(TextFieldValidation(editTextPassword))
+        editTextEmail.addTextChangedListener(TextFieldValidation(editTextEmail))
     }
 
     private fun initEmailValidation() {
@@ -70,13 +70,13 @@ class LoginFragment :
                     binding.editTextPassword.text.toString().trim()
                 )
             } else {
-                renderMessage(getString(R.string.input_error))
+                textInputLayoutPassword.error = getString(R.string.password_rule)
             }
         }
     }
 
     override fun renderError(error: Throwable) {
-        renderMessage(getString(R.string.no_auth))
+        renderMessage(error.message.toString())
     }
 
     override fun renderSuccess(data: LoginStatus) {
@@ -87,7 +87,7 @@ class LoginFragment :
         fun newInstance() = LoginFragment()
     }
 
-    inner class TextFieldValidationTextWatcher(private val view: View) : TextWatcher {
+    inner class TextFieldValidation(private val view: View) : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             // not used
         }
@@ -99,10 +99,8 @@ class LoginFragment :
         override fun afterTextChanged(s: Editable?) {
             when (view.id) {
                 R.id.edit_text_email -> emailValidator.validate()
-
                 R.id.edit_text_password -> passwordValidator.validate()
             }
         }
     }
-
 }
