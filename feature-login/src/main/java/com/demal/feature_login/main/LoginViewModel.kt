@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.login.LoginStatus
+import com.demal.model.data.exceptions.BadRequestException
 import com.demal.model.data.exceptions.NoAuthException
 import com.demal.repository.repository.UserRepository
 import com.demal.view.core.view_model.BaseViewModel
@@ -25,7 +26,7 @@ class LoginViewModel(
 
     @SuppressLint("MissingSuperCall")
     override fun handleError(error: Throwable) {
-        if (error is NoAuthException) {
+        if (error is NoAuthException || error is BadRequestException) {
             mStateLiveData.postValue(BaseState.Error(error))
         }
     }
