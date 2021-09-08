@@ -18,6 +18,7 @@ dependencies {
     implementation project(Modules.featHome)
     implementation project(Modules.featLogin)
     implementation project(Modules.featWishlist)
+    implementation project(Modules.featMyTours)
     implementation project(Modules.featTours)
 
     //AndroidX
