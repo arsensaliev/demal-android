@@ -6,6 +6,8 @@ plugins {
 dependencies {
     //Modules
     implementation project(Modules.core)
+    implementation project(Modules.repository)
+    implementation project(Modules.model)
 
     //Design
     implementation Design.material

@@ -5,7 +5,7 @@
     xmlns:tool="http://schemas.android.com/tools"
     android:id="@+id/home_card_view"
     android:layout_width="@dimen/item_home_width"
-    android:layout_height="match_parent"
+    android:layout_height="@dimen/item_home_height"
     android:layout_marginStart="@dimen/item_home_right_margin"
     app:cardCornerRadius="@dimen/home_card_corner_radius"
     tool:backgroundTint="@color/black_transparent">
@@ -14,19 +14,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/home_background_image"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/home_card_image" />
+            android:foreground="@color/home_gray">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/home_background_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/squircleImageView"
+                app:srcCompat="@drawable/home_card_image"
+                tool:layout_editor_absoluteX="0dp"
+                tool:layout_editor_absoluteY="0dp" />
+
+        </FrameLayout>
 
         <ImageView
             android:id="@+id/home_user_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/item_home_left_margin"
-            android:layout_marginTop="@dimen/item_home_top_margin"
+            android:layout_marginStart="@dimen/item_home_user_image_left_margin"
+            android:layout_marginTop="@dimen/item_home_user_image_top_margin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_human_white" />
@@ -35,8 +45,8 @@
             android:id="@+id/home_heart_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_home_top_margin"
-            android:layout_marginEnd="@dimen/item_home_right_margin"
+            android:layout_marginTop="@dimen/item_home_heart_heart_top_margin"
+            android:layout_marginEnd="@dimen/item_home_user_heart_right_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_heart_empty_white" />
@@ -58,6 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/item_home_left_margin"
+            android:layout_marginTop="@dimen/item_home_description_top_margin"
             android:layout_marginBottom="@dimen/item_home_description_bottom_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,11 +79,10 @@
             style="@style/ItemHomeDescriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/item_text_to_icon_margin"
+            android:layout_marginStart="@dimen/item_home_count_image_left_margin"
             android:layout_marginTop="@dimen/item_home_top_margin"
             app:layout_constraintStart_toEndOf="@id/home_user_image"
             app:layout_constraintTop_toTopOf="parent"
             tool:text="24" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
