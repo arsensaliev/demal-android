@@ -22,6 +22,12 @@ class RemoteDataSourceImpl(
     override suspend fun getTourById(id: Int) =
         service.getTourById(id).await()
 
+    override suspend fun getCategories() =
+        service.getCategories().await()
+
+    override suspend fun getCategoryById(id: Int) =
+        service.getCategoryById(id).await()
+
     override suspend fun getUserWishList(id: Int) =
         service.getUserWishList(id).await()
 
