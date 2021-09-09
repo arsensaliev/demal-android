@@ -31,4 +31,8 @@ class UserRepositoryImpl(
     override suspend fun update(id: Int, user: UserUpdate) {
         remoteDataSource.updateUser(id, user)
     }
+
+    override suspend fun updateAvatar(fileByte: ByteArray?) {
+        remoteDataSource.updateAvatar(fileByte)
+    }
 }

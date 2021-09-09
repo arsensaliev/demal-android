@@ -122,6 +122,7 @@ class ProfileEditFragment :
 
     private fun updatePhoto(uriPhoto: Uri) {
         binding.imgAvatar.setImageURI(uriPhoto)
+        viewModel.updateAvatar(uriPhoto,context)
     }
 
     private fun updateUserApi() {

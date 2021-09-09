@@ -14,6 +14,7 @@ interface RemoteDataSource {
     suspend fun login(auth: LoginRequest): LoginResponse
     suspend fun myUser(): MeResponse
     suspend fun updateUser(id: Int, user: UserUpdate)
+    suspend fun updateAvatar(fileByte: ByteArray?)
     suspend fun getTours(sortBy: SortBy, order: Order): List<Tour>
     suspend fun getTourById(id: Int): Tour
     suspend fun getUserWishList(id: Int): Tours

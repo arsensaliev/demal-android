@@ -7,4 +7,5 @@ interface UserRepository {
     suspend fun login(email: String, password: String): User
     suspend fun myUser(): User
     suspend fun update( id: Int, user: UserUpdate)
+    suspend fun updateAvatar(fileByte: ByteArray?)
 }

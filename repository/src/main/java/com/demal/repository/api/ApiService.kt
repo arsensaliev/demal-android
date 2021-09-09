@@ -11,6 +11,7 @@ import com.demal.model.data.entity.user.UserUpdate
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 import kotlinx.coroutines.Deferred
+import okhttp3.MultipartBody
 import retrofit2.http.*
 
 interface ApiService {
@@ -25,7 +26,14 @@ interface ApiService {
     @PATCH("api/$API_VERSION/users/{id}")
     fun updateUser(
         @Path("id") id: Int,
-        @Body user: UserUpdate): Deferred<Unit>
+        @Body user: UserUpdate
+    ): Deferred<Unit>
+
+    @Multipart
+    @POST("api/$API_VERSION/users/me/avatar")
+    fun updateAvatar(
+        @Part image: MultipartBody.Part
+    ): Deferred<Unit>
 
     @GET("api/$API_VERSION/tours")
     fun getTours(
