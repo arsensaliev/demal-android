@@ -58,7 +58,6 @@ class ProfileEditFragment :
         setEditTextFromLocalUser()
         setButtonSaveListener()
         setSelectPhotoListener()
-        setSelectPhotoListener()
         setButtonBackspaceListener()
     }
 
