@@ -83,9 +83,6 @@ class LoginFragment :
         viewModel.navigator.toProfileScreen()
     }
 
-    companion object {
-        fun newInstance() = LoginFragment()
-    }
 
     inner class TextFieldValidation(private val view: View) : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
