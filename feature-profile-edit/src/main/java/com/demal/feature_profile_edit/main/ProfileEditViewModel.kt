@@ -7,12 +7,14 @@ import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.user.User
 import com.demal.model.data.entity.user.UserUpdate
 import com.demal.repository.repository.UserRepository
+import com.demal.repository.repository.UserRepositoryLocal
 import com.demal.utils.files.ContentFileUtil
 import com.demal.view.core.view_model.BaseViewModel
 
 class ProfileEditViewModel(
     val navigator: ProfileEditNavigator,
-    private val repository: UserRepository
+    private val repository: UserRepository,
+    private val localUserRepository: UserRepositoryLocal
 ) : BaseViewModel<User>(navigator) {
 
     fun init() {
@@ -37,4 +39,5 @@ class ProfileEditViewModel(
         }
     }
 
+    fun getLocalUser(): User? = localUserRepository.getUser()
 }

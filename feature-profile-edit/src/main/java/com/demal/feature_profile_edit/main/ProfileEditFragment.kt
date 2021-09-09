@@ -47,19 +47,15 @@ class ProfileEditFragment :
         .root
 
     override fun renderSuccess(user: User) {
-        this.user = user
+        setUser(user)
         imageLoader.loadImage(1, binding.imgAvatar, "$BASE_SPACES_URL/${user.imagePath}")
-
-        binding.inputEditTextFirstName.setText(user.firstName)
-        binding.inputEditTextLastname.setText(user.lastName)
-        binding.inputEditTextCountry.setText(user.country)
-        binding.inputEditTextCity.setText(user.city)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.init()
         initEditTextValidator()
+        setEditTextFromLocalUser()
         setButtonSaveListener()
         setSelectPhotoListener()
         setSelectPhotoListener()
@@ -94,6 +90,21 @@ class ProfileEditFragment :
             RegexTemplate.NOT_EMPTY,
             resources.getString(R.string.profile_edit_сity_err)
         )
+
+    }
+
+    private fun setEditTextFromLocalUser() {
+        viewModel.getLocalUser()?.let { setUser(it) }
+    }
+
+    private fun setUser(user: User) {
+
+          binding.apply {
+            inputEditTextFirstName.setText(user.firstName)
+            inputEditTextLastname.setText(user.lastName)
+            inputEditTextCountry.setText(user.country)
+            inputEditTextCity.setText(user.city)
+        }
 
     }
 
