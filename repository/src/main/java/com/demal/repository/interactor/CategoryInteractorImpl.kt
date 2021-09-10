@@ -8,8 +8,8 @@ class CategoryInteractorImpl(private val categoryRepository: CategoryRepository)
     CategoryInteractor {
 
     override suspend fun getCategories() =
-        Categories(categoryRepository.getCategories().map { Category(it) })
+        Categories(categoryRepository.getCategories().categories.map { Category(it) })
 
     override suspend fun getCategoryById(id: Int) =
-        Category(categoryRepository.getCategoryById(id))
+        categoryRepository.getCategoryById(id)
 }

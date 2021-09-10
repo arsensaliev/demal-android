@@ -3,7 +3,7 @@ package com.demal.model.data.entity.category
 import com.demal.model.data.entity.list.ListItem
 import com.demal.model.data.entity.tours.network.CategoryResponse
 
-data class Category(private val categoryResponse: CategoryResponse) : ICategory by categoryResponse,
+data class Category(private val category: CategoryResponse) : ICategory by category,
     ListItem<Category> {
     override fun areContentsTheSame(other: Category): Boolean {
         return this.id == other.id
