@@ -1,10 +1,7 @@
 package com.demal.repository.api
 
 import com.demal.model.data.entity.tours.Tour
-import com.demal.model.data.entity.tours.network.AddToWishListEntity
-import com.demal.model.data.entity.tours.network.AddToWishListResponse
-import com.demal.model.data.entity.tours.network.MeResponse
-import com.demal.model.data.entity.tours.network.Tours
+import com.demal.model.data.entity.tours.network.*
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.model.data.entity.user.LoginResponse
 import com.demal.model.data.entity.user.UserUpdate
@@ -45,6 +42,14 @@ interface ApiService {
     fun getTourById(
         @Path("id") id: Int,
     ): Deferred<Tour>
+
+    @GET("api/$API_VERSION/categories")
+    fun getCategories(): Deferred<List<CategoryResponse>>
+
+    @GET("api/$API_VERSION/categories/{id}")
+    fun getCategoryById(
+        @Path("id") id: Int,
+    ): Deferred<CategoryResponse>
 
     @GET("api/$API_VERSION/users/{id}/wishlist")
     fun getUserWishList(
