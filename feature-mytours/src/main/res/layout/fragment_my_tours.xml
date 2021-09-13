@@ -23,6 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_my_tours_fragment_my_tours" />
+
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progress_indicator_fragment_my_tours"
         android:indeterminate="true"
@@ -46,6 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_fragment_my_tours"
         style="@style/RecyclerViewMyToursStyle"

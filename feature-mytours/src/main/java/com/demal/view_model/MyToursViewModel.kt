@@ -7,45 +7,58 @@ import com.demal.navigation.MyToursNavigator
 import com.demal.repository.interactor.ToursInteractor
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
+import com.demal.utils.date.DateIdentifier
 import com.demal.view.core.view_model.BaseViewModel
 
-class MyToursViewModel(navigator: MyToursNavigator, private val interactor: ToursInteractor) :
+class MyToursViewModel(
+    private val navigator: MyToursNavigator,
+    private val interactor: ToursInteractor,
+    private val dateUtill: DateIdentifier = DateIdentifier()
+) :
     BaseViewModel<LikableTours>(navigator) {
-    private var mState: Boolean = false
 
-    fun getTours(state: Boolean = false) {
-        mState = state
-        mStateLiveData.value = BaseState.Loading(true)
-        runAsync {
-            setLiveData(state)
-        }
-    }
-
-    //          Когда будет готов запрос на бэке нужно будет изменить запрос,
-//          чтобы он зависил от state
-    private suspend fun setLiveData(state: Boolean) {
-        mStateLiveData.value =
-            BaseState.Success(
-                interactor.getTours(
-                    SortBy.CREATED_AT,
-                    Order.DESCENDING
-                )
-            )
-    }
-
-    fun onLikeClick(tour: LikableTour) {
+    fun onLikeClick(tour: LikableTour, stateView: Boolean) {
         runAsync {
             if (tour.isLiked) {
                 interactor.deleteFromWishList(tour.id)
             } else {
                 interactor.addToWishList(tour.id)
             }
-            setLiveData(mState)
+            if (stateView){
+                getActiveTour()
+            } else{
+                getInactiveTour()
+            }
         }
     }
 
-    //      Ещё нет экрана тура
-    fun onItemClick(tour: LikableTour) {}
+    fun getActiveTour() {
+        mStateLiveData.value = BaseState.Loading(true)
+        runAsync {
+            val tours = interactor.getTours(
+                SortBy.CREATED_AT,
+                Order.DESCENDING
+            )
+            val activeTours = LikableTours(tours.toursList.filter { dateUtill.statusTour(it.startDate) })
+            mStateLiveData.value = BaseState.Success(activeTours)
+        }
+    }
+
+    fun getInactiveTour() {
+        mStateLiveData.value = BaseState.Loading(true)
+        runAsync {
+            val tours = interactor.getTours(
+                SortBy.CREATED_AT,
+                Order.DESCENDING
+            )
+            val inactiveTours = LikableTours(tours.toursList.filter { !dateUtill.statusTour(it.startDate) })
+            mStateLiveData.value = BaseState.Success(inactiveTours)
+        }
+    }
+
+    fun onItemClick(tourId: Int) {
+        navigator.toTourScreen(tourId)
+    }
 
     override fun handleError(error: Throwable) {
         super.handleError(error)
