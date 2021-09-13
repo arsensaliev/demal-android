@@ -25,11 +25,9 @@ class ProfileEditFragment :
 
     private val imageLoader: ImageLoader<ImageView> by inject()
     private lateinit var validator: AwesomeValidation
-    private val FILE_TYPE = "image/*"
     private lateinit var user: User
     override var bindingNullable: FragmentProfileEditBinding? = null
     override val viewModel: ProfileEditViewModel by viewModel()
-
 
     private val contentPhoto = registerForActivityResult(ActivityResultContracts.GetContent()) {
         it?.also {
@@ -98,7 +96,7 @@ class ProfileEditFragment :
 
     private fun setUser(user: User) {
 
-          binding.apply {
+        binding.apply {
             inputEditTextFirstName.setText(user.firstName)
             inputEditTextLastname.setText(user.lastName)
             inputEditTextCountry.setText(user.country)
@@ -109,7 +107,9 @@ class ProfileEditFragment :
 
     private fun setButtonSaveListener() {
         binding.buttonSend.setOnClickListener {
-            if (checkForErrorsAll()) { updateUserApi()}
+            if (checkForErrorsAll()) {
+                updateUserApi()
+            }
         }
     }
 
@@ -121,18 +121,18 @@ class ProfileEditFragment :
 
     private fun setButtonBackspaceListener() {
         binding.profileEditBtnBackspace.setOnClickListener {
-            viewModel.navigator.toBack()
+            viewModel.navigator.back()
         }
 
     }
 
     private fun checkForErrorsAll(): Boolean {
-       return validator.validate()
+        return validator.validate()
     }
 
     private fun updatePhoto(uriPhoto: Uri) {
         binding.imgAvatar.setImageURI(uriPhoto)
-        viewModel.updateAvatar(uriPhoto,context)
+        viewModel.updateAvatar(uriPhoto, context)
     }
 
     private fun updateUserApi() {
@@ -143,8 +143,12 @@ class ProfileEditFragment :
             binding.inputEditTextCity.text.toString()
         )
 
-        user.id?.let { viewModel.updateProfile(it,userUpdateData) }
-        viewModel.navigator.toBack()
+        user.id?.let { viewModel.updateProfile(it, userUpdateData) }
+        viewModel.navigator.back()
+    }
+
+    companion object {
+        private val FILE_TYPE = "image/*"
     }
 
 }
