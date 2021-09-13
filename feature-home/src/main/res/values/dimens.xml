@@ -25,4 +25,5 @@
     <dimen name="item_home_user_heart_right_margin">11.35dp</dimen>
     <dimen name="item_home_count_image_left_margin">3.75dp</dimen>
     <dimen name="item_home_description_top_margin">1dp</dimen>
+    <dimen name="item_home_activities_bottom_padding">36dp</dimen>
 </resources>

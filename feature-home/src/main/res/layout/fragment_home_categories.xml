@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/activities_textview"
+        style="@style/HomeHeaderTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_home_left"
+        android:layout_marginTop="@dimen/margin_home_textview_top"
+        android:text="@string/activities"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activities_recyclerview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_home_recycler_top"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/item_home_left_margin"
+        android:paddingBottom="@dimen/item_home_activities_bottom_padding"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activities_textview"
+        app:spanCount="2"
+        tools:listitem="@layout/home_item_category" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/categories_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_home_recycler_top"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@id/activities_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/activities_recyclerview" />
+
+    <TextView
+        android:id="@+id/activiries_info_textview"
+        style="@style/ItemInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_content_msg"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/activities_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/activities_recyclerview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
