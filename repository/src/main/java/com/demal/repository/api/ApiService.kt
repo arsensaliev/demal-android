@@ -1,5 +1,7 @@
 package com.demal.repository.api
 
+import com.demal.model.data.entity.category.Category
+import com.demal.model.data.entity.category.network.CategoriesResponse
 import com.demal.model.data.entity.tours.Tour
 import com.demal.model.data.entity.tours.network.*
 import com.demal.model.data.entity.user.LoginRequest
@@ -44,12 +46,12 @@ interface ApiService {
     ): Deferred<Tour>
 
     @GET("api/$API_VERSION/categories")
-    fun getCategories(): Deferred<List<CategoryResponse>>
+    fun getCategories(): Deferred<CategoriesResponse>
 
     @GET("api/$API_VERSION/categories/{id}")
     fun getCategoryById(
         @Path("id") id: Int,
-    ): Deferred<CategoryResponse>
+    ): Deferred<Category>
 
     @GET("api/$API_VERSION/users/{id}/wishlist")
     fun getUserWishList(

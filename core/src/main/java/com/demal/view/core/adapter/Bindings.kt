@@ -20,11 +20,7 @@ fun tourBind(
     val rvBinding = ItemTourBinding.bind(view)
     with(rvBinding) {
         val dif = DateIdentifier()
-        val dateTour = dif.getTourDate(data.startDate)
-        val dayTour = dateTour.day
-        val monthTour = dif.monthsMap[dateTour.month]
-        val yearTour = dateTour.year
-        val date = "$dayTour $monthTour $yearTour"
+        val date = dif.mapDateCustomFormat(data.startDate)
         textViewPlace.text = data.place
         textViewDescription.text = data.description
         textViewPeople.text = data.travelersCount.toString()
