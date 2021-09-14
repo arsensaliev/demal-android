@@ -4,7 +4,6 @@ import com.demal.model.data.entity.category.CategoriesResponse
 import com.demal.model.data.entity.category.CategoryResponse
 import com.demal.model.data.entity.tours.Tour
 import com.demal.model.data.entity.tours.network.AddToWishListEntity
-import com.demal.model.data.entity.tours.network.CategoryResponse
 import com.demal.model.data.entity.tours.network.MeResponse
 import com.demal.model.data.entity.tours.network.Tours
 import com.demal.model.data.entity.user.LoginRequest
