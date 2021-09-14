@@ -1,6 +1,6 @@
 package com.demal.model.data.entity.tours
 
-import com.demal.model.data.entity.tours.network.CategoryResponse
+import com.demal.model.data.entity.category.CategoryResponse
 import com.demal.model.data.entity.tours.network.ImageResponse
 
 interface ITour {

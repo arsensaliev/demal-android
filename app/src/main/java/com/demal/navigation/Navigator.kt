@@ -33,7 +33,7 @@ class Navigator(
     }
 
     override fun toToursScreen(categoryId: Int) {
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
     //TODO: Navigate to Login Screen

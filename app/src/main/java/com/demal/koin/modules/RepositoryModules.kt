@@ -14,8 +14,6 @@ import com.demal.repository.data_sources.preferences.ParcelablePreferencesDataSo
 import com.demal.repository.data_sources.preferences.PreferencesDataSourceImpl
 import com.demal.repository.image.GlideImageLoader
 import com.demal.repository.image.ImageLoader
-import com.demal.repository.interactor.CategoryInteractor
-import com.demal.repository.interactor.CategoryInteractorImpl
 import com.demal.repository.interactor.ToursInteractor
 import com.demal.repository.interactor.ToursInteractorImpl
 import com.demal.repository.repository.*
@@ -42,9 +40,6 @@ val repositoryModule = module {
 val interactorModule = module {
     single<ToursInteractor> {
         ToursInteractorImpl(get(), get())
-    }
-    single<CategoryInteractor> {
-        CategoryInteractorImpl(get())
     }
 }
 

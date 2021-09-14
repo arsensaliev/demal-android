@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="@id/activities_recyclerview" />
 
     <TextView
-        android:id="@+id/activiries_info_textview"
+        android:id="@+id/activities_info_textview"
         style="@style/ItemInfoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

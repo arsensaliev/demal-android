@@ -10,20 +10,20 @@ import com.demal.feature_home.main.adapter.CategoryClickListener
 import com.demal.feature_home.main.adapter.homeCategoryBind
 import com.demal.feature_home.main.view_model.HomeCategoriesViewModel
 import com.demal.model.data.app_state.BaseState
-import com.demal.model.data.entity.category.Categories
-import com.demal.model.data.entity.category.Category
+import com.demal.model.data.entity.category.CategoriesResponse
+import com.demal.model.data.entity.category.CategoryResponse
 import com.demal.view.core.adapter.BaseAdapter
 import com.demal.view.core.view.BaseFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeCategoriesFragment :
-    BaseFragment<FragmentHomeCategoriesBinding, Categories, HomeCategoriesViewModel>() {
+    BaseFragment<FragmentHomeCategoriesBinding, CategoriesResponse, HomeCategoriesViewModel>() {
 
     override var bindingNullable: FragmentHomeCategoriesBinding? = null
 
     override val viewModel: HomeCategoriesViewModel by viewModel()
 
-    private var categoryAdapter: BaseAdapter<Category, CategoryClickListener>? = null
+    private var categoryAdapter: BaseAdapter<CategoryResponse, CategoryClickListener>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,12 +40,12 @@ class HomeCategoriesFragment :
         viewModel.getCategories()
     }
 
-    override fun renderData(state: BaseState<Categories>) {
+    override fun renderData(state: BaseState<CategoriesResponse>) {
         hideLoading()
         super.renderData(state)
     }
 
-    override fun renderSuccess(data: Categories) {
+    override fun renderSuccess(data: CategoriesResponse) {
         showCategoriesData(data)
     }
 
@@ -77,12 +77,12 @@ class HomeCategoriesFragment :
     }
 
     private val categoryClickListener = object : CategoryClickListener {
-        override fun onItemClick() {
-
+        override fun onItemClick(category: CategoryResponse) {
+            viewModel.openToursByCategory(category)
         }
     }
 
-    private fun showCategoriesData(data: Categories) {
+    private fun showCategoriesData(data: CategoriesResponse) {
         if (data.categories.isEmpty()) {
             showWarningCategoryMsg()
         } else {
@@ -90,13 +90,13 @@ class HomeCategoriesFragment :
         }
     }
 
-    private fun showCategoriesList(data: List<Category>) {
-        binding.activiriesInfoTextview.visibility = View.GONE
+    private fun showCategoriesList(data: List<CategoryResponse>) {
+        binding.activitiesInfoTextview.visibility = View.GONE
         categoryAdapter?.submitList(data)
     }
 
     private fun showWarningCategoryMsg() {
-        binding.activiriesInfoTextview.visibility = View.VISIBLE
+        binding.activitiesInfoTextview.visibility = View.VISIBLE
         categoryAdapter?.submitList(listOf())
     }
 

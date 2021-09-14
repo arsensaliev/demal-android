@@ -7,7 +7,7 @@ import com.demal.constants.BASE_SPACES_URL
 import com.demal.feature_home.R
 import com.demal.feature_home.databinding.HomeItemCategoryBinding
 import com.demal.feature_home.databinding.HomeItemTourBinding
-import com.demal.model.data.entity.category.Category
+import com.demal.model.data.entity.category.CategoryResponse
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.listeners.TourClickListener
@@ -43,12 +43,12 @@ fun homeTourBind(
 
 fun homeCategoryBind(
     view: View,
-    data: Category,
+    data: CategoryResponse,
     listener: CategoryClickListener?,
 ) {
     val rvBinding = HomeItemCategoryBinding.bind(view)
     with(rvBinding) {
         itemActivitiesText.text = data.name
-        view.setOnClickListener { listener?.onItemClick() }
+        view.setOnClickListener { listener?.onItemClick(data) }
     }
 }
