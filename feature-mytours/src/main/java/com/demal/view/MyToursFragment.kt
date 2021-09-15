@@ -66,9 +66,9 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
 
     override fun onStateChanged(state: Boolean) {
         stateView = state
-        if (state){
+        if (state) {
             viewModel.getActiveTour()
-        } else{
+        } else {
             viewModel.getInactiveTour()
         }
         adapter?.submitList(null)
@@ -77,6 +77,8 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
     override fun setLoading(isLoading: Boolean) {
         if (isLoading) {
             showProgressBar()
+        } else {
+            hideLoading()
         }
     }
 
@@ -104,5 +106,9 @@ class MyToursFragment : BaseFragment<FragmentMyToursBinding, LikableTours, MyTou
     private fun showTextIsEmpty() {
         binding.rvFragmentMyTours.visibility = View.INVISIBLE
         binding.tvIfEmptyFragmentMyTours.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        binding.progressIndicatorFragmentMyTours.visibility = View.GONE
     }
 }

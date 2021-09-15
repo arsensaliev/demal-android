@@ -1,8 +1,10 @@
 package com.demal.model.data.entity.tours.network
 
+import com.demal.model.data.entity.category.ICategory
+
 data class CategoryResponse(
-    val id: Int,
-    val name: String?,
-    val iconPath: String?,
-    val createdAt: String?,
-)
+    override val id: Int,
+    override val name: String?,
+    override val iconPath: String?,
+    override val createdAt: String?,
+) : ICategory

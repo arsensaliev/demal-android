@@ -35,6 +35,14 @@ class DateIdentifier {
                 && currentDate.seconds <= tourDate.seconds)
     }
 
+    fun mapDateCustomFormat(startDateTour: String?): String{
+        val dateTour = getTourDate(startDateTour)
+        val dayTour = dateTour.day
+        val monthTour = monthsMap[dateTour.month]
+        val yearTour = dateTour.year
+        return "$dayTour $monthTour $yearTour"
+    }
+
     private fun getCurrentDate(): DateIntegerFormat {
         val sdf = SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale("ru"))
         val currentDate = sdf.format(Date()).toString().split(" ")
@@ -50,12 +58,12 @@ class DateIdentifier {
         )
     }
 
-    fun getTourDate(startDateTour: String?): DateIntegerFormat {
+   private fun getTourDate(startDateTour: String?): DateIntegerFormat {
         val dateStringBuilder = StringBuilder().append(startDateTour)
         dateStringBuilder.delete(dateStringBuilder.length - 5, dateStringBuilder.length)
-        val startDateTour = dateStringBuilder.split("T")
-        val dateTour = startDateTour[0].split("-")
-        val timeTour = startDateTour[1].split(":")
+        val startDate = dateStringBuilder.split("T")
+        val dateTour = startDate[0].split("-")
+        val timeTour = startDate[1].split(":")
         return DateIntegerFormat(
             year = dateTour[0].toInt(),
             month = dateTour[1].toInt(),
@@ -66,7 +74,7 @@ class DateIdentifier {
         )
     }
 
-    val monthsMap = mapOf(
+   private val monthsMap = mapOf(
         1 to "Янаря",
         2 to "Февраля",
         3 to "Марта",
