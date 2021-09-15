@@ -34,6 +34,7 @@ val repositoryModule = module {
     single<UserRepositoryLocal> { UserRepositoryLocalImpl(get()) }
     single<UserRepository> { UserRepositoryImpl(get(), get(), get()) }
     single<ToursRepository> { ToursRepositoryImpl(get(), get()) }
+    single<CategoryRepository> { CategoryRepositoryImpl(get()) }
 }
 
 val interactorModule = module {

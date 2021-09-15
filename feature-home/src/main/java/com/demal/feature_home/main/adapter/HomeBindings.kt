@@ -5,7 +5,9 @@ import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
 import com.demal.constants.BASE_SPACES_URL
 import com.demal.feature_home.R
+import com.demal.feature_home.databinding.HomeItemCategoryBinding
 import com.demal.feature_home.databinding.HomeItemTourBinding
+import com.demal.model.data.entity.category.Category
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.listeners.TourClickListener
@@ -31,6 +33,22 @@ fun homeTourBind(
         homeHeartImage.setImageDrawable(likeDrawable)
         homeHeartImage.setOnClickListener { listener?.onLikeClick(data) }
         view.setOnClickListener { listener?.onItemClick(data) }
-        imageLoader.loadImage(1, homeBackgroundImage, "$BASE_SPACES_URL/${data.images[0].imagePath}")
+        imageLoader.loadImage(
+            1,
+            homeBackgroundImage,
+            "$BASE_SPACES_URL/${data.images[0].imagePath}"
+        )
+    }
+}
+
+fun homeCategoryBind(
+    view: View,
+    data: Category,
+    listener: CategoryClickListener?,
+) {
+    val rvBinding = HomeItemCategoryBinding.bind(view)
+    with(rvBinding) {
+        itemActivitiesText.text = data.name
+        view.setOnClickListener { listener?.onItemClick(data) }
     }
 }
