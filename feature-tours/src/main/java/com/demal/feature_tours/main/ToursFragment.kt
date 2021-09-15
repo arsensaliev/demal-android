@@ -31,6 +31,8 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
 
     private val imageLoader: ImageLoader<ImageView> by inject()
 
+    private var inputCategoryId: Int? = null
+
     private val tourClickListener = object : TourClickListener {
         override fun onLikeClick(tour: LikableTour) {
             viewModel.likePressed(tour)
@@ -57,6 +59,9 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
         super.onViewCreated(view, savedInstanceState)
         initRV()
         viewModel.getTours()
+        inputCategoryId?.let {
+            viewModel.setupFilter(it)
+        }
     }
 
     override fun onDestroyView() {
@@ -103,6 +108,9 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
             val chip = layoutInflater.inflate(R.layout.single_chip_layout, chipGroup, false) as Chip
             chip.text = category.name
             chip.isCheckable = true
+            if (category.id == inputCategoryId) {
+                chip.isChecked = true
+            }
             chip.setOnClickListener {
                 viewModel.setupFilter(category.id)
             }
@@ -127,6 +135,14 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
     private fun hideLoading() {
         if (binding.toursProgressBar.isShown) {
             binding.toursProgressBar.hide()
+        }
+    }
+
+    companion object {
+        fun newInstance(categoryId: Int): ToursFragment {
+            return ToursFragment().apply {
+                inputCategoryId = categoryId
+            }
         }
     }
 }
