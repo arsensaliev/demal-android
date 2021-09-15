@@ -1,7 +1,7 @@
 package com.demal.repository.data_sources
 
-import com.demal.model.data.entity.category.CategoriesResponse
-import com.demal.model.data.entity.category.CategoryResponse
+import com.demal.model.data.entity.category.Categories
+import com.demal.model.data.entity.category.Category
 import com.demal.model.data.entity.tours.Tour
 import com.demal.model.data.entity.tours.network.AddToWishListEntity
 import com.demal.model.data.entity.tours.network.MeResponse
@@ -17,8 +17,8 @@ interface RemoteDataSource {
     suspend fun getTours(sortBy: SortBy, order: Order): List<Tour>
     suspend fun getTourById(id: Int): Tour
     suspend fun getUserWishList(id: Int): Tours
-    suspend fun getCategories() : CategoriesResponse
-    suspend fun getCategoryById(id: Int) : CategoryResponse
+    suspend fun getCategories() : Categories
+    suspend fun getCategoryById(id: Int) : Category
 
     suspend fun addToWishList(
         id: Int,

@@ -1,6 +1,6 @@
 package com.demal.model.data.entity.tours
 
-import com.demal.model.data.entity.category.CategoryResponse
+import com.demal.model.data.entity.category.Category
 import com.demal.model.data.entity.tours.network.ImageResponse
 
 interface ITour {
@@ -16,6 +16,6 @@ interface ITour {
     val startDate: String?
     val categoryId: Int
     val createdAt: String
-    val category: CategoryResponse
+    val category: Category
     val images: List<ImageResponse>
 }

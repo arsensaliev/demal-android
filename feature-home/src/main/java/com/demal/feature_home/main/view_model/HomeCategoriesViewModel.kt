@@ -2,17 +2,17 @@ package com.demal.feature_home.main.view_model
 
 import com.demal.feature_home.navigation.HomeCategoriesNavigator
 import com.demal.model.data.app_state.BaseState
-import com.demal.model.data.entity.category.CategoriesResponse
-import com.demal.model.data.entity.category.CategoryResponse
+import com.demal.model.data.entity.category.Categories
+import com.demal.model.data.entity.category.Category
 import com.demal.repository.repository.CategoryRepository
 import com.demal.view.core.view_model.BaseViewModel
 
 class HomeCategoriesViewModel(
     private val navigator: HomeCategoriesNavigator,
     private val categoriesRepository: CategoryRepository
-) : BaseViewModel<CategoriesResponse>(navigator) {
+) : BaseViewModel<Categories>(navigator) {
 
-    private var categories = CategoriesResponse(mutableListOf())
+    private var categories = Categories(mutableListOf())
 
     fun getCategories() {
         runAsync {
@@ -22,7 +22,7 @@ class HomeCategoriesViewModel(
         }
     }
 
-    fun openToursByCategory(category: CategoryResponse) {
+    fun openToursByCategory(category: Category) {
         navigator.toToursScreen(category.id)
     }
 
