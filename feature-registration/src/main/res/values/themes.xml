@@ -52,4 +52,9 @@
         <item name="errorTextColor">@color/error_red_dark</item>
     </style>
 
+    <style name="errorTextInputLayout">
+        <item name="android:textSize">@dimen/text_size_error_input_Layout</item>
+    </style>
+
+    <dimen name="text_size_error_input_Layout">12sp</dimen>
 </resources>

@@ -1,6 +1,7 @@
 package com.demal.repository.api
 
 import com.demal.model.data.exceptions.NoAuthException
+import com.demal.model.data.exceptions.UserAlreadyExistsException
 import com.demal.repository.repository.UserRepositoryLocal
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -25,7 +26,9 @@ class BaseInterceptor(
     }
 
     private fun processResponseCode(responseCode: Int) {
-        if (responseCode == 401)
-            throw NoAuthException()
+        when(responseCode) {
+            401 -> throw NoAuthException()
+            409 -> throw UserAlreadyExistsException()
+        }
     }
 }

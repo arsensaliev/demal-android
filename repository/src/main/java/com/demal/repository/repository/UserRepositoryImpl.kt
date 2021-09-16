@@ -30,5 +30,11 @@ class UserRepositoryImpl(
 
     override suspend fun register(registrationRequest: RegistrationRequest) {
         remoteDataSource.register(registrationRequest)
+        remoteDataSource.login(
+            LoginRequest(
+                registrationRequest.email,
+                registrationRequest.password
+            )
+        )
     }
 }
