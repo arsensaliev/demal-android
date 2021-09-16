@@ -38,5 +38,8 @@ class Navigator(
         //TODO("Not yet implemented")
     }
 
-    override fun toLoginScreen() = router.navigateTo(screens.loginScreen())
+    override fun toProfileEditScreen() = router.navigateTo(screens.profileScreen())
+
+    //TODO: Change to login screen
+    override fun toLoginScreen() = router.navigateTo(screens.registrationScreen())
 }
