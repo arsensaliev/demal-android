@@ -27,6 +27,7 @@ class ProfileFragment :
         .root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel.init()
         initListeners()
     }

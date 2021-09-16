@@ -20,11 +20,12 @@ class RegistrationFragment
 
     override val viewModel: RegistrationViewModel by viewModel()
 
-    private val validator: AwesomeValidation by lazy { initValidator() }
+    private lateinit var validator: AwesomeValidation
 
     private fun initValidator() =
         AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
             .apply {
+                validator = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
                 setTextInputLayoutErrorTextAppearance(R.style.errorTextInputLayout)
 
                 validator.addValidation(
@@ -63,16 +64,22 @@ class RegistrationFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setListeners()
+        initValidator()
     }
 
     private fun setListeners() {
         binding.buttonRegister.setOnClickListener {
-            viewModel.register(
-                binding.editTextEmail.text.toString(),
-                binding.editTextPassword.text.toString(),
-                binding.editTextFirstName.text.toString(),
-                binding.editTextLastName.text.toString()
-            )
+            if (validator.validate())
+                viewModel.register(
+                    binding.editTextEmail.text.toString(),
+                    binding.editTextPassword.text.toString(),
+                    binding.editTextFirstName.text.toString(),
+                    binding.editTextLastName.text.toString()
+                )
+        }
+
+        binding.buttonLogin.setOnClickListener {
+            viewModel.openLogin()
         }
     }
 

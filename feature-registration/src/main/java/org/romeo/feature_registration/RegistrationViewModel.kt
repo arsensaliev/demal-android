@@ -28,7 +28,7 @@ class RegistrationViewModel(
                 )
             )
 
-            navigator.toProfileScreen()
+            navigator.toLoginScreen()
         }
     }
 

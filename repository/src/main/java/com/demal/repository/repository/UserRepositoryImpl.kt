@@ -8,6 +8,7 @@ class UserRepositoryImpl(
     private val userRepositoryLocal: UserRepositoryLocal,
     private val toursRepository: ToursRepository
 ) : UserRepository {
+
     override suspend fun login(email: String, password: String): User {
         val response = remoteDataSource.login(LoginRequest(email, password))
         userRepositoryLocal.saveResponse(response)
@@ -30,11 +31,5 @@ class UserRepositoryImpl(
 
     override suspend fun register(registrationRequest: RegistrationRequest) {
         remoteDataSource.register(registrationRequest)
-        remoteDataSource.login(
-            LoginRequest(
-                registrationRequest.email,
-                registrationRequest.password
-            )
-        )
     }
 }
