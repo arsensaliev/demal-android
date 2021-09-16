@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.os.bundleOf
+import androidx.core.view.doOnLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.demal.feature_tours.R
 import com.demal.feature_tours.databinding.FragmentToursBinding
@@ -112,9 +113,9 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
             chip.isCheckable = true
             if (category.id == inputCategoryId) {
                 chip.isChecked = true
-                binding.toursChipsHorizontalScroll.postDelayed({
+                binding.toursChipsHorizontalScroll.doOnLayout {
                     binding.toursChipsHorizontalScroll.smoothScrollTo(chip.x.toInt(), 0)
-                }, 100)
+                }
             }
             chip.setOnClickListener {
                 viewModel.setupFilter(category.id)
