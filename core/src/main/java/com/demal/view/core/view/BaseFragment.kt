@@ -13,7 +13,7 @@ abstract class BaseFragment<VB : ViewBinding, D : AppStateEntity, VM : BaseViewM
     Fragment() {
 
     protected abstract var bindingNullable: VB?
-    protected val binding get() = bindingNullable!!
+    protected open val binding get() = bindingNullable!!
     abstract val viewModel: VM
 
     protected open fun renderData(state: BaseState<D>) {
