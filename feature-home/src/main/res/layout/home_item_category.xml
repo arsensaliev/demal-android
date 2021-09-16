@@ -2,42 +2,42 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
-    android:id="@+id/home_card_view"
+    android:id="@+id/home_category_card_view"
     android:layout_width="@dimen/item_activities_width"
     android:layout_height="@dimen/item_activities_height"
-    android:layout_marginStart="@dimen/item_home_right_margin"
+    android:layout_marginEnd="@dimen/item_home_right_margin"
     android:layout_marginBottom="@dimen/item_activities_layout_bottom_margin"
-    android:backgroundTint="@color/purple_light_variant"
     app:cardCornerRadius="@dimen/home_card_corner_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/purple_light_variant">
 
-        <ImageView
-            android:id="@+id/item_activities_image"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/item_activities_top_margin"
-            app:layout_constraintBottom_toTopOf="@+id/item_activities_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_activity_card_trip" />
+            <ImageView
+                android:id="@+id/item_activities_image"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/item_activities_top_margin"
+                app:layout_constraintBottom_toTopOf="@+id/item_activities_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_activity_card_trip" />
 
-        <TextView
-            android:id="@+id/item_activities_text"
-            style="@style/ItemActivitiesTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:paddingStart="@dimen/item_activities_padding"
-            android:paddingEnd="@dimen/item_activities_padding"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            tool:text="Пешие прогулки" />
+            <TextView
+                android:id="@+id/item_activities_text"
+                style="@style/ItemActivitiesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:paddingStart="@dimen/item_activities_padding"
+                android:paddingEnd="@dimen/item_activities_padding"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                tool:text="Пешие прогулки" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

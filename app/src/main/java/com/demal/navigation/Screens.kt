@@ -1,6 +1,6 @@
 package com.demal.navigation
 
-import com.demal.feature_home.main.HomeFragment
+import com.demal.feature_home.main.view.HomeFragment
 import com.demal.feature_login.main.LoginFragment
 import com.demal.feature_profile.main.ProfileFragment
 import com.demal.feature_tours.main.ToursFragment

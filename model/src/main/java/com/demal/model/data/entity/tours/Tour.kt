@@ -1,6 +1,6 @@
 package com.demal.model.data.entity.tours
 
-import com.demal.model.data.entity.tours.network.CategoryResponse
+import com.demal.model.data.entity.category.Category
 import com.demal.model.data.entity.tours.network.ImageResponse
 
 data class Tour(
@@ -16,6 +16,6 @@ data class Tour(
     override val startDate: String?,
     override val categoryId: Int,
     override val createdAt: String,
-    override val category: CategoryResponse,
+    override val category: Category,
     override val images: List<ImageResponse>,
 ) : ITour

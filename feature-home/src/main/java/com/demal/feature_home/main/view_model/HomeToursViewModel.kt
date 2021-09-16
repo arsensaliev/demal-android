@@ -1,6 +1,6 @@
-package com.demal.feature_home.main
+package com.demal.feature_home.main.view_model
 
-import com.demal.feature_home.navigation.HomeNavigator
+import com.demal.feature_home.navigation.HomeToursNavigator
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
@@ -9,11 +9,10 @@ import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 import com.demal.view.core.view_model.BaseViewModel
 
-class HomeViewModel(
-    private val navigator: HomeNavigator,
-    private val toursInteractor: ToursInteractor,
+class HomeToursViewModel(
+    private val navigator: HomeToursNavigator,
+    private val toursInteractor: ToursInteractor
 ) : BaseViewModel<LikableTours>(navigator) {
-
     private var tours = LikableTours(mutableListOf())
 
     fun getTours() {
@@ -30,8 +29,7 @@ class HomeViewModel(
             newList[tours.toursList.indexOf(tour)] =  LikableTour(tour, !tour.isLiked)
             tours = LikableTours(newList)
             mStateLiveData.postValue(BaseState.Success(tours))
-        }
-        runAsync {
+
             if (tour.isLiked) {
                 toursInteractor.deleteFromWishList(tour.id)
             } else {
