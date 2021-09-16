@@ -7,17 +7,19 @@ import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
 import com.demal.model.data.entity.tours.ToursState
 import com.demal.repository.interactor.ToursInteractor
+import com.demal.repository.repository.CategoryRepository
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 import com.demal.view.core.view_model.BaseViewModel
 
 class ToursViewModel(
     private val navigator: ToursNavigator,
-    private val toursInteractor: ToursInteractor
+    private val toursInteractor: ToursInteractor,
+    private val categoryRepository: CategoryRepository
 ) : BaseViewModel<ToursState>(navigator) {
 
     private var likableTours = LikableTours(listOf())
-    private var toursCategories = mutableListOf<Category>()
+    private var toursCategories = listOf<Category>()
     private var currentFilter: Int? = null
 
     override fun handleError(error: Throwable) {
@@ -29,11 +31,7 @@ class ToursViewModel(
         runAsync {
             mStateLiveData.postValue(BaseState.Loading(true))
             likableTours = toursInteractor.getTours(SortBy.ID, Order.ASCENDING)
-            var categories = mutableListOf<Category>()
-            likableTours.toursList.forEach {
-                categories.add(it.category)
-            }
-            categories = categories.distinct().toMutableList()
+            val categories = categoryRepository.getCategories().categories
             val difference = categories.minus(toursCategories)
             toursCategories = categories
             postTours(difference)

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.demal.feature_tours.R
 import com.demal.feature_tours.databinding.FragmentToursBinding
@@ -57,6 +58,7 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        inputCategoryId = arguments?.getInt(CATEGORY_ID_EXTRA)
         initRV()
         viewModel.getTours()
         inputCategoryId?.let {
@@ -76,10 +78,10 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
     }
 
     override fun renderSuccess(data: ToursState) {
+        fillCategories(data.toursCategories)
         if (data.toursList.isNullOrEmpty()) {
             listIsEmpty()
         } else {
-            fillCategories(data.toursCategories)
             showList(data.toursList)
         }
     }
@@ -139,9 +141,15 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
     }
 
     companion object {
+        private const val CATEGORY_ID_EXTRA = "com.demal.feature_tours.main.CATEGORY_ID_EXTRA"
+
         fun newInstance(categoryId: Int?): ToursFragment {
             return ToursFragment().apply {
-                inputCategoryId = categoryId
+                categoryId?.let {
+                    arguments = bundleOf(
+                        CATEGORY_ID_EXTRA to categoryId
+                    )
+                }
             }
         }
     }
