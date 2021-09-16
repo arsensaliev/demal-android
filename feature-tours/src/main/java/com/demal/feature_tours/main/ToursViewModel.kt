@@ -2,10 +2,10 @@ package com.demal.feature_tours.main
 
 import com.demal.feature_tours.navigation.ToursNavigator
 import com.demal.model.data.app_state.BaseState
+import com.demal.model.data.entity.category.Category
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.LikableTours
 import com.demal.model.data.entity.tours.ToursState
-import com.demal.model.data.entity.tours.network.CategoryResponse
 import com.demal.repository.interactor.ToursInteractor
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
@@ -17,7 +17,7 @@ class ToursViewModel(
 ) : BaseViewModel<ToursState>(navigator) {
 
     private var likableTours = LikableTours(listOf())
-    private var toursCategories = mutableListOf<CategoryResponse>()
+    private var toursCategories = mutableListOf<Category>()
     private var currentFilter: Int? = null
 
     override fun handleError(error: Throwable) {
@@ -29,7 +29,7 @@ class ToursViewModel(
         runAsync {
             mStateLiveData.postValue(BaseState.Loading(true))
             likableTours = toursInteractor.getTours(SortBy.ID, Order.ASCENDING)
-            var categories = mutableListOf<CategoryResponse>()
+            var categories = mutableListOf<Category>()
             likableTours.toursList.forEach {
                 categories.add(it.category)
             }
@@ -67,7 +67,7 @@ class ToursViewModel(
         navigator.toTourScreen(tour.id)
     }
 
-    private fun postTours(newCategories: List<CategoryResponse>) {
+    private fun postTours(newCategories: List<Category>) {
         val toursList = if (currentFilter == null) {
             likableTours.toursList
         } else {

@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.demal.feature_tours.R
 import com.demal.feature_tours.databinding.FragmentToursBinding
 import com.demal.model.data.app_state.BaseState
+import com.demal.model.data.entity.category.Category
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.model.data.entity.tours.ToursState
-import com.demal.model.data.entity.tours.network.CategoryResponse
 import com.demal.repository.image.ImageLoader
 import com.demal.view.core.adapter.BaseAdapter
 import com.demal.view.core.adapter.listeners.TourClickListener
@@ -99,7 +99,7 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
         }
     }
 
-    private fun fillCategories(categories: List<CategoryResponse>) {
+    private fun fillCategories(categories: List<Category>) {
         val chipGroup = binding.chipCategoriesGroup
         binding.chipCategoryDefault.setOnClickListener {
             viewModel.setupFilter(null)
@@ -139,7 +139,7 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
     }
 
     companion object {
-        fun newInstance(categoryId: Int): ToursFragment {
+        fun newInstance(categoryId: Int?): ToursFragment {
             return ToursFragment().apply {
                 inputCategoryId = categoryId
             }
