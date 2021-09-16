@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+</resources>
