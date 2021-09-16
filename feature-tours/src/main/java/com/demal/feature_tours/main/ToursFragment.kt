@@ -112,9 +112,9 @@ class ToursFragment : BaseFragment<FragmentToursBinding, ToursState, ToursViewMo
             chip.isCheckable = true
             if (category.id == inputCategoryId) {
                 chip.isChecked = true
-                binding.toursChipsHorizontalScroll.postDelayed({
+                binding.toursChipsHorizontalScroll.post {
                     binding.toursChipsHorizontalScroll.smoothScrollTo(chip.x.toInt(), 0)
-                }, 100)
+                }
             }
             chip.setOnClickListener {
                 viewModel.setupFilter(category.id)
