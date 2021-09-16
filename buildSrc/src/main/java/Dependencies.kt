@@ -132,6 +132,7 @@ object Modules {
     const val featWishlist = ":feature-wishlist"
     const val featLogin = ":feature-login"
     const val featMyTours = ":feature-mytours"
+    const val featRegistration = ":feature-registration"
 }
 
 object Cicerone {

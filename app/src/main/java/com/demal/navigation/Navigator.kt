@@ -4,17 +4,19 @@ import com.demal.feature_home.navigation.HomeCategoriesNavigator
 import com.demal.feature_home.navigation.HomeToursNavigator
 import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
-import com.demal.feature_wishlist.navigation.WishlistNavigator
 import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
+import com.demal.feature_wishlist.navigation.WishlistNavigator
 import com.demal.view.core.BaseNavigator
 import com.github.terrakok.cicerone.Router
+import org.romeo.feature_registration.RegistrationNavigator
 
 //Класс должен реализовать навигационные интерфейсы всех модулей
 class Navigator(
     private val router: Router,
     private val screens: Screens
 ) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator, LoginNavigator,
-    WishlistNavigator, HomeToursNavigator, HomeCategoriesNavigator,  MyToursNavigator {
+    WishlistNavigator, HomeToursNavigator, HomeCategoriesNavigator, MyToursNavigator,
+    RegistrationNavigator {
 
     override fun toHomeScreen() = router.navigateTo(screens.homeScreen())
 
@@ -36,6 +38,5 @@ class Navigator(
         //TODO("Not yet implemented")
     }
 
-    //TODO: Navigate to Login Screen
     override fun toLoginScreen() = router.navigateTo(screens.loginScreen())
 }
