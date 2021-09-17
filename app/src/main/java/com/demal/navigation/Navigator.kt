@@ -1,8 +1,10 @@
 package com.demal.navigation
 
-import com.demal.feature_home.navigation.HomeNavigator
+import com.demal.feature_home.navigation.HomeCategoriesNavigator
+import com.demal.feature_home.navigation.HomeToursNavigator
 import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
+import com.demal.feature_wishlist.navigation.WishlistNavigator
 import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
 import com.demal.view.core.BaseNavigator
@@ -13,7 +15,7 @@ class Navigator(
     private val router: Router,
     private val screens: Screens
 ) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator, LoginNavigator,
-    WishlistNavigator, HomeNavigator, MyToursNavigator {
+    WishlistNavigator, HomeToursNavigator, HomeCategoriesNavigator,  MyToursNavigator {
 
     override fun toHomeScreen() = router.navigateTo(screens.homeScreen())
 
@@ -30,6 +32,10 @@ class Navigator(
     override fun toProfileEditScreen() = router.navigateTo(screens.profileEditScreen())
 
     override fun toTourScreen(tourId: Int) {
+        //TODO("Not yet implemented")
+    }
+
+    override fun toToursScreen(categoryId: Int) {
         //TODO("Not yet implemented")
     }
 
