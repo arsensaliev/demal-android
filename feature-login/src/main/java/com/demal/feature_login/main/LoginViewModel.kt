@@ -14,14 +14,12 @@ class LoginViewModel(
     private val repository: UserRepository
 ) : BaseViewModel<LoginStatus>(navigator){
 
-    private var status = LoginStatus(true)
-
     fun login(
         email: String,
         password: String
     ) = runAsync {
         repository.login(email, password)
-        mStateLiveData.postValue(BaseState.Success(status))
+        mStateLiveData.postValue(BaseState.Success(LoginStatus()))
     }
 
     @SuppressLint("MissingSuperCall")
