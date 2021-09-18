@@ -1,8 +1,6 @@
 package com.demal.feature_login.main
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +9,7 @@ import com.basgeekball.awesomevalidation.ValidationStyle
 import com.demal.feature_login.R
 import com.demal.feature_login.databinding.FragmentLoginBinding
 import com.demal.model.data.entity.login.LoginStatus
+import com.demal.model.data.exceptions.BadRequestException
 import com.demal.view.core.view.BaseFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -37,28 +36,40 @@ class LoginFragment :
     }
 
     private fun init() {
-        setupListeners()
-        initEmailValidation()
-        initPasswordValidation()
+        setUpValidation()
+        initEditTextValidation()
         checkValidation()
     }
 
-    private fun setupListeners() = with(binding) {
-        editTextPassword.addTextChangedListener(TextFieldValidation(editTextPassword))
-        editTextEmail.addTextChangedListener(TextFieldValidation(editTextEmail))
+    private fun setUpValidation() = with(binding) {
+        passwordValidator.setTextInputLayoutErrorTextAppearance(R.style.ErrorTextAppearance)
+        emailValidator.setTextInputLayoutErrorTextAppearance(R.style.ErrorTextAppearance)
+        AwesomeValidation.disableAutoFocusOnFirstFailure()
+
+        editTextEmail.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                emailValidator.clear()
+            } else {
+                emailValidator.validate()
+            }
+        }
+
+        editTextPassword.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                passwordValidator.clear()
+            } else {
+                passwordValidator.validate()
+            }
+        }
     }
 
-    private fun initEmailValidation() {
-        emailValidator.setTextInputLayoutErrorTextAppearance(R.style.ErrorTextAppearance)
+    private fun initEditTextValidation() = with(binding) {
         emailValidator.addValidation(
-            binding.textInputLayoutEmail,
+            textInputLayoutEmail,
             android.util.Patterns.EMAIL_ADDRESS,
             getString(R.string.wrong_email)
         )
-    }
 
-    private fun initPasswordValidation() {
-        passwordValidator.setTextInputLayoutErrorTextAppearance(R.style.ErrorTextAppearance)
         passwordValidator.addValidation(
             binding.textInputLayoutPassword,
             getString(R.string.regex_password_validation),
@@ -68,40 +79,30 @@ class LoginFragment :
 
     private fun checkValidation() = with(binding) {
         buttonLogin.setOnClickListener {
-            if (emailValidator.validate() && passwordValidator.validate()) {
+            val email =
+                if (emailValidator.validate()) editTextEmail.text.toString().trim() else null
+            val password =
+                if (passwordValidator.validate()) editTextPassword.text.toString().trim() else null
+
+            if (email != null && password != null) {
                 viewModel.login(
-                    binding.editTextEmail.text.toString().trim(),
-                    binding.editTextPassword.text.toString().trim()
+                    email,
+                    password
                 )
-            } else {
-                textInputLayoutPassword.error = getString(R.string.password_rule)
             }
         }
     }
 
     override fun renderError(error: Throwable) {
         renderMessage(error.message.toString())
+        if (error is BadRequestException) {
+            binding.editTextEmail.requestFocus()
+            binding.textInputLayoutEmail.error = getString(R.string.wrong_email)
+        }
     }
 
     override fun renderSuccess(data: LoginStatus) {
         viewModel.navigator.toProfileScreen()
     }
 
-
-    inner class TextFieldValidation(private val view: View) : TextWatcher {
-        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            // not used
-        }
-
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            // not used
-        }
-
-        override fun afterTextChanged(s: Editable?) {
-            when (view.id) {
-                R.id.edit_text_email -> emailValidator.validate()
-                R.id.edit_text_password -> passwordValidator.validate()
-            }
-        }
-    }
 }
