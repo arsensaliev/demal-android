@@ -21,6 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_standard"
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tours_recyclerView"
         app:layout_constraintTop_toBottomOf="@+id/textView_tours_header">
@@ -39,8 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                tools:ignore="TouchTargetSizeCheck"
-                tools:text="Все" />
+                android:text="@string/chip_default_name" />
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
@@ -49,12 +49,37 @@
         android:id="@+id/tours_recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/margin_standard"
+        android:layout_marginStart="@dimen/recycler_margin_side"
         android:layout_marginTop="@dimen/recycler_margin_top"
-        android:layout_marginEnd="@dimen/margin_standard"
+        android:layout_marginEnd="@dimen/recycler_margin_side"
+        android:layout_marginBottom="@dimen/recycler_margin_top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tours_chips_horizontal_scroll" />
+        app:layout_constraintTop_toBottomOf="@+id/tours_chips_horizontal_scroll"
+        tools:listitem="@layout/item_tour" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/toursEmptyTextview"
+        style="@style/HeaderTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/tours_empty_list"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tours_recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/tours_recyclerView"
+        app:layout_constraintStart_toStartOf="@+id/tours_recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/tours_recyclerView" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/tours_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tours_recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/tours_recyclerView"
+        app:layout_constraintStart_toStartOf="@+id/tours_recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/tours_recyclerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
