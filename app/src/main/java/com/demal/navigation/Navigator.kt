@@ -62,6 +62,6 @@ class Navigator(
     }
 
     override fun onDestroyNavigation() {
-        TODO("Not yet implemented")
+        navigationContainer = null
     }
 }
