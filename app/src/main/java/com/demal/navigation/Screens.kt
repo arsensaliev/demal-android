@@ -14,7 +14,7 @@ class Screens {
     fun profileScreen() = FragmentScreen { ProfileFragment() }
     fun homeScreen() = FragmentScreen { HomeFragment() }
     fun profileEditScreen() = FragmentScreen { ProfileEditFragment() }
-    fun loginScreen() = FragmentScreen { LoginFragment.newInstance() }
+    fun loginScreen() = FragmentScreen { LoginFragment() }
     fun wishlistScreen() = FragmentScreen { WishlistFragment() }
     fun myToursScreen() = FragmentScreen { MyToursFragment() }
     fun toursScreen(categoryId: Int? = null) =
