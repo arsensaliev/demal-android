@@ -16,6 +16,7 @@ import com.demal.feature_profile_edit.databinding.FragmentProfileEditBinding
 import com.demal.model.data.entity.user.User
 import com.demal.model.data.entity.user.UserUpdate
 import com.demal.repository.image.ImageLoader
+import com.demal.utils.files.ContentFileUtil
 import com.demal.view.core.view.BaseFragment
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel

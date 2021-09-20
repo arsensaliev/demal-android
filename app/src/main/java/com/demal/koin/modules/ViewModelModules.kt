@@ -17,7 +17,7 @@ val viewModelModule = module {
     viewModel { HomeCategoriesViewModel(get(), get()) }
     viewModel { ProfileViewModel(get(), get()) }
     viewModel { WishlistViewModel(get(), get()) }
-    viewModel { ProfileEditViewModel(get(), get(),get()) }
+    viewModel { ProfileEditViewModel(get(), get(),get(),get()) }
     viewModel { LoginViewModel(get(), get()) }
     viewModel { MyToursViewModel(get(),get()) }
 

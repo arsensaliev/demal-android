@@ -20,7 +20,8 @@ class App : MultiDexApplication() {
                 repositoryModule,
                 interactorModule,
                 imageModule,
-                preferencesModule
+                preferencesModule,
+                contentFileUtil
             )
         }
     }

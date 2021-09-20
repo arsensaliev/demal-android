@@ -14,7 +14,8 @@ import com.demal.view.core.view_model.BaseViewModel
 class ProfileEditViewModel(
     val navigator: BaseNavigator,
     private val repository: UserRepository,
-    private val localUserRepository: UserRepositoryLocal
+    private val localUserRepository: UserRepositoryLocal,
+    private val fileUtil: ContentFileUtil
 ) : BaseViewModel<User>(navigator) {
 
     fun init() {
@@ -32,9 +33,8 @@ class ProfileEditViewModel(
 
     fun updateAvatar(uriPhoto: Uri, context: Context?) {
         context?.let {
-            val fileByte = ContentFileUtil().getFileByte(uriPhoto, it)
             runAsync {
-                repository.updateAvatar(fileByte)
+                repository.updateAvatar(fileUtil.getFileByte(uriPhoto, it))
             }
         }
     }
