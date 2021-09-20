@@ -21,13 +21,14 @@ class BaseInterceptor(
 
         val response = chain.proceed(newRequest)
         val responseCode = response.code()
-        processResponseCode(responseCode)
+        val responseMessage = response.message()
+        processResponseCode(responseCode, responseMessage)
         return response
     }
 
-    private fun processResponseCode(responseCode: Int) {
+    private fun processResponseCode(responseCode: Int, responseMessage: String) {
         when(responseCode) {
-            401 -> throw NoAuthException()
+            401 -> throw NoAuthException(responseMessage)
             409 -> throw UserAlreadyExistsException()
         }
     }

@@ -1,11 +1,12 @@
 package com.demal.navigation
 
 import com.demal.feature_home.navigation.HomeCategoriesNavigator
+import com.demal.feature_home.navigation.HomeNavigator
 import com.demal.feature_home.navigation.HomeToursNavigator
 import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
-import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
+import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
 import com.demal.view.core.BaseNavigator
 import com.github.terrakok.cicerone.Router
 import org.romeo.feature_registration.RegistrationNavigator
@@ -15,31 +16,51 @@ class Navigator(
     private val router: Router,
     private val screens: Screens
 ) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator, LoginNavigator,
-    WishlistNavigator, HomeToursNavigator, HomeCategoriesNavigator, MyToursNavigator,
-    RegistrationNavigator {
+    WishlistNavigator, HomeNavigator, MyToursNavigator, HomeCategoriesNavigator, HomeToursNavigator,
+    ToursNavigator, RegistrationNavigator {
 
-    override fun toHomeScreen() = router.navigateTo(screens.homeScreen())
-
-    override fun toToursScreen() {
-        //TODO("Not yet implemented")
-    }
-
-    override fun toMyToursScreen() = router.navigateTo(screens.myToursScreen())
-
-    override fun toWishlistScreen() = router.navigateTo(screens.wishlistScreen())
-
-    override fun toProfileScreen() = router.navigateTo(screens.profileScreen())
-
-    override fun toTourScreen(tourId: Int) {
-        //TODO("Not yet implemented")
-    }
+    override var navigationContainer: NavigationContainer? = null
 
     override fun toToursScreen(categoryId: Int) {
-        //TODO("Not yet implemented")
+        router.navigateTo(screens.toursScreen(categoryId))
+        navigationContainer?.showBottomNavigation()
     }
 
-    override fun toProfileEditScreen() = router.navigateTo(screens.profileScreen())
+    override fun toHomeScreen() {
+        router.navigateTo(screens.homeScreen())
+        navigationContainer?.showBottomNavigation()
+    }
 
-    //TODO: Change to login screen
-    override fun toLoginScreen() = router.navigateTo(screens.registrationScreen())
+    override fun toToursScreen() {
+        router.navigateTo(screens.toursScreen())
+        navigationContainer?.showBottomNavigation()
+    }
+
+    override fun toMyToursScreen() {
+        router.navigateTo(screens.myToursScreen())
+        navigationContainer?.showBottomNavigation()
+    }
+
+    override fun toWishlistScreen() {
+        router.navigateTo(screens.wishlistScreen())
+        navigationContainer?.showBottomNavigation()
+    }
+
+    override fun toProfileScreen() {
+        router.navigateTo(screens.profileScreen())
+        navigationContainer?.showBottomNavigation()
+    }
+
+    override fun toTourScreen(tourId: Int) {
+        navigationContainer?.showBottomNavigation()
+    }
+
+    override fun toLoginScreen() {
+        router.navigateTo(screens.loginScreen())
+        navigationContainer?.showBottomNavigation()
+    }
+
+    override fun onDestroyNavigation() {
+        navigationContainer = null
+    }
 }
