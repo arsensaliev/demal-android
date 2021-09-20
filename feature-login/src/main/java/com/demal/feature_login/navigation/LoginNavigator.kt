@@ -4,4 +4,5 @@ import com.demal.view.core.BaseNavigator
 
 interface LoginNavigator: BaseNavigator {
     fun toProfileScreen()
+    fun toRegistrationScreen()
 }

@@ -22,6 +22,10 @@ class LoginViewModel(
         mStateLiveData.postValue(BaseState.Success(LoginStatus()))
     }
 
+    fun toRegistration() {
+        navigator.toRegistrationScreen()
+    }
+
     @SuppressLint("MissingSuperCall")
     override fun handleError(error: Throwable) {
         if (error is NoAuthException || error is BadRequestException) {

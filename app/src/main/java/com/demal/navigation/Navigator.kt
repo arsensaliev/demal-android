@@ -7,7 +7,9 @@ import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
 import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
+import com.demal.feature_tours.navigation.ToursNavigator
 import com.demal.view.core.BaseNavigator
+import com.demal.view.core.NavigationContainer
 import com.github.terrakok.cicerone.Router
 import org.romeo.feature_registration.RegistrationNavigator
 
@@ -23,6 +25,11 @@ class Navigator(
 
     override fun toToursScreen(categoryId: Int) {
         router.navigateTo(screens.toursScreen(categoryId))
+        navigationContainer?.showBottomNavigation()
+    }
+
+    override fun toProfileEditScreen() {
+        router.navigateTo(screens.profileEditScreen())
         navigationContainer?.showBottomNavigation()
     }
 
@@ -48,6 +55,11 @@ class Navigator(
 
     override fun toProfileScreen() {
         router.navigateTo(screens.profileScreen())
+        navigationContainer?.showBottomNavigation()
+    }
+
+    override fun toRegistrationScreen() {
+        router.navigateTo(screens.registrationScreen())
         navigationContainer?.showBottomNavigation()
     }
 
