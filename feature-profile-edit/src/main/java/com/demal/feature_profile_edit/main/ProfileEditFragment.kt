@@ -46,6 +46,7 @@ class ProfileEditFragment :
         .root
 
     override fun renderSuccess(user: User) {
+        this.user = user
         setUser(user)
         imageLoader.loadImage(1, binding.imgAvatar, "$BASE_SPACES_URL/${user.imagePath}")
     }
