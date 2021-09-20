@@ -1,5 +1,6 @@
 package com.demal.repository.api
 
+import com.demal.model.data.exceptions.BadRequestException
 import com.demal.model.data.exceptions.NoAuthException
 import com.demal.repository.repository.UserRepositoryLocal
 import okhttp3.Interceptor
@@ -20,12 +21,18 @@ class BaseInterceptor(
 
         val response = chain.proceed(newRequest)
         val responseCode = response.code()
-        processResponseCode(responseCode)
+        val responseMessage = response.message()
+        processResponseCode(responseCode, responseMessage)
         return response
     }
 
-    private fun processResponseCode(responseCode: Int) {
-        if (responseCode == 401)
-            throw NoAuthException()
+    private fun processResponseCode(responseCode: Int, responseMessage: String) {
+        if (responseCode == 401) {
+            throw NoAuthException(responseMessage)
+        }
+
+        if (responseCode == 400) {
+            throw BadRequestException(responseMessage)
+        }
     }
 }

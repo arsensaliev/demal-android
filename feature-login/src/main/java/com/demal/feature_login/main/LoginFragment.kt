@@ -9,6 +9,7 @@ import com.basgeekball.awesomevalidation.ValidationStyle
 import com.demal.feature_login.R
 import com.demal.feature_login.databinding.FragmentLoginBinding
 import com.demal.model.data.entity.login.LoginStatus
+import com.demal.model.data.exceptions.BadRequestException
 import com.demal.view.core.view.BaseFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -17,8 +18,8 @@ class LoginFragment :
 
     override var bindingNullable: FragmentLoginBinding? = null
     override val viewModel: LoginViewModel by viewModel()
-
-    private val validator = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
+    private val emailValidator = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
+    private val passwordValidator = AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,19 +32,46 @@ class LoginFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initValidation()
+        init()
+    }
+
+    private fun init() {
+        setUpValidation()
+        initEditTextValidation()
         checkValidation()
     }
 
-    private fun initValidation() = with(binding) {
-        validator.addValidation(
+    private fun setUpValidation() = with(binding) {
+        passwordValidator.setTextInputLayoutErrorTextAppearance(R.style.ErrorTextAppearance)
+        emailValidator.setTextInputLayoutErrorTextAppearance(R.style.ErrorTextAppearance)
+        AwesomeValidation.disableAutoFocusOnFirstFailure()
+
+        editTextEmail.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                emailValidator.clear()
+            } else {
+                emailValidator.validate()
+            }
+        }
+
+        editTextPassword.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                passwordValidator.clear()
+            } else {
+                passwordValidator.validate()
+            }
+        }
+    }
+
+    private fun initEditTextValidation() = with(binding) {
+        emailValidator.addValidation(
             textInputLayoutEmail,
             android.util.Patterns.EMAIL_ADDRESS,
             getString(R.string.wrong_email)
         )
 
-        validator.addValidation(
-            textInputLayoutPassword,
+        passwordValidator.addValidation(
+            binding.textInputLayoutPassword,
             getString(R.string.regex_password_validation),
             getString(R.string.password_rule)
         )
@@ -51,20 +79,30 @@ class LoginFragment :
 
     private fun checkValidation() = with(binding) {
         buttonLogin.setOnClickListener {
-            if (validator.validate()) {
-                // успешно
-            } else {
-                renderMessage(getString(R.string.input_error))
+            val email =
+                if (emailValidator.validate()) editTextEmail.text.toString().trim() else null
+            val password =
+                if (passwordValidator.validate()) editTextPassword.text.toString().trim() else null
+
+            if (email != null && password != null) {
+                viewModel.login(
+                    email,
+                    password
+                )
             }
         }
     }
 
-    override fun renderSuccess(data: LoginStatus) {
-        TODO("Not yet implemented")
+    override fun renderError(error: Throwable) {
+        renderMessage(error.message.toString())
+        if (error is BadRequestException) {
+            binding.editTextEmail.requestFocus()
+            binding.textInputLayoutEmail.error = getString(R.string.wrong_email)
+        }
     }
 
-    companion object {
-        fun newInstance() = LoginFragment()
+    override fun renderSuccess(data: LoginStatus) {
+        viewModel.navigator.toProfileScreen()
     }
 
 }
