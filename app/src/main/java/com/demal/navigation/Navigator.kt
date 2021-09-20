@@ -58,7 +58,7 @@ class Navigator(
 
     override fun toLoginScreen() {
         router.navigateTo(screens.loginScreen())
-        navigationContainer?.hideBottomNavigation()
+        navigationContainer?.showBottomNavigation()
     }
 
     override fun onDestroyNavigation() {
