@@ -3,6 +3,7 @@ package com.demal.repository.data_sources
 import com.demal.model.data.entity.category.Categories
 import com.demal.model.data.entity.category.Category
 import com.demal.model.data.entity.tours.Tour
+import com.demal.model.data.entity.tours.TourResponse
 import com.demal.model.data.entity.tours.network.AddToWishListEntity
 import com.demal.model.data.entity.tours.network.MeResponse
 import com.demal.model.data.entity.tours.network.Tours

@@ -7,7 +7,6 @@ import com.demal.feature_profile_edit.main.ProfileEditFragment
 import com.demal.feature_tour.main.TourFragment
 import com.demal.feature_tours.main.ToursFragment
 import com.demal.feature_wishlist.main.WishlistFragment
-import com.demal.feature_profile_edit.main.ProfileEditFragment
 import com.demal.view.MyToursFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import org.romeo.feature_register.RegisterFragment

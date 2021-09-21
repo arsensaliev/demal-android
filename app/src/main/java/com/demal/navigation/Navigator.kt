@@ -20,7 +20,7 @@ class Navigator(
     private val screens: Screens
 ) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator, LoginNavigator,
     WishlistNavigator, HomeNavigator, MyToursNavigator, HomeCategoriesNavigator, HomeToursNavigator,
-    ToursNavigator {
+    ToursNavigator, TourNavigator, RegisterNavigator {
 
     override var navigationContainer: NavigationContainer? = null
 
