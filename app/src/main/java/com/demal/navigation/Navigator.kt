@@ -18,7 +18,7 @@ class Navigator(
     private val screens: Screens
 ) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator, LoginNavigator,
     WishlistNavigator, HomeNavigator, MyToursNavigator, HomeCategoriesNavigator, HomeToursNavigator,
-    ToursNavigator {
+    ToursNavigator, TourNavigator {
 
     override var navigationContainer: NavigationContainer? = null
 
@@ -53,12 +53,13 @@ class Navigator(
     }
 
     override fun toTourScreen(tourId: Int) {
+        router.navigateTo(screens.tourScreen(tourId))
         navigationContainer?.showBottomNavigation()
     }
 
     override fun toLoginScreen() {
         router.navigateTo(screens.loginScreen())
-        navigationContainer?.hideBottomNavigation()
+        navigationContainer?.showBottomNavigation()
     }
 
     override fun onDestroyNavigation() {
@@ -72,5 +73,10 @@ class Navigator(
     override fun back() {
         navigationContainer?.showBottomNavigation()
         router.exit()
+    }
+
+    override fun goBack() {
+        router.exit()
+        navigationContainer?.showBottomNavigation()
     }
 }

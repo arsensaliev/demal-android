@@ -48,8 +48,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.getBottomNavigationLiveData().observe(this) { isShown ->
-            if (isShown) binding.bottomNavigation.visibility = View.VISIBLE
-            else binding.bottomNavigation.visibility = View.GONE
+            if (isShown) showBottomNavigation()
+            else hideBottomNavigation()
         }
+    }
+
+    private fun hideBottomNavigation() {
+        binding.bottomNavigation.visibility = View.GONE
+    }
+
+    private fun showBottomNavigation() {
+        binding.bottomNavigation.visibility = View.VISIBLE
+    }
+
+    override fun onBackPressed() {
+        showBottomNavigation()
+        super.onBackPressed()
     }
 }

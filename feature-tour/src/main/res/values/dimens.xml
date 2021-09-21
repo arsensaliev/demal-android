@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="circle_margin_size">48dp</dimen>
+    <dimen name="button_margin">20dp</dimen>
+    <dimen name="guide_line_margin">140dp</dimen>
+    <dimen name="tour_fragment_close_button">34dp</dimen>
+</resources>
