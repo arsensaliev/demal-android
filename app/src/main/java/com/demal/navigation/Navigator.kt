@@ -7,9 +7,9 @@ import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
 import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
-import com.demal.feature_tour.navigation.TourNavigator
 import com.demal.feature_tours.navigation.ToursNavigator
 import com.demal.view.core.BaseNavigator
+import com.demal.feature_tour.navigation.TourNavigator
 import com.demal.view.core.NavigationContainer
 import com.github.terrakok.cicerone.Router
 import org.romeo.feature_register.RegisterNavigator
@@ -78,7 +78,7 @@ class Navigator(
         navigationContainer = null
     }
 
-    override fun goBack() {
+    override fun back() {
         router.exit()
         navigationContainer?.showBottomNavigation()
     }

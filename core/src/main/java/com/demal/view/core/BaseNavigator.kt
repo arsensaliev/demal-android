@@ -5,4 +5,5 @@ interface BaseNavigator {
     var navigationContainer: NavigationContainer?
     fun toLoginScreen()
     fun onDestroyNavigation()
+    fun back()
 }

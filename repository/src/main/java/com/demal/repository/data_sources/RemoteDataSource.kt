@@ -10,12 +10,15 @@ import com.demal.model.data.entity.tours.network.Tours
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.model.data.entity.user.LoginResponse
 import com.demal.model.data.entity.user.RegisterDto
+import com.demal.model.data.entity.user.UserUpdate
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 
 interface RemoteDataSource {
     suspend fun login(auth: LoginRequest): LoginResponse
     suspend fun myUser(): MeResponse
+    suspend fun updateUser(id: Int, user: UserUpdate)
+    suspend fun updateAvatar(fileByte: ByteArray?)
     suspend fun getTours(sortBy: SortBy, order: Order): List<Tour>
     suspend fun getTourById(id: Int): TourResponse
     suspend fun getUserWishList(id: Int): Tours

@@ -4,5 +4,4 @@ import com.demal.view.core.BaseNavigator
 
 interface ProfileEditNavigator : BaseNavigator {
     //Методы для навигации ИЗ ProfileEditFragment
-    //fun toOtherLocation()
 }
