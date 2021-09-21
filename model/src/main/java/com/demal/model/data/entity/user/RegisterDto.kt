@@ -1,6 +1,6 @@
 package com.demal.model.data.entity.user
 
-data class RegistrationRequest(
+data class RegisterDto(
     val email: String,
     val password: String,
     val firstName: String,

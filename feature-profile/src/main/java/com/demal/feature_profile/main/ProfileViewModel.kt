@@ -18,7 +18,7 @@ class ProfileViewModel(
         }
     }
 
-    fun toProfileEditScreen() {
+    fun navigateToProfileEditScreen() {
         navigator.toProfileEditScreen()
     }
 }

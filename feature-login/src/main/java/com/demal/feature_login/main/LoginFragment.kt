@@ -44,7 +44,7 @@ class LoginFragment :
 
     private fun setRegistrationClickListener() {
         binding.buttonRegister.setOnClickListener {
-            viewModel.toRegistration()
+            viewModel.navigateToRegisterScreen()
         }
     }
 

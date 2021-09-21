@@ -22,8 +22,8 @@ class LoginViewModel(
         mStateLiveData.postValue(BaseState.Success(LoginStatus()))
     }
 
-    fun toRegistration() {
-        navigator.toRegistrationScreen()
+    fun navigateToRegisterScreen() {
+        navigator.toRegisterScreen()
     }
 
     @SuppressLint("MissingSuperCall")

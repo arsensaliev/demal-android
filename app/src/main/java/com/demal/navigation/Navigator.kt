@@ -11,7 +11,7 @@ import com.demal.feature_tours.navigation.ToursNavigator
 import com.demal.view.core.BaseNavigator
 import com.demal.view.core.NavigationContainer
 import com.github.terrakok.cicerone.Router
-import org.romeo.feature_registration.RegistrationNavigator
+import org.romeo.feature_register.RegisterNavigator
 
 //Класс должен реализовать навигационные интерфейсы всех модулей
 class Navigator(
@@ -19,7 +19,7 @@ class Navigator(
     private val screens: Screens
 ) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator, LoginNavigator,
     WishlistNavigator, HomeNavigator, MyToursNavigator, HomeCategoriesNavigator, HomeToursNavigator,
-    ToursNavigator, RegistrationNavigator {
+    ToursNavigator, RegisterNavigator {
 
     override var navigationContainer: NavigationContainer? = null
 
@@ -58,8 +58,8 @@ class Navigator(
         navigationContainer?.showBottomNavigation()
     }
 
-    override fun toRegistrationScreen() {
-        router.navigateTo(screens.registrationScreen())
+    override fun toRegisterScreen() {
+        router.navigateTo(screens.registerScreen())
         navigationContainer?.showBottomNavigation()
     }
 

@@ -34,7 +34,7 @@ class ProfileFragment :
 
     private fun initListeners() {
         binding.buttonEdit.setOnClickListener {
-            viewModel.toProfileEditScreen()
+            viewModel.navigateToProfileEditScreen()
         }
     }
 

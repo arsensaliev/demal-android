@@ -6,7 +6,7 @@ import com.demal.model.data.entity.tours.Tour
 import com.demal.model.data.entity.tours.network.*
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.model.data.entity.user.LoginResponse
-import com.demal.model.data.entity.user.RegistrationRequest
+import com.demal.model.data.entity.user.RegisterDto
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 import kotlinx.coroutines.Deferred
@@ -57,7 +57,7 @@ interface ApiService {
     ): Deferred<Unit>
 
     @POST("api/$API_VERSION/users/register")
-    fun register(@Body registrationRequest: RegistrationRequest): Deferred<Unit>
+    fun register(@Body registerDto: RegisterDto): Deferred<LoginResponse>
 
     companion object {
         private const val API_VERSION = "v1"

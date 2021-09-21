@@ -1,15 +1,16 @@
-package org.romeo.feature_registration
+package org.romeo.feature_register
 
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.EmptyEntity
-import com.demal.model.data.entity.user.RegistrationRequest
+import com.demal.model.data.entity.user.RegisterDto
+import com.demal.model.data.entity.user.User
 import com.demal.repository.repository.UserRepository
 import com.demal.view.core.view_model.BaseViewModel
 
-class RegistrationViewModel(
-    private val navigator: RegistrationNavigator,
+class RegisterViewModel(
+    private val navigator: RegisterNavigator,
     private val repository: UserRepository
-) : BaseViewModel<EmptyEntity>(navigator) {
+) : BaseViewModel<User>(navigator) {
 
     fun register(
         email: String,
@@ -19,8 +20,8 @@ class RegistrationViewModel(
     ) {
         runAsync {
             mStateLiveData.postValue(BaseState.Loading(true))
-            repository.register(
-                RegistrationRequest(
+            val user = repository.register(
+                RegisterDto(
                     email,
                     password,
                     firstName,
@@ -28,11 +29,12 @@ class RegistrationViewModel(
                 )
             )
 
-            navigator.toLoginScreen()
+            mStateLiveData.postValue(BaseState.Success(user))
+            navigator.toProfileScreen()
         }
     }
 
-    fun openLogin() {
+    fun navigateToLoginScreen() {
         navigator.toLoginScreen()
     }
 

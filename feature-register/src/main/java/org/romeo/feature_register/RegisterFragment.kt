@@ -1,4 +1,4 @@
-package org.romeo.feature_registration
+package org.romeo.feature_register
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,16 +9,18 @@ import com.basgeekball.awesomevalidation.ValidationStyle
 import com.basgeekball.awesomevalidation.utility.RegexTemplate
 import com.demal.feature_registration.R
 import com.demal.feature_registration.databinding.FragmentRegistrationBinding
+import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.EmptyEntity
+import com.demal.model.data.entity.user.User
 import com.demal.model.data.exceptions.UserAlreadyExistsException
 import com.demal.view.core.view.BaseFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class RegistrationFragment
-    : BaseFragment<FragmentRegistrationBinding, EmptyEntity, RegistrationViewModel>() {
+class RegisterFragment
+    : BaseFragment<FragmentRegistrationBinding, User, RegisterViewModel>() {
     override var bindingNullable: FragmentRegistrationBinding? = null
 
-    override val viewModel: RegistrationViewModel by viewModel()
+    override val viewModel: RegisterViewModel by viewModel()
 
     private lateinit var validator: AwesomeValidation
 
@@ -79,8 +81,15 @@ class RegistrationFragment
         }
 
         binding.buttonLogin.setOnClickListener {
-            viewModel.openLogin()
+            viewModel.navigateToLoginScreen()
         }
+    }
+
+    override fun renderSuccess(data: User) {
+        super.renderSuccess(data)
+        binding.editTextEmail.setText(data.email)
+        binding.editTextFirstName.setText(data.firstName)
+        binding.editTextLastName.setText(data.lastName)
     }
 
     override fun renderError(error: Throwable) {

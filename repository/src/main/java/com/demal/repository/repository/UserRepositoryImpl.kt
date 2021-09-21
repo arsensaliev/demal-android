@@ -11,10 +11,7 @@ class UserRepositoryImpl(
 
     override suspend fun login(email: String, password: String): User {
         val response = remoteDataSource.login(LoginRequest(email, password))
-        userRepositoryLocal.saveResponse(response)
-        response.user.id?.let { id ->
-            toursRepository.getFavoriteTours(id)
-        }
+        processLoginResponse(response)
 
         return response.user
     }
@@ -29,7 +26,17 @@ class UserRepositoryImpl(
             }
         }
 
-    override suspend fun register(registrationRequest: RegistrationRequest) {
-        remoteDataSource.register(registrationRequest)
+    override suspend fun register(registerDto: RegisterDto): User {
+        val response = remoteDataSource.register(registerDto)
+        processLoginResponse(response)
+        return response.user
+    }
+
+
+    private suspend fun processLoginResponse(response: LoginResponse) {
+        userRepositoryLocal.saveResponse(response)
+        response.user.id?.let { id ->
+            toursRepository.getFavoriteTours(id)
+        }
     }
 }
