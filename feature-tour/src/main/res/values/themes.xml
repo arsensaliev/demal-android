@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="ItemDescriptionTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+</resources>

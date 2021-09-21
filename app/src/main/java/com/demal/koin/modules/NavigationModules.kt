@@ -4,9 +4,10 @@ import com.demal.feature_home.navigation.HomeCategoriesNavigator
 import com.demal.feature_home.navigation.HomeToursNavigator
 import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
+import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
+import com.demal.feature_tour.navigation.TourNavigator
 import com.demal.feature_tours.navigation.ToursNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
-import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
 import com.demal.navigation.MainActivityNavigator
 import com.demal.navigation.MyToursNavigator
 import com.demal.navigation.Navigator
@@ -35,9 +36,10 @@ val navigatorsModule = module {
     factory<HomeCategoriesNavigator> { get<Navigator>() }
     factory<ProfileEditNavigator> { get<Navigator>() }
     factory<BaseNavigator> { get<Navigator>() }
-    factory<LoginNavigator>{ get<Navigator>() }
+    factory<LoginNavigator> { get<Navigator>() }
     factory<WishlistNavigator> { get<Navigator>() }
     factory<MyToursNavigator> { get<Navigator>() }
     factory<RegisterNavigator> { get<Navigator>() }
     factory<ToursNavigator> { get<Navigator>() }
+    factory<TourNavigator> { get<Navigator>() }
 }

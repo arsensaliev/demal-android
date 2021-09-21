@@ -61,6 +61,9 @@ object Versions {
     const val jUnit = "4.12"
     const val runner = "1.2.0"
     const val espressoCore = "3.2.0"
+
+    //CircleIndicator
+    const val circleIndicator = "2.1.6"
 }
 
 object Tools {
@@ -72,6 +75,7 @@ object Design {
     const val material = "com.google.android.material:material:${Versions.material}"
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val circleIndicator = "me.relex:circleindicator:${Versions.circleIndicator}"
 }
 
 object Kotlin {
@@ -132,6 +136,7 @@ object Modules {
     const val featWishlist = ":feature-wishlist"
     const val featLogin = ":feature-login"
     const val featMyTours = ":feature-mytours"
+    const val featTour = ":feature-tour"
     const val featRegister= ":feature-register"
 }
 
