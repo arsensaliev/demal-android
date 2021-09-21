@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import com.basgeekball.awesomevalidation.AwesomeValidation
 import com.basgeekball.awesomevalidation.ValidationStyle
 import com.basgeekball.awesomevalidation.utility.RegexTemplate
-import com.demal.feature_registration.R
-import com.demal.feature_registration.databinding.FragmentRegistrationBinding
-import com.demal.model.data.app_state.BaseState
-import com.demal.model.data.entity.EmptyEntity
+import com.demal.feature_register.R
+import com.demal.feature_register.databinding.FragmentRegistrationBinding
 import com.demal.model.data.entity.user.User
 import com.demal.model.data.exceptions.UserAlreadyExistsException
 import com.demal.view.core.view.BaseFragment
