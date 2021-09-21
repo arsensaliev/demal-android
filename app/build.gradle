@@ -21,6 +21,7 @@ dependencies {
     implementation project(Modules.featMyTours)
     implementation project(Modules.featTours)
     implementation project(Modules.featTour)
+    implementation project(Modules.featRegister)
 
     //AndroidX
     implementation Tools.multidex
@@ -29,7 +30,6 @@ dependencies {
     //Design
     implementation Design.material
     implementation Design.constraintLayout
-    implementation Design.circleIndicator
 
     //Kotlin
     implementation Kotlin.core

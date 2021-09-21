@@ -15,6 +15,7 @@ import com.demal.navigation.Screens
 import com.demal.view.core.BaseNavigator
 import com.github.terrakok.cicerone.Cicerone
 import org.koin.dsl.module
+import org.romeo.feature_register.RegisterNavigator
 
 val ciceroneModule = module {
     val cicerone = Cicerone.create()
@@ -38,6 +39,7 @@ val navigatorsModule = module {
     factory<LoginNavigator> { get<Navigator>() }
     factory<WishlistNavigator> { get<Navigator>() }
     factory<MyToursNavigator> { get<Navigator>() }
+    factory<RegisterNavigator> { get<Navigator>() }
     factory<ToursNavigator> { get<Navigator>() }
     factory<TourNavigator> { get<Navigator>() }
 }

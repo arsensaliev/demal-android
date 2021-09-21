@@ -2,6 +2,7 @@ package com.demal.feature_profile.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.demal.feature_profile.R
 import com.demal.feature_profile.databinding.FragmentProfileBinding
@@ -25,9 +26,16 @@ class ProfileFragment :
         .apply { bindingNullable = this }
         .root
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel.init()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.buttonEdit.setOnClickListener {
+            viewModel.navigateToProfileEditScreen()
+        }
     }
 
     override fun renderSuccess(data: User) {

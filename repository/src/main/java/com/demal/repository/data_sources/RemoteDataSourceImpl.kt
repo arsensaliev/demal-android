@@ -2,6 +2,7 @@ package com.demal.repository.data_sources
 
 import com.demal.model.data.entity.tours.network.AddToWishListEntity
 import com.demal.model.data.entity.user.LoginRequest
+import com.demal.model.data.entity.user.RegisterDto
 import com.demal.repository.api.ApiService
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
@@ -27,6 +28,9 @@ class RemoteDataSourceImpl(
 
     override suspend fun getCategoryById(id: Int) =
         service.getCategoryById(id).await()
+
+    override suspend fun register(registerDto: RegisterDto) =
+        service.register(registerDto).await()
 
     override suspend fun getUserWishList(id: Int) =
         service.getUserWishList(id).await()

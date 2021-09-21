@@ -39,6 +39,13 @@ class LoginFragment :
         setUpValidation()
         initEditTextValidation()
         checkValidation()
+        setRegisterClickListener()
+    }
+
+    private fun setRegisterClickListener() {
+        binding.buttonRegister.setOnClickListener {
+            viewModel.navigateToRegisterScreen()
+        }
     }
 
     private fun setUpValidation() = with(binding) {
