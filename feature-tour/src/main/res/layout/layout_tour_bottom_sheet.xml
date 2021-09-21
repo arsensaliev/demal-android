@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tour_bottom_sheet_layout"
     android:layout_width="match_parent"
     android:layout_height="400dp"
-    android:background="@drawable/bottom_sheet_bg"
+    android:background="@drawable/bottom_navigation_bg"
     app:behavior_hideable="false"
     app:behavior_peekHeight="45dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
@@ -26,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,13 +95,13 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textViewDescription"
                 style="@style/ItemDescriptionTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 tools:text="Восхождение подготовлено, спланировано и будет проведено европейскими горными гидами в соответствии с высочайшими международными стандартами горовосхождения. Этот поход позволит не только взойти на вершину Казбека, но и познакомиться с местными традициями и интересными местами, получить ценный опыт в горах под руководством сертифицированных альпийских горных гидов." />
         </LinearLayout>
     </ScrollView>
@@ -113,9 +114,9 @@
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/square_button" />
+        app:srcCompat="@drawable/ic_button_like_empty" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
@@ -123,8 +124,7 @@
         android:background="@drawable/rounded_button"
         android:backgroundTint="#6550ee"
         android:text="@string/booking"
-        android:textAppearance="?attr/textAppearanceBody1"
-        app:icon="@drawable/backpack"
+        app:icon="@drawable/ic_backpack"
         app:iconGravity="textStart"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewLike"
         app:layout_constraintEnd_toEndOf="parent"

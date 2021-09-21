@@ -1,5 +1,6 @@
-package com.demal
+package com.demal.feature_tour.main
 
+import com.demal.feature_tour.navigation.TourNavigator
 import com.demal.model.data.app_state.BaseState
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.repository.interactor.ToursInteractor
@@ -10,41 +11,39 @@ class TourViewModel(
     private val toursInteractor: ToursInteractor
 ) : BaseViewModel<LikableTour>(navigator) {
 
-    private lateinit var tour : LikableTour
+    private lateinit var tour: LikableTour
 
-    fun getTourDescription(tourId: Int) {
+    fun getTour(tourId: Int) {
         runAsync {
-            mStateLiveData.postValue(BaseState.Loading(true))
-            tour = toursInteractor.getTourById(id = tourId)
-            mStateLiveData.value = BaseState.Success(tour)
+            tour = toursInteractor.getTourById(tourId)
+            postTour()
         }
     }
 
-    fun getTourImages(tourId: Int): List<Int> {
-        //Надо написать загрузку картинок, не могу, прошу помочь.
-        return listOf(
-            R.drawable.tour_background_image,
-            R.drawable.profile_bg_bitmap,
-            R.drawable.profile_bg_dark
-        )
-    }
-
-    fun likePressed(tour: LikableTour) {
+    fun likePressed() {
         runAsync {
-            if (tour.isLiked){
+            if (tour.isLiked) {
                 toursInteractor.deleteFromWishList(tour.id)
             } else {
                 toursInteractor.addToWishList(tour.id)
             }
         }
+        runAsync {
+            tour = tour.copy(tour, !tour.isLiked)
+            postTour()
+        }
     }
 
-    fun closeTour(){
-        navigator.toToursScreen()
+    fun closeTour() {
+        navigator.goBack()
     }
 
     override fun handleError(error: Throwable) {
         super.handleError(error)
         mStateLiveData.postValue(BaseState.Error(error))
+    }
+
+    private fun postTour() {
+        mStateLiveData.postValue(BaseState.Success(tour))
     }
 }

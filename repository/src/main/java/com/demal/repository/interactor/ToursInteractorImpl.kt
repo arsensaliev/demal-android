@@ -20,7 +20,7 @@ class ToursInteractorImpl(
         LikableTours(toLikable(toursRepository.getTours(sortBy, order)))
 
     override suspend fun getTourById(id: Int) =
-        toLikable(toursRepository.getTourById(id))
+        toLikable(toursRepository.getTourById(id).tour)
 
     override suspend fun getFavoriteTours() =
         executeIfUserIdExists { userId ->

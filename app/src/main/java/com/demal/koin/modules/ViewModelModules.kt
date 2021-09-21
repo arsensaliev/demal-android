@@ -7,6 +7,7 @@ import com.demal.feature_profile.main.ProfileViewModel
 import com.demal.feature_tours.main.ToursViewModel
 import com.demal.feature_wishlist.main.WishlistViewModel
 import com.demal.feature_profile_edit.main.ProfileEditViewModel
+import com.demal.feature_tour.main.TourViewModel
 import com.demal.main.MainViewModel
 import com.demal.view_model.MyToursViewModel
 import org.koin.android.viewmodel.dsl.viewModel
@@ -22,4 +23,5 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get(), get()) }
     viewModel { MyToursViewModel(get(), get()) }
     viewModel { ToursViewModel(get(), get(), get()) }
+    viewModel { TourViewModel(get(), get()) }
 }

@@ -1,13 +1,18 @@
-package com.demal
+package com.demal.feature_tour.main
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.demal.constants.BASE_SPACES_URL
+import com.demal.feature_tour.R
+import com.demal.model.data.entity.tours.network.ImageResponse
+import com.demal.repository.image.ImageLoader
 
 class TourAdapter(
-    private val images: List<Int>
+    private val imageLoader: ImageLoader<ImageView>,
+    private val images: List<ImageResponse>
 ) : RecyclerView.Adapter<TourAdapter.ViewPagerTourViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerTourViewHolder {
@@ -17,8 +22,8 @@ class TourAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewPagerTourViewHolder, position: Int) {
-        val curImage = images[position]
-        holder.itemView.findViewById<ImageView>(R.id.imageViewTour).setImageResource(curImage)
+        val imageView = holder.itemView.findViewById<ImageView>(R.id.imageViewTour)
+        imageLoader.loadImage(1, imageView, "$BASE_SPACES_URL/${images[position].imagePath}")
     }
 
     override fun getItemCount(): Int = images.size
