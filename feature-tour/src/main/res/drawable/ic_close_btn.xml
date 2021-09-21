@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:width="34dp"
+        android:height="34dp">
+        <shape android:shape="oval">
+            <solid android:color="#80000000" />
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/close_cross"
+        android:gravity="center">
+        <bitmap android:src="@drawable/close_cross" />
+    </item>
+
+</layer-list>
