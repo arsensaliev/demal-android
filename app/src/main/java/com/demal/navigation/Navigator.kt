@@ -9,6 +9,7 @@ import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
 import com.demal.feature_tours.navigation.ToursNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
 import com.demal.view.core.BaseNavigator
+import com.demal.feature_tour.navigation.TourNavigator
 import com.demal.view.core.NavigationContainer
 import com.github.terrakok.cicerone.Router
 
@@ -68,7 +69,7 @@ class Navigator(
 
     override fun toProfileEditScreen() {
         router.navigateTo(screens.profileEditScreen())
-        navigationContainer?.hideBottomNavigation()
+        navigationContainer?.showBottomNavigation()
     }
     override fun back() {
         navigationContainer?.showBottomNavigation()

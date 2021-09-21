@@ -21,7 +21,7 @@ class App : MultiDexApplication() {
                 interactorModule,
                 imageModule,
                 preferencesModule,
-                contentFileUtil
+                contentFileUtilModule
             )
         }
     }

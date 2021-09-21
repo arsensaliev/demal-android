@@ -48,7 +48,7 @@ val imageModule = module {
     single<ImageLoader<ImageView>> { GlideImageLoader() }
 }
 
-val contentFileUtil = module {
+val contentFileUtilModule = module {
     single{ ContentFileUtil() }
 }
 
