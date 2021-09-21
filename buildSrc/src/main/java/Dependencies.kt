@@ -49,7 +49,7 @@ object Versions {
     const val glideCompiler = "4.9.0"
 
     //AwesomeValidation
-    const val validation = "2.0"
+    const val validation = "4.3"
 
 //    May be useful later
 //    Room
@@ -135,6 +135,7 @@ object Modules {
     const val featHome = ":feature-home"
     const val featWishlist = ":feature-wishlist"
     const val featLogin = ":feature-login"
+    const val featMyTours = ":feature-mytours"
 }
 
 object Cicerone {

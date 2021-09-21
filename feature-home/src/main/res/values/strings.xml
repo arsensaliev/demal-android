@@ -2,4 +2,7 @@
     <string name="popular_tours">Популярные туры</string>
     <string name="recommendations_for_you">Рекомендации для вас</string>
     <string name="activities">Активности</string>
+
+    <string name="no_content_msg">Простите, ничего не найдено!</string>
+    <string name="duration_text">%1$d-х дневный тур</string>
 </resources>

@@ -8,6 +8,7 @@ import com.demal.core.R
 import com.demal.core.databinding.ItemTourBinding
 import com.demal.model.data.entity.tours.LikableTour
 import com.demal.repository.image.ImageLoader
+import com.demal.utils.date.DateIdentifier
 import com.demal.view.core.adapter.listeners.TourClickListener
 
 fun tourBind(
@@ -18,10 +19,12 @@ fun tourBind(
 ) {
     val rvBinding = ItemTourBinding.bind(view)
     with(rvBinding) {
+        val dif = DateIdentifier()
+        val date = dif.mapDateCustomFormat(data.startDate)
         textViewPlace.text = data.place
         textViewDescription.text = data.description
         textViewPeople.text = data.travelersCount.toString()
-        textViewDate.text = data.startDate
+        textViewDate.text = date
 
         val likeDrawable = if (data.isLiked) {
             AppCompatResources.getDrawable(rvBinding.root.context, R.drawable.ic_heart_filled)
