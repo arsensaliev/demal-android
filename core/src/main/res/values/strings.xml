@@ -10,6 +10,7 @@
     <string name="close_button">кнопка закрыть</string>
     <string name="tours_title">Ближайшие туры</string>
     <string name="login">Войти в аккаунт</string>
+    <string name="account_register">Регистрация аккаунта</string>
     <string name="register">Зарегистрироваться</string>
     <string name="email">Email</string>
     <string name="password">Пароль</string>

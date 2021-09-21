@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+
+    <string name="profile_edit_first_name_err">Заполните имя</string>
+    <string name="profile_edit_last_name_err">Заполните фамилию</string>
+    <string name="profile_edit_email_err">Заполните почту</string>
+    <string name="profile_edit_password_err">Заполните пароль</string>
+    <string name="user_already_exists_error">User already exists</string>
+</resources>

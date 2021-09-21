@@ -9,6 +9,7 @@ import com.demal.feature_tours.main.ToursFragment
 import com.demal.feature_wishlist.main.WishlistFragment
 import com.demal.view.MyToursFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
+import org.romeo.feature_register.RegisterFragment
 
 //Все фрагменты должны быть объявленны здесь в виде FragmentScreen
 class Screens {
@@ -21,4 +22,6 @@ class Screens {
     fun tourScreen(tourId: Int) = FragmentScreen { TourFragment.newInstance(tourId) }
     fun toursScreen(categoryId: Int? = null) =
         FragmentScreen { ToursFragment.newInstance(categoryId) }
+
+    fun registerScreen() = FragmentScreen { RegisterFragment() }
 }

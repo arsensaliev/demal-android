@@ -12,6 +12,7 @@ import com.demal.main.MainViewModel
 import com.demal.view_model.MyToursViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
+import org.romeo.feature_register.RegisterViewModel
 
 val viewModelModule = module {
     viewModel { MainViewModel(get()) }
@@ -23,5 +24,6 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get(), get()) }
     viewModel { MyToursViewModel(get(), get()) }
     viewModel { ToursViewModel(get(), get(), get()) }
+    viewModel { RegisterViewModel(get(), get()) }
     viewModel { TourViewModel(get(), get()) }
 }

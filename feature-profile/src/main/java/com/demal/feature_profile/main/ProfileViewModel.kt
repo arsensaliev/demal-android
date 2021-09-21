@@ -9,6 +9,7 @@ import com.demal.view.core.view_model.BaseViewModel
 class ProfileViewModel(
     val navigator: ProfileNavigator,
     private val repository: UserRepository
+    private val navigator: ProfileNavigator
 ) : BaseViewModel<User>(navigator) {
 
     fun init() {
@@ -16,5 +17,9 @@ class ProfileViewModel(
             val user = repository.myUser()
             mStateLiveData.value = BaseState.Success(user)
         }
+    }
+
+    fun navigateToProfileEditScreen() {
+        navigator.toProfileEditScreen()
     }
 }

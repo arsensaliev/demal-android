@@ -9,7 +9,6 @@ import com.demal.model.data.entity.tours.network.MeResponse
 import com.demal.model.data.entity.tours.network.Tours
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.model.data.entity.user.LoginResponse
-import com.demal.model.data.entity.user.UserUpdate
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 
@@ -21,8 +20,9 @@ interface RemoteDataSource {
     suspend fun getTours(sortBy: SortBy, order: Order): List<Tour>
     suspend fun getTourById(id: Int): TourResponse
     suspend fun getUserWishList(id: Int): Tours
-    suspend fun getCategories(): Categories
-    suspend fun getCategoryById(id: Int): Category
+    suspend fun getCategories() : Categories
+    suspend fun getCategoryById(id: Int) : Category
+    suspend fun register(registerDto: RegisterDto): LoginResponse
 
     suspend fun addToWishList(
         id: Int,
