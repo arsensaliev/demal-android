@@ -56,9 +56,9 @@ class ProfileFragment :
         }
 
     }
-    fun setButtonEditListener(){
+    private fun setButtonEditListener(){
         binding.buttonEdit.setOnClickListener {
-            viewModel.navigator.toProfileEditScreen()
+            viewModel.navigateToProfileEditScreen()
         }
     }
 }

@@ -8,6 +8,7 @@ import com.demal.model.data.entity.tours.network.*
 import com.demal.model.data.entity.user.LoginRequest
 import com.demal.model.data.entity.user.LoginResponse
 import com.demal.model.data.entity.user.RegisterDto
+import com.demal.model.data.entity.user.UserUpdate
 import com.demal.repository.types.Order
 import com.demal.repository.types.SortBy
 import kotlinx.coroutines.Deferred

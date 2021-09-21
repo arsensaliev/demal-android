@@ -78,16 +78,7 @@ class Navigator(
         navigationContainer = null
     }
 
-    override fun toProfileEditScreen() {
-        router.navigateTo(screens.profileEditScreen())
-        navigationContainer?.showBottomNavigation()
-    }
     override fun back() {
-        navigationContainer?.showBottomNavigation()
-        router.exit()
-    }
-
-    override fun goBack() {
         router.exit()
         navigationContainer?.showBottomNavigation()
     }

@@ -35,7 +35,7 @@ class TourViewModel(
     }
 
     fun closeTour() {
-        navigator.goBack()
+        navigator.back()
     }
 
     override fun handleError(error: Throwable) {
