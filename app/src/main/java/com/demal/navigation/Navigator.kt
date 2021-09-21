@@ -55,7 +55,7 @@ class Navigator(
 
     override fun toTourScreen(tourId: Int) {
         router.navigateTo(screens.tourScreen(tourId))
-        navigationContainer?.hideBottomNavigation()
+        navigationContainer?.showBottomNavigation()
     }
 
     override fun toLoginScreen() {
