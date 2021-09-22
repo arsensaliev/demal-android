@@ -32,6 +32,10 @@ class UserRepositoryImpl(
         return response.user
     }
 
+    override suspend fun logOut() {
+        userRepositoryLocal.removeUser()
+    }
+
 
     private suspend fun processLoginResponse(response: LoginResponse) {
         userRepositoryLocal.saveResponse(response)

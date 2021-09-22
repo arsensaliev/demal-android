@@ -10,4 +10,5 @@ interface UserRepository {
     suspend fun update( id: Int, user: UserUpdate)
     suspend fun updateAvatar(fileByte: ByteArray?)
     suspend fun register(registerDto: RegisterDto): User
+    suspend fun logOut()
 }

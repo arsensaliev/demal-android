@@ -21,4 +21,11 @@ class ProfileViewModel(
     fun navigateToProfileEditScreen() {
         navigator.toProfileEditScreen()
     }
+
+    fun logOut() {
+        runAsync {
+            repository.logOut()
+            navigator.toLoginScreen()
+        }
+    }
 }

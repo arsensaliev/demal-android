@@ -36,6 +36,13 @@ class ProfileFragment :
         super.onViewCreated(view, savedInstanceState)
         viewModel.init()
         setButtonEditListener()
+        setButtonLogOutListener()
+    }
+
+    private fun setButtonLogOutListener() {
+        binding.buttonLogOut.setOnClickListener {
+            viewModel.logOut()
+        }
     }
 
     override fun renderSuccess(data: User) {
