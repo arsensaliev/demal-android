@@ -1,0 +1,6 @@
+<resources>
+    <string name="my_tours_title">Мои туры</string>
+    <string name="active">Активные</string>
+    <string name="past">Прошедшие</string>
+    <string name="if_empty_tv">Список пуст</string>
+</resources>

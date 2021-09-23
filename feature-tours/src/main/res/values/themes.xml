@@ -1,0 +1,20 @@
+<resources>
+
+    <style name="ToursChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textColor">@color/chip_text_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="chipBackgroundColor">@color/chip_background_color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/chip_stroke_color</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:minWidth">@dimen/chipMinWidth</item>
+    </style>
+
+    <style name="HeaderTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/black_dark</item>
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+</resources>

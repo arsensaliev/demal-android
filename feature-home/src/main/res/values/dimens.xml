@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_home_textview_top">@dimen/margin_medium</dimen>
+    <dimen name="margin_home_recycler_top">13dp</dimen>
+    <dimen name="margin_home_left">20dp</dimen>
+    <dimen name="item_home_height">200dp</dimen>
+    <dimen name="item_home_width">160dp</dimen>
+    <dimen name="item_home_left_margin">@dimen/item_standard_margin</dimen>
+    <dimen name="item_home_right_margin">@dimen/item_standard_margin</dimen>
+    <dimen name="item_home_description_bottom_margin">14dp</dimen>
+    <dimen name="item_home_header_bottom_margin">1dp</dimen>
+    <dimen name="item_home_top_margin">15dp</dimen>
+    <dimen name="item_home_human_top_margin">15dp</dimen>
+    <dimen name="home_card_margin">@dimen/item_standard_margin</dimen>
+    <dimen name="home_card_corner_radius">14dp</dimen>
+    <dimen name="home_card_elevation">5dp</dimen>
+    <dimen name="item_activities_height">76dp</dimen>
+    <dimen name="item_activities_width">76dp</dimen>
+    <dimen name="item_activities_top_margin">20dp</dimen>
+    <dimen name="item_activities_padding">9dp</dimen>
+    <dimen name="item_activities_layout_bottom_margin">11dp</dimen>
+    <dimen name="item_home_user_image_top_margin">15.17dp</dimen>
+    <dimen name="item_home_user_image_left_margin">11.75dp</dimen>
+    <dimen name="item_home_heart_heart_top_margin">16.02dp</dimen>
+    <dimen name="item_home_user_heart_right_margin">11.35dp</dimen>
+    <dimen name="item_home_count_image_left_margin">3.75dp</dimen>
+    <dimen name="item_home_description_top_margin">1dp</dimen>
+    <dimen name="item_home_activities_bottom_padding">36dp</dimen>
+</resources>

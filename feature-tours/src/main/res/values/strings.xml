@@ -1,0 +1,5 @@
+<resources>
+    <string name="tours_title">Ближайшие туры</string>
+    <string name="chip_default_name">Все</string>
+    <string name="tours_empty_list">На данный момент \n нет туров</string>
+</resources>

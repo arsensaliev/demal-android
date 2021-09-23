@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MaterialButtonStyleLogin" parent="Widget.MaterialComponents.Button">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="textAllCaps">false</item>
+        <item name="backgroundTint">@color/purple_light</item>
+    </style>
+
+    <style name="MaterialButtonStyleRegister" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/black_dark</item>
+        <item name="textAllCaps">false</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+
+    <style name="TextLabelLogin" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextLoginHeaderStyle">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/black_dark</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="HintTextAppearance" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="ErrorTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextInputLayoutLoginStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="errorEnabled">true</item>
+        <item name="hintTextAppearance">@style/HintTextAppearance</item>
+        <item name="boxStrokeColor">@color/purple_dark</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="boxStrokeErrorColor">@color/error_red_dark</item>
+        <item name="errorTextColor">@color/error_red_dark</item>
+    </style>
+
+</resources>

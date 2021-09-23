@@ -1,0 +1,41 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+dependencies {
+    implementation project(Modules.core)
+    implementation project(Modules.utils)
+    implementation project(Modules.repository)
+    implementation project(Modules.model)
+
+    //Kotlin
+    implementation Kotlin.core
+    implementation Kotlin.stdlib
+    implementation Kotlin.coroutinesCore
+    implementation Kotlin.coroutinesAndroid
+
+    //Koin
+    implementation Koin.koinCore
+    implementation Koin.koinAndroid
+    implementation Koin.koinViewModel
+
+    //Design
+    implementation Design.appcompat
+    implementation Design.material
+
+    // Koin
+    implementation Koin.koinCore
+    implementation Koin.koinAndroid
+    implementation Koin.koinViewModel
+
+    //Test
+    testImplementation TestImpl.junit
+    androidTestImplementation TestImpl.runner
+    androidTestImplementation TestImpl.espresso
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+repositories {
+    mavenCentral()
+}

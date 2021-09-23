@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView_tour"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_tour_height"
+    android:layout_marginTop="@dimen/item_standard_margin"
+    android:layout_marginBottom="@dimen/item_standard_margin"
+    app:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView_place"
+            android:layout_width="@dimen/item_tour_height"
+            android:layout_height="@dimen/item_tour_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/squircleImageView"
+            tools:srcCompat="@drawable/tour_card__image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewPlace"
+            style="@style/ItemMainTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_standard_margin"
+            app:layout_constraintStart_toEndOf="@+id/imageView_place"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Каинды" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewDescription"
+            style="@style/ItemDescriptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/item_description_margin_end"
+            android:layout_marginBottom="@dimen/item_standard_margin"
+            android:ellipsize="end"
+            android:maxLines="3"
+            app:layout_constraintBottom_toTopOf="@+id/imageView_calendar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textViewPlace"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPlace"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat, dui ac maximus egestas, odio magna aliquet odio, ut tincidunt odio tortor quis magna. Nulla lorem felis, interdum accumsan ultrices gravida, pellentesque lacinia nibh. Integer vulputate arcu dolor, vitae fermentum diam consectetur vel. Donec eu turpis ut diam tristique ullamcorper ac sed dolor. Nunc eu maximus dolor. Praesent laoreet placerat sodales. Cras quis enim non justo porta lacinia vitae non lectus. Proin facilisis lacinia massa ac malesuada. Sed hendrerit, velit blandit viverra congue, enim velit tincidunt metus, nec eleifend dolor sapien ac sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed efficitur dapibus mattis." />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/item_icon_bottom_margin" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewPeople"
+            android:layout_width="@dimen/item_icon_imageview_size"
+            android:layout_height="@dimen/item_icon_imageview_size"
+            android:layout_marginStart="@dimen/item_icon_margin"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintStart_toEndOf="@+id/imageView_place"
+            app:srcCompat="@drawable/ic_human" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewPeople"
+            style="@style/ItemSupportTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_text_to_icon_margin"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewPeople"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPeople"
+            app:layout_constraintTop_toTopOf="@+id/imageViewPeople"
+            tools:text="11" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView_calendar"
+            android:layout_width="@dimen/item_icon_imageview_size"
+            android:layout_height="@dimen/item_icon_imageview_size"
+            android:layout_marginStart="@dimen/item_icon_to_icon_margin"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintStart_toEndOf="@+id/textViewPeople"
+            app:srcCompat="@drawable/ic_calendar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView_date"
+            style="@style/ItemSupportTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_text_to_icon_margin"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_calendar"
+            app:layout_constraintStart_toEndOf="@+id/imageView_calendar"
+            app:layout_constraintTop_toTopOf="@+id/imageView_calendar"
+            tools:text="29 июня 2021" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewLike"
+            android:layout_width="@dimen/item_like_imageview_size"
+            android:layout_height="@dimen/item_like_imageview_size"
+
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_heart_empty" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
