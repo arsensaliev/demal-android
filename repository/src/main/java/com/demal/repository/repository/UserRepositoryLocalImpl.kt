@@ -7,8 +7,6 @@ class UserRepositoryLocalImpl(
     private val preferencesDataSource: GeneralPreferencesDataSource
 ) : UserRepositoryLocal {
 
-    private var isFirstLaunch = false
-
     override suspend fun saveResponse(response: LoginResponse) {
         preferencesDataSource.putParcelable(RESPONSE_KEY, response)
     }
@@ -19,6 +17,8 @@ class UserRepositoryLocalImpl(
     override suspend fun removeUser() {
         preferencesDataSource.remove(RESPONSE_KEY)
     }
+
+    override fun isUserLoggedIn() = preferencesDataSource.contains(RESPONSE_KEY)
 
     override fun isFirstLaunch(): Boolean {
         val isFirstLaunch = preferencesDataSource.getBoolean(IS_FIRST_LAUNCH) ?: true

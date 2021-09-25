@@ -42,7 +42,10 @@ class MainViewModel(
     }
 
     override fun toProfileScreen() {
-        navigator.toProfileScreen()
+        if (userRepositoryLocal.isUserLoggedIn())
+            navigator.toProfileScreen()
+        else
+            navigator.toLoginScreen()
     }
 
     override fun onCleared() {
