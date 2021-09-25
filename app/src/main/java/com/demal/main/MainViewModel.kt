@@ -20,9 +20,10 @@ class MainViewModel(
     fun init() {
         navigator.navigationContainer = this
 
-        if (userRepositoryLocal.isFirstLaunch())
+/*        if (userRepositoryLocal.isFirstLaunch())
             navigator.toOnboardingScreen()
-        else navigator.toHomeScreen()
+        else navigator.toHomeScreen()*/
+        navigator.toOnboardingScreen()
     }
 
     override fun toHomeScreen() {
