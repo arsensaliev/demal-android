@@ -31,7 +31,7 @@ class Navigator(
 
     override fun toProfileEditScreen() {
         router.navigateTo(screens.profileEditScreen())
-        navigationContainer?.showBottomNavigation()
+        navigationContainer?.hideBottomNavigation()
     }
 
     override fun toHomeScreen() {
@@ -66,12 +66,12 @@ class Navigator(
 
     override fun toTourScreen(tourId: Int) {
         router.navigateTo(screens.tourScreen(tourId))
-        navigationContainer?.showBottomNavigation()
+        navigationContainer?.hideBottomNavigation()
     }
 
     override fun toLoginScreen() {
-        router.navigateTo(screens.loginScreen())
         navigationContainer?.showBottomNavigation()
+        router.navigateTo(screens.loginScreen())
     }
 
     override fun onDestroyNavigation() {

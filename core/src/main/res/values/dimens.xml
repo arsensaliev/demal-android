@@ -6,6 +6,8 @@
     <dimen name="recycler_margin_side">8dp</dimen>
     <dimen name="margin_standard">20dp</dimen>
 
+    <dimen name="bottom_navigation_height">70dp</dimen>
+
     <!--    item_tour dimens-->
     <dimen name="item_tour_height">100dp</dimen>
     <dimen name="item_image_size">100dp</dimen>
