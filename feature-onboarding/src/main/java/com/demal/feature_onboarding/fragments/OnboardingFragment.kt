@@ -30,18 +30,18 @@ class OnboardingFragment : Fragment() {
         val viewPager: ViewPager2 = view.findViewById(R.id.viewPager)
         val adapter = ViewPagerAdapter(childFragmentManager, lifecycle)
         val indicator3: CircleIndicator3 = view.findViewById(R.id.indicator)
-        val button_pager: Button = view.findViewById(R.id.button_welcome)
+        val buttonPager: Button = view.findViewById(R.id.button_welcome)
 
         viewPager.adapter = adapter
         indicator3.setViewPager(viewPager)
 
-        button_pager.setOnClickListener {
-            viewPager.currentItem += 1
-
-            if (viewPager.currentItem == 3) {
-                button_pager.text = resources.getString(R.string.welcomeButtonThird)
+        buttonPager.setOnClickListener {
+            if (viewPager.currentItem == 2) {
+                buttonPager.text = resources.getString(R.string.welcomeButtonThird)
                 viewModel.openHome()
             }
+
+            viewPager.currentItem += 1
         }
 
     }

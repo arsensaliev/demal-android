@@ -24,7 +24,7 @@ val dataSourceModule = module {
 
 val preferencesModule = module {
     single<ParcelablePreferencesDataSource> { ParcelablePreferencesDataSourceImpl(get()) }
-    single<StringPreferencesDataSource> { StringPreferencesDataSourceImpl(get()) }
+    single<BooleanPreferencesDataSource> { BooleanPreferencesDataSourceImpl(get()) }
     single<SharedPreferences> { get<Context>().getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE) }
     single<GeneralPreferencesDataSource> { PreferencesDataSourceImpl(get(), get(), get()) }
 }

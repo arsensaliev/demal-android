@@ -7,6 +7,8 @@ class UserRepositoryLocalImpl(
     private val preferencesDataSource: GeneralPreferencesDataSource
 ) : UserRepositoryLocal {
 
+    private var isFirstLaunch = false
+
     override suspend fun saveResponse(response: LoginResponse) {
         preferencesDataSource.putParcelable(RESPONSE_KEY, response)
     }
@@ -16,31 +18,25 @@ class UserRepositoryLocalImpl(
 
     override suspend fun removeUser() {
         preferencesDataSource.remove(RESPONSE_KEY)
-        preferencesDataSource.putString(RESPONSE_KEY, REMOVED)
     }
 
     override fun isFirstLaunch(): Boolean {
-        val responseStr = try {
-            preferencesDataSource.getString(RESPONSE_KEY)
-        } catch (e: Exception) {
-            USER_EXISTS
-        }
+        val isFirstLaunch = preferencesDataSource.getBoolean(IS_FIRST_LAUNCH) ?: true
 
-        return responseStr == null
+        if (isFirstLaunch)
+            preferencesDataSource.putBoolean(IS_FIRST_LAUNCH, false)
+
+        return isFirstLaunch
     }
 
     override fun getUser() =
         getResponse()?.user
 
-    private fun getResponse() = try {
+    private fun getResponse() =
         preferencesDataSource.getParcelable(RESPONSE_KEY, LoginResponse::class.java)
-    } catch (e: Exception) {
-        null
-    }
 
     companion object {
         private const val RESPONSE_KEY = "RESPONSE_KEY"
-        const val REMOVED = "REMOVED"
-        const val USER_EXISTS = "USER_EXISTS"
+        private const val IS_FIRST_LAUNCH = "IS_FIRST_LAUNCH"
     }
 }
