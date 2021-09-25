@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/bottom_navigation_height">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView_tours_header"
@@ -52,7 +53,6 @@
         android:layout_marginStart="@dimen/recycler_margin_side"
         android:layout_marginTop="@dimen/recycler_margin_top"
         android:layout_marginEnd="@dimen/recycler_margin_side"
-        android:layout_marginBottom="@dimen/recycler_margin_top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
