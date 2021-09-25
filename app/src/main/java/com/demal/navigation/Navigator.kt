@@ -4,6 +4,7 @@ import com.demal.feature_home.navigation.HomeCategoriesNavigator
 import com.demal.feature_home.navigation.HomeNavigator
 import com.demal.feature_home.navigation.HomeToursNavigator
 import com.demal.feature_login.navigation.LoginNavigator
+import com.demal.feature_onboarding.navigation.OnboardingNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
 import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
@@ -20,7 +21,7 @@ class Navigator(
     private val screens: Screens
 ) : BaseNavigator, MainActivityNavigator, ProfileNavigator, ProfileEditNavigator, LoginNavigator,
     WishlistNavigator, HomeNavigator, MyToursNavigator, HomeCategoriesNavigator, HomeToursNavigator,
-    ToursNavigator, TourNavigator, RegisterNavigator {
+    ToursNavigator, TourNavigator, RegisterNavigator, OnboardingNavigator {
 
     override var navigationContainer: NavigationContainer? = null
 
@@ -31,6 +32,11 @@ class Navigator(
 
     override fun toProfileEditScreen() {
         router.navigateTo(screens.profileEditScreen())
+        navigationContainer?.hideBottomNavigation()
+    }
+
+    override fun toOnboardingScreen() {
+        router.navigateTo(screens.onboardingScreen())
         navigationContainer?.hideBottomNavigation()
     }
 

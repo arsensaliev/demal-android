@@ -47,6 +47,7 @@ dependencies {
 
     //Glide
     implementation Glide.glide
+    implementation project(path: ':feature-onboarding')
     kapt Glide.glideCompiler
 
     //Test

@@ -8,10 +8,7 @@ import com.demal.repository.data_sources.RemoteDataSource
 import com.demal.repository.data_sources.RemoteDataSourceImpl
 import com.demal.repository.data_sources.WishlistDataSourceLocal
 import com.demal.repository.data_sources.WishlistDataSourceLocalImpl
-import com.demal.repository.data_sources.preferences.GeneralPreferencesDataSource
-import com.demal.repository.data_sources.preferences.ParcelablePreferencesDataSource
-import com.demal.repository.data_sources.preferences.ParcelablePreferencesDataSourceImpl
-import com.demal.repository.data_sources.preferences.PreferencesDataSourceImpl
+import com.demal.repository.data_sources.preferences.*
 import com.demal.repository.image.GlideImageLoader
 import com.demal.repository.image.ImageLoader
 import com.demal.repository.interactor.ToursInteractor
@@ -27,8 +24,9 @@ val dataSourceModule = module {
 
 val preferencesModule = module {
     single<ParcelablePreferencesDataSource> { ParcelablePreferencesDataSourceImpl(get()) }
+    single<BooleanPreferencesDataSource> { BooleanPreferencesDataSourceImpl(get()) }
     single<SharedPreferences> { get<Context>().getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE) }
-    single<GeneralPreferencesDataSource> { PreferencesDataSourceImpl(get(), get()) }
+    single<GeneralPreferencesDataSource> { PreferencesDataSourceImpl(get(), get(), get()) }
 }
 
 val repositoryModule = module {

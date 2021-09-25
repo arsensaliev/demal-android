@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.demal.feature_onboarding.fragments.OnboardingFragment">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" />
+
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/indicator_circle_size"
+        android:layout_marginBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="@id/viewPager" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_welcome"
+        style="@style/ButtonStyle"
+        android:layout_width="@dimen/widthButton"
+        android:layout_height="@dimen/heightButton"
+        android:layout_marginStart="@dimen/marginStartEndButton"
+        android:layout_marginEnd="@dimen/marginStartEndButton"
+        android:layout_marginBottom="@dimen/marginBottomButton"
+        android:text="@string/welcomeButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartImageView"
+        android:layout_marginTop="@dimen/marginTopImageView"
+        android:layout_marginEnd="@dimen/marginEndImageView"
+        android:layout_marginBottom="@dimen/marginBottomImageView"
+        android:src="@drawable/ic_vector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
