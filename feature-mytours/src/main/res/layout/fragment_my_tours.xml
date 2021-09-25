@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.demal.view.MyToursFragment">
+    tools:context="com.demal.view.MyToursFragment"
+    android:layout_marginBottom="@dimen/bottom_navigation_height">
 
     <TextView
         android:id="@+id/tv_my_tours_fragment_my_tours"

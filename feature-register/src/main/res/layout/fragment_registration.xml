@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scaleType="centerCrop"
-    android:background="@drawable/auth_background">
+    android:background="@drawable/auth_background"
+    android:layout_marginBottom="@dimen/bottom_navigation_height">
 
     <FrameLayout
         android:id="@+id/frame_shadow"
