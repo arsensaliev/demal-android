@@ -1,8 +1,10 @@
 package com.demal.main
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.isVisible
 import com.demal.R
 import com.demal.databinding.ActivityMainBinding
 import com.github.terrakok.cicerone.NavigatorHolder
@@ -44,5 +46,23 @@ class MainActivity : AppCompatActivity() {
 
             true
         }
+
+        viewModel.getBottomNavigationLiveData().observe(this) { isShown ->
+            if (isShown) showBottomNavigation()
+            else hideBottomNavigation()
+        }
+    }
+
+    private fun hideBottomNavigation() {
+        binding.bottomNavigation.visibility = View.GONE
+    }
+
+    private fun showBottomNavigation() {
+        binding.bottomNavigation.visibility = View.VISIBLE
+    }
+
+    override fun onBackPressed() {
+        showBottomNavigation()
+        super.onBackPressed()
     }
 }

@@ -5,15 +5,18 @@ import com.demal.feature_home.navigation.HomeToursNavigator
 import com.demal.feature_login.navigation.LoginNavigator
 import com.demal.feature_onboarding.navigation.OnboardingNavigator
 import com.demal.feature_profile.navigation.ProfileNavigator
-import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
 import com.demal.feature_wishlist.navigation.WishlistNavigator
+import com.demal.feature_profile_edit.navigation.ProfileEditNavigator
 import com.demal.navigation.MainActivityNavigator
+import com.demal.feature_tour.navigation.TourNavigator
+import com.demal.feature_tours.navigation.ToursNavigator
 import com.demal.navigation.MyToursNavigator
 import com.demal.navigation.Navigator
 import com.demal.navigation.Screens
 import com.demal.view.core.BaseNavigator
 import com.github.terrakok.cicerone.Cicerone
 import org.koin.dsl.module
+import org.romeo.feature_register.RegisterNavigator
 
 val ciceroneModule = module {
     val cicerone = Cicerone.create()
@@ -37,5 +40,8 @@ val navigatorsModule = module {
     factory<LoginNavigator> { get<Navigator>() }
     factory<WishlistNavigator> { get<Navigator>() }
     factory<MyToursNavigator> { get<Navigator>() }
+    factory<RegisterNavigator> { get<Navigator>() }
+    factory<ToursNavigator> { get<Navigator>() }
+    factory<TourNavigator> { get<Navigator>() }
     factory<OnboardingNavigator> { get<Navigator>() }
 }

@@ -17,6 +17,7 @@ import com.demal.repository.image.ImageLoader
 import com.demal.repository.interactor.ToursInteractor
 import com.demal.repository.interactor.ToursInteractorImpl
 import com.demal.repository.repository.*
+import com.demal.utils.files.ContentFileUtil
 import org.koin.dsl.module
 
 val dataSourceModule = module {
@@ -45,6 +46,10 @@ val interactorModule = module {
 
 val imageModule = module {
     single<ImageLoader<ImageView>> { GlideImageLoader() }
+}
+
+val contentFileUtilModule = module {
+    single{ ContentFileUtil() }
 }
 
 private const val APP_PREFERENCES = "APP_PREFERENCES"

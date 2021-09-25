@@ -7,14 +7,25 @@ import com.demal.repository.repository.UserRepository
 import com.demal.view.core.view_model.BaseViewModel
 
 class ProfileViewModel(
-    navigator: ProfileNavigator,
-    private val repository: UserRepository,
+    private val navigator: ProfileNavigator,
+    private val repository: UserRepository
 ) : BaseViewModel<User>(navigator) {
 
     fun init() {
         runAsync {
-            val user = repository.login("arsen@mail.ru", "password")
+            val user = repository.myUser()
             mStateLiveData.value = BaseState.Success(user)
+        }
+    }
+
+    fun navigateToProfileEditScreen() {
+        navigator.toProfileEditScreen()
+    }
+
+    fun logOut() {
+        runAsync {
+            repository.logOut()
+            navigator.toLoginScreen()
         }
     }
 }

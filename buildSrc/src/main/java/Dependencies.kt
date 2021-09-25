@@ -50,7 +50,7 @@ object Versions {
     const val glideCompiler = "4.9.0"
 
     //AwesomeValidation
-    const val validation = "2.0"
+    const val validation = "4.3"
 
 //    May be useful later
 //    Room
@@ -62,6 +62,9 @@ object Versions {
     const val jUnit = "4.12"
     const val runner = "1.2.0"
     const val espressoCore = "3.2.0"
+
+    //CircleIndicator
+    const val circleIndicator = "2.1.6"
 }
 
 object Tools {
@@ -73,6 +76,7 @@ object Design {
     const val material = "com.google.android.material:material:${Versions.material}"
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val circleIndicator = "me.relex:circleindicator:${Versions.circleIndicator}"
     const val viewPager2 = "androidx.viewpager2:viewpager2:${Versions.viewPager2}"
 }
 
@@ -135,6 +139,8 @@ object Modules {
     const val featLogin = ":feature-login"
     const val featOnboarding = ":feature-onboarding"
     const val featMyTours = ":feature-mytours"
+    const val featTour = ":feature-tour"
+    const val featRegister= ":feature-register"
 }
 
 object Cicerone {

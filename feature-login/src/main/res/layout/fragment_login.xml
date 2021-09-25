@@ -9,6 +9,7 @@
         android:id="@+id/frame_shadow"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/bottom_navigation_height"
         android:foreground="#80000000" />
 
     <LinearLayout
@@ -16,9 +17,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/content_container"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textview.MaterialTextView
@@ -50,8 +51,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_standard"
-            app:passwordToggleEnabled="true"
-            android:hint="@string/password">
+            android:hint="@string/password"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_password"
