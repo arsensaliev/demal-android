@@ -17,12 +17,23 @@ abstract class BaseViewModel<D : AppStateEntity>(
     protected val mStateLiveData = MutableLiveData<BaseState<D>>()
     val stateLiveData get() = mStateLiveData as LiveData<BaseState<D>>
 
-    private val viewModelCoroutineScope = CoroutineScope(
+    private val ioCoroutineScope = CoroutineScope(
+        Dispatchers.IO
+                + SupervisorJob()
+                + CoroutineExceptionHandler { _, throwable ->
+            handleError(throwable)
+        })
+
+    private val mainThreadCoroutineScope = CoroutineScope(
         Dispatchers.Main
                 + SupervisorJob()
                 + CoroutineExceptionHandler { _, throwable ->
             handleError(throwable)
         })
+
+    protected fun runOnUiThread(block: () -> Unit) {
+        mainThreadCoroutineScope.launch { block() }
+    }
 
     override fun onCleared() {
         super.onCleared()
@@ -30,25 +41,27 @@ abstract class BaseViewModel<D : AppStateEntity>(
     }
 
     protected open fun cancelJob() {
-        viewModelCoroutineScope.coroutineContext.cancelChildren()
+        ioCoroutineScope.coroutineContext.cancelChildren()
+        mainThreadCoroutineScope.coroutineContext.cancelChildren()
     }
 
     @CallSuper
     open fun handleError(error: Throwable) {
         if (error is NoAuthException) {
-            navigator.toLoginScreen()
-            //Token will be removed in LoginViewModel
+            runOnUiThread {
+                navigator.toLoginScreen()
+            }
         }
     }
 
     protected fun runAsync(block: suspend () -> Unit) =
-        viewModelCoroutineScope.launch {
+        ioCoroutineScope.launch {
             block()
         }
 
 
     protected fun <T> runAsyncWithResult(block: suspend () -> T) =
-        viewModelCoroutineScope.async {
+        ioCoroutineScope.async {
             block()
         }
 }

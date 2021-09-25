@@ -18,7 +18,7 @@ class HomeCategoriesViewModel(
         runAsync {
             mStateLiveData.postValue(BaseState.Loading(true))
             categories = categoriesRepository.getCategories()
-            mStateLiveData.value = BaseState.Success(categories)
+            mStateLiveData.postValue(BaseState.Success(categories))
         }
     }
 

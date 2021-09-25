@@ -51,10 +51,10 @@ class MainViewModel(
     }
 
     override fun hideBottomNavigation() {
-        mShowBottomNavigationLiveData.value = false
+        mShowBottomNavigationLiveData.postValue(false)
     }
 
     override fun showBottomNavigation() {
-        mShowBottomNavigationLiveData.value = true
+        mShowBottomNavigationLiveData.postValue(true)
     }
 }

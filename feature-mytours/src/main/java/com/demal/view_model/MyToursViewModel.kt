@@ -33,26 +33,26 @@ class MyToursViewModel(
     }
 
     fun getActiveTour() {
-        mStateLiveData.value = BaseState.Loading(true)
+        mStateLiveData.postValue(BaseState.Loading(true))
         runAsync {
             val tours = interactor.getTours(
                 SortBy.CREATED_AT,
                 Order.DESCENDING
             )
             val activeTours = LikableTours(tours.toursList.filter { dateUtill.statusTour(it.startDate) })
-            mStateLiveData.value = BaseState.Success(activeTours)
+            mStateLiveData.postValue(BaseState.Success(activeTours))
         }
     }
 
     fun getInactiveTour() {
-        mStateLiveData.value = BaseState.Loading(true)
+        mStateLiveData.postValue(BaseState.Loading(true))
         runAsync {
             val tours = interactor.getTours(
                 SortBy.CREATED_AT,
                 Order.DESCENDING
             )
             val inactiveTours = LikableTours(tours.toursList.filter { !dateUtill.statusTour(it.startDate) })
-            mStateLiveData.value = BaseState.Success(inactiveTours)
+            mStateLiveData.postValue(BaseState.Success(inactiveTours))
         }
     }
 
