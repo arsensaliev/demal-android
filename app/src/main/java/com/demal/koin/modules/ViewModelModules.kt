@@ -15,7 +15,7 @@ import org.koin.dsl.module
 import org.romeo.feature_register.RegisterViewModel
 
 val viewModelModule = module {
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel(get(), get()) }
     viewModel { HomeToursViewModel(get(), get()) }
     viewModel { HomeCategoriesViewModel(get(), get()) }
     viewModel { ProfileViewModel(get(), get()) }

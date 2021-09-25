@@ -6,6 +6,7 @@ import com.demal.model.data.entity.user.User
 interface UserRepositoryLocal {
     suspend fun saveResponse(response: LoginResponse)
     suspend fun removeUser()
+    fun isFirstLaunch(): Boolean
     fun getUserToken(): String?
     fun getUser(): User?
 }

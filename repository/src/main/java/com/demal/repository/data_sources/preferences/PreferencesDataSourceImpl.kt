@@ -4,8 +4,11 @@ import android.content.SharedPreferences
 
 class PreferencesDataSourceImpl(
     private val preferences: SharedPreferences,
-    parcelableDataSource: ParcelablePreferencesDataSource
-) : GeneralPreferencesDataSource, ParcelablePreferencesDataSource by parcelableDataSource {
+    parcelableDataSource: ParcelablePreferencesDataSource,
+    stringDataSource: StringPreferencesDataSource
+) : GeneralPreferencesDataSource,
+    ParcelablePreferencesDataSource by parcelableDataSource,
+    StringPreferencesDataSource by stringDataSource {
 
     override fun remove(key: String) {
         preferences

@@ -16,15 +16,31 @@ class UserRepositoryLocalImpl(
 
     override suspend fun removeUser() {
         preferencesDataSource.remove(RESPONSE_KEY)
+        preferencesDataSource.putString(RESPONSE_KEY, REMOVED)
+    }
+
+    override fun isFirstLaunch(): Boolean {
+        val responseStr = try {
+            preferencesDataSource.getString(RESPONSE_KEY)
+        } catch (e: Exception) {
+            USER_EXISTS
+        }
+
+        return responseStr == null
     }
 
     override fun getUser() =
         getResponse()?.user
 
-    private fun getResponse() =
+    private fun getResponse() = try {
         preferencesDataSource.getParcelable(RESPONSE_KEY, LoginResponse::class.java)
+    } catch (e: Exception) {
+        null
+    }
 
     companion object {
         private const val RESPONSE_KEY = "RESPONSE_KEY"
+        const val REMOVED = "REMOVED"
+        const val USER_EXISTS = "USER_EXISTS"
     }
 }

@@ -8,18 +8,6 @@
     android:background="@drawable/background_welcome"
     tools:context="com.demal.feature_onboarding.fragments.WelcomeFragment">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/marginStartImageView"
-        android:layout_marginTop="@dimen/marginTopImageView"
-        android:layout_marginEnd="@dimen/marginEndImageView"
-        android:layout_marginBottom="@dimen/marginBottomImageView"
-        android:src="@drawable/ic_vector"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvTitle"
         style="@style/TextViewTitleStyle"
@@ -34,6 +22,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvBody"
+        android:textColor="@color/white"
         style="@style/TextViewBodyStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

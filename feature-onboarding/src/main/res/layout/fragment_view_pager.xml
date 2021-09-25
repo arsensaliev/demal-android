@@ -33,4 +33,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartImageView"
+        android:layout_marginTop="@dimen/marginTopImageView"
+        android:layout_marginEnd="@dimen/marginEndImageView"
+        android:layout_marginBottom="@dimen/marginBottomImageView"
+        android:src="@drawable/ic_vector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

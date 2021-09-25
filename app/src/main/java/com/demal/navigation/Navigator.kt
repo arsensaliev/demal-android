@@ -35,6 +35,11 @@ class Navigator(
         navigationContainer?.hideBottomNavigation()
     }
 
+    override fun toOnboardingScreen() {
+        router.navigateTo(screens.onboardingScreen())
+        navigationContainer?.hideBottomNavigation()
+    }
+
     override fun toHomeScreen() {
         router.navigateTo(screens.homeScreen())
         navigationContainer?.showBottomNavigation()

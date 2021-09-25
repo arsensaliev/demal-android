@@ -5,19 +5,24 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.demal.navigation.MainActivityNavigator
 import com.demal.navigation.MainBottomNavigation
+import com.demal.repository.repository.UserRepositoryLocal
 import com.demal.view.core.NavigationContainer
 
 class MainViewModel(
-    private val navigator: MainActivityNavigator
+    private val navigator: MainActivityNavigator,
+    private val userRepositoryLocal: UserRepositoryLocal
 ) : ViewModel(), MainBottomNavigation, NavigationContainer {
 
     private val mShowBottomNavigationLiveData = MutableLiveData(true)
 
-    fun  getBottomNavigationLiveData() = mShowBottomNavigationLiveData as LiveData<Boolean>
+    fun getBottomNavigationLiveData() = mShowBottomNavigationLiveData as LiveData<Boolean>
 
     fun init() {
         navigator.navigationContainer = this
-        navigator.toHomeScreen()
+
+        if (userRepositoryLocal.isFirstLaunch())
+            navigator.toOnboardingScreen()
+        else navigator.toHomeScreen()
     }
 
     override fun toHomeScreen() {
