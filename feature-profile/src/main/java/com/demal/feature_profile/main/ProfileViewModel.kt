@@ -14,7 +14,9 @@ class ProfileViewModel(
     fun init() {
         runAsync {
             val user = repository.myUser()
-            mStateLiveData.value = BaseState.Success(user)
+            runOnUiThread {
+                mStateLiveData.postValue(BaseState.Success(user))
+            }
         }
     }
 
@@ -25,7 +27,8 @@ class ProfileViewModel(
     fun logOut() {
         runAsync {
             repository.logOut()
-            navigator.toLoginScreen()
         }
+
+        navigator.toLoginScreen()
     }
 }

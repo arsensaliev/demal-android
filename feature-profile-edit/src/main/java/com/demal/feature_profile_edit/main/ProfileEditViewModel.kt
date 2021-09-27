@@ -21,7 +21,7 @@ class ProfileEditViewModel(
     fun init() {
         runAsync {
             val user = repository.myUser()
-            mStateLiveData.value = BaseState.Success(user)
+            mStateLiveData.postValue(BaseState.Success(user))
         }
     }
 

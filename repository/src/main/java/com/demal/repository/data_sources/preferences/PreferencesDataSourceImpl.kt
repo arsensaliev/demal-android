@@ -10,6 +10,8 @@ class PreferencesDataSourceImpl(
     ParcelablePreferencesDataSource by parcelableDataSource,
     BooleanPreferencesDataSource by booleanDataSource {
 
+    override fun contains(key: String) = preferences.contains(key)
+
     override fun remove(key: String) {
         preferences
             .edit()

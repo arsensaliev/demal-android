@@ -7,12 +7,20 @@ import com.demal.model.data.entity.login.LoginStatus
 import com.demal.model.data.exceptions.BadRequestException
 import com.demal.model.data.exceptions.NoAuthException
 import com.demal.repository.repository.UserRepository
+import com.demal.repository.repository.UserRepositoryLocal
 import com.demal.view.core.view_model.BaseViewModel
 
 class LoginViewModel(
     val navigator: LoginNavigator,
-    private val repository: UserRepository
+    private val repository: UserRepository,
+    private val repositoryLocal: UserRepositoryLocal
 ) : BaseViewModel<LoginStatus>(navigator){
+
+    init {
+        runAsync {
+            repositoryLocal.removeUser()
+        }
+    }
 
     fun login(
         email: String,
@@ -32,5 +40,4 @@ class LoginViewModel(
             mStateLiveData.postValue(BaseState.Error(error))
         }
     }
-    
 }

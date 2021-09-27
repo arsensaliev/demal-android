@@ -19,7 +19,7 @@ class HomeToursViewModel(
         runAsync {
             mStateLiveData.postValue(BaseState.Loading(true))
             tours = toursInteractor.getTours(SortBy.CREATED_AT, Order.DESCENDING)
-            mStateLiveData.value = BaseState.Success(tours)
+            mStateLiveData.postValue(BaseState.Success(tours))
         }
     }
 
